@@ -15,7 +15,7 @@ Auth::routes();
 
 Route::group(['prefix' => LaravelLocalization::setLocale()], function() {
 	$domain = (App::environment('local')) ? 'coliseumpalace.dev' : 'coliseumpalace.md';
-	Route::domain("{my}.$domain")->group(function() {
+	Route::domain("my.$domain")->group(function() {
 	    Route::get('/', 'AccountController@index')->name('account');
 	});
 	$domain = (App::environment('local')) ? 'coliseumpalace.dev' : 'new.coliseumpalace.md';

@@ -1,0 +1,75 @@
+<template>
+    <div>
+        <h5>Настройки</h5>
+        <hr class="m-0">
+        <div class="container mt-2">
+            <div class="alert alert-success fade show" role="alert" v-if="alert">
+                Данные сохранены!
+            </div>
+            <form @submit="settings_save">
+                <div class="row">
+                    <div class="col-sm-12 form-check mb-0">
+                        <label class="custom-control custom-checkbox mt-2">
+                            <input type="checkbox" id="send_email" name="send_email" v-model="settings.send_email" class="custom-control-input">
+                            <span class="custom-control-indicator"></span>
+                            <span class="custom-control-description">Уведомление по Email:</span>
+                        </label>
+                    </div>
+                </div>
+                <div class="form-group row">
+                    <div class="col-sm-12 form-check">
+                        <label class="custom-control custom-checkbox mt-2">
+                            <input type="checkbox" id="send_sms" name="send_sms" v-model="settings.send_sms" class="custom-control-input">
+                            <span class="custom-control-indicator"></span>
+                            <span class="custom-control-description">Уведомление по SMS:</span>
+                        </label>
+                    </div>
+                </div>
+                <div class="form-group row">
+                    <div class="col-sm-4">
+                        <button type="submit" class="btn btn-primary float-right">Сохранить</button>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+</template>
+
+<script>
+    const SETTINGS = {
+        send_email: false,
+        send_sms: false,
+    }
+
+    export default {
+        data() {
+            return {
+                settings: SETTINGS,
+                alert: false
+            }
+        },
+        methods: {
+            settings_save(e) {
+                e.preventDefault()
+                this.alert = false
+                axios.post(
+                    '/api/settings/save',
+                    this.settings
+                ).then(response => {
+                    this.alert = true
+                }, response => {
+                    
+                })
+            }
+        },
+        mounted() {
+            axios.get(
+                '/api/settings'
+            ).then(response => {
+                this.settings = response.data;
+            }, response => {
+                
+            })
+        }
+    }
+</script>

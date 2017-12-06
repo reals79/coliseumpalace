@@ -1,0 +1,65 @@
+@path: '~admin-lte/build/less/';
+
+@import "@{path}mixins";
+
+@light-red: #a61e39;
+@screen-header-collapse: 768px;
+//Dark sidebar
+@sidebar-dark-bg: #222d32;
+@sidebar-dark-hover-bg: darken(@sidebar-dark-bg, 2%);
+@sidebar-dark-color: lighten(@sidebar-dark-bg, 60%);
+@sidebar-dark-hover-color: #fff;
+@sidebar-dark-submenu-bg: lighten(@sidebar-dark-bg, 5%);
+@sidebar-dark-submenu-color: lighten(@sidebar-dark-submenu-bg, 40%);
+@sidebar-dark-submenu-hover-color: #fff;
+
+.skin-red {
+  //Navbar
+  .main-header {
+    .navbar {
+      .navbar-variant(@light-red; #fff);
+      .sidebar-toggle {
+        color: #fff;
+        &:hover {
+          background-color: darken(@light-red, 5%);
+        }
+      }
+      @media (max-width: @screen-header-collapse) {
+        .dropdown-menu {
+          li {
+            &.divider {
+              background-color: rgba(255, 255, 255, 0.1);
+            }
+            a {
+              color: #fff;
+              &:hover {
+                background: darken(@light-red, 5%);
+              }
+            }
+          }
+        }
+      }
+    }
+    //Logo
+    .logo {
+      .logo-variant(darken(@light-red, 5%));
+      font-size: 18px;
+    }
+
+    li.user-header {
+      background-color: @light-red;
+    }
+  }
+
+  //Content Header
+  .content-header {
+    background: transparent;
+  }
+
+  //Create the sidebar skin
+  .skin-dark-sidebar(@light-red);
+}
+
+.skin-red.layout-top-nav .main-header > .logo {
+  .logo-variant(@light-red);
+}

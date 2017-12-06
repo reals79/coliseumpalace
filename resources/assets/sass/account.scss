@@ -1,0 +1,74 @@
+/*======= Sidebar ======*/
+.account-sidebar {
+  padding: 20px;
+  border-right: 1px solid #eee;
+  padding-left: 0;
+  padding-right: 0;
+
+  .nav {
+    margin-bottom: 20px;
+    .nav-item {
+      width: 100%;
+      + .nav-item {
+        margin-left: 0;
+      }
+    }
+    .nav-link {
+      border-radius: 0;
+    }
+  }
+}
+
+.badge {
+  top: 3px;
+  position: absolute;
+  right: -2px;
+}
+.navbar {
+  .fa {
+    font-size: 1.3rem;
+  }
+}
+
+/*======= Dashboard ======*/
+.top-cards {
+    border-radius: 5px;
+    border: 1px solid rgba(0, 0, 0, 0.125);
+    line-height: 1;
+    color: #525252;
+
+  .number-val {
+      font-size: 1.2rem;
+      font-weight: bolder;
+  }
+
+  .card-description {
+      font-size: 1rem;
+  }
+}
+
+.bg-primary, .bg-danger, .bg-success, .bg-warning, .bg-info, .bg-mint {
+  color: $white;
+}
+
+.animation-pulse {
+  animation: pulse 2s ease-out infinite;
+}
+@-webkit-keyframes pulse {
+    0% {
+      transform: scale(0.9, 0.9);
+        opacity: 0.5;
+    }
+    50% {
+        opacity: 1.0;
+        transform: scale(1.1, 1.1);
+    }
+    100% {
+      transform: scale(0.9, 0.9);
+        opacity: 0.5;
+    }
+}
+
+.data-rate {
+  font-size: 14px;
+}

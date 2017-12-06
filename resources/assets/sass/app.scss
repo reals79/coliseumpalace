@@ -292,3 +292,12 @@ hr.divider {
         padding: 0 7px;
     }
 }
+
+.breadcrumb {
+	.btn {
+		padding: 0;
+	}
+	.dropdown:hover > .dropdown-menu {
+  		display: block;
+	}
+}

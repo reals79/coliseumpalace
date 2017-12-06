@@ -50,19 +50,18 @@ class AppController extends Controller
 
     public function apartment(ApartmentType $apartmentType, Apartment $apartment = null)
     {
+        $apartmentTypes = ApartmentType::all();
         $apartments = $apartmentType->apartments;
         if (!$apartment) {
             $apartment = $apartments->first();
         }
         if ($apartment) {
-            //$bedrooms = json_decode($apartment->bedrooms);
-            //$bathrooms = json_decode($apartment->bathrooms);
             $total_areas = explode(',', $apartment->total_area);
             $number_apartments = explode(',', $apartment->number_apartment);
             $floors = explode(',', $apartment->floor);
             $prices = explode(',', $apartment->price);
         }
-        $data = compact('apartmentType', 'apartments', 'apartment', 'total_areas', 'number_apartments', 'floors', 'prices');
+        $data = compact('apartmentTypes', 'apartmentType', 'apartments', 'apartment', 'total_areas', 'number_apartments', 'floors', 'prices');
         
         return view('apartment', $data);
     }

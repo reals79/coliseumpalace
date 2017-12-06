@@ -24,7 +24,6 @@ AdminSection::registerModel(\App\Apartment::class, function (ModelConfiguration 
 
         $display->paginate(25);
 
-
         return $display;
     });
 

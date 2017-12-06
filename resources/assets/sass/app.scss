@@ -301,3 +301,8 @@ hr.divider {
   		display: block;
 	}
 }
+#apartment_types {
+	&.dropdown:hover > .dropdown-menu {
+  		display: block;
+	}
+}

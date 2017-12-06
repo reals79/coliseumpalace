@@ -9,7 +9,7 @@
                     <li class="breadcrumb-item dropdown">
                         <a href="#" class="btn btn-link dropdown-toggle" id="dpApartmentTypes" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Квартиры</a>
                         <div class="dropdown-menu" aria-labelledby="dpApartmentTypes">
-                            @foreach ($apartmentTypes as $apType)
+                            @foreach ($apartment_types as $apType)
                                 <a href="{{ route('apartment', $apType->id) }}" class="dropdown-item {{ (($apartmentType->id == $apType->id) ? 'active' : '') }}">{{ $apType->name }}</a>
                             @endforeach
                         </div>
@@ -96,7 +96,7 @@
                     </div>
                     
                     <div id="calculator_content" class="d-none">
-                        @include('calculator')
+                        @include('_partials.calculator')
                     </div>
                 @endif
 

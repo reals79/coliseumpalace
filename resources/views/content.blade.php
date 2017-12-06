@@ -11,10 +11,11 @@
     			</ol>
                 <h4 class="text-primary">{{ $content->name }}</h4>
                 <hr class="my-4">
+                
                 <p>{!! $content->descr !!}</p>
                 
                 @if ($is_calculator)
-                    @include('calculator')
+                    @include('_partials.calculator')
                 @endif
             </div>
         </div>

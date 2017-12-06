@@ -3,6 +3,8 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use View;
+
 use App\Content;
 use App\Slideshow;
 use App\Gallery;
@@ -40,9 +42,12 @@ class AppController extends Controller
 
     public function content(Content $content)
     {
+        $apartmentTypes = View::make('_partials.apartment_types')->render();
+
         $is_calculator = str_contains($content->descr, '%calculator%');
         
-        $content->descr = str_replace('%calculator%', '', $content->descr);        
+        $content->descr = preg_replace('/%apartments%/', $apartmentTypes, $content->descr);
+        $content->descr = preg_replace('/%(calculator|apartments)%/', '', $content->descr);
         $data = compact('content', 'is_calculator');
         
         return view('content', $data);
@@ -50,7 +55,6 @@ class AppController extends Controller
 
     public function apartment(ApartmentType $apartmentType, Apartment $apartment = null)
     {
-        $apartmentTypes = ApartmentType::all();
         $apartments = $apartmentType->apartments;
         if (!$apartment) {
             $apartment = $apartments->first();
@@ -61,7 +65,7 @@ class AppController extends Controller
             $floors = explode(',', $apartment->floor);
             $prices = explode(',', $apartment->price);
         }
-        $data = compact('apartmentTypes', 'apartmentType', 'apartments', 'apartment', 'total_areas', 'number_apartments', 'floors', 'prices');
+        $data = compact('apartmentType', 'apartments', 'apartment', 'total_areas', 'number_apartments', 'floors', 'prices');
         
         return view('apartment', $data);
     }

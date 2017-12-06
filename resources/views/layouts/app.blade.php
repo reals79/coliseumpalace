@@ -40,7 +40,7 @@
                             </div>
                             <ul class="nav flex-column">
                                 <li class="nav-item dropdown">
-                                    <label class="nav-link" data-toggle="tree-toggle">Квартиры</label>
+                                    <label class="nav-link m-0" data-toggle="tree-toggle">Квартиры</label>
                                     <ul class="nav flex-column mx-3 rounded">
                                         @foreach ($apartment_types as $apartment_type)
                                             <li class="nav-item"><a class="nav-link" href="{{ route('apartment', [$apartment_type->id]) }}">{{ $apartment_type->name }}</a></li>
@@ -50,7 +50,7 @@
                                 @foreach ($main_menu as $menu)
                                     <li class="nav-item dropdown">
                                         @if ($menu->submenus->count())
-                                            <label class="nav-link" data-toggle="tree-toggle">{{ $menu->name }}</label>
+                                            <label class="nav-link m-0" data-toggle="tree-toggle">{{ $menu->name }}</label>
                                             {!! submenu($menu) !!}
                                         @else
                                             <a href="{{ route('content', [$menu->id]) }}" class="nav-link">{{ $menu->name }}</a>

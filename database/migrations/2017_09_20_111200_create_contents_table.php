@@ -18,6 +18,7 @@ class CreateContentsTable extends Migration
             $table->integer('content_id');
             $table->string('name')->nullable();
             $table->longText('descr')->nullable();
+            $table->text('images')->nullable();
             $table->boolean('on_mainpage')->default(0);
             $table->boolean('footer')->default(0);
             $table->boolean('activated')->default(1);

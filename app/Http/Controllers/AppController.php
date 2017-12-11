@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use View;
 
 use App\Content;
+use App\ContentMain;
 use App\Slideshow;
 use App\Gallery;
 use App\Video;
@@ -34,8 +35,9 @@ class AppController extends Controller
     {
         $slideshow = Slideshow::all();
         $contents = Content::where('on_mainpage', true)->get();
+        $contentsMain = ContentMain::where('content_id', -2)->get();
 
-        $data = compact('slideshow', 'contents');
+        $data = compact('slideshow', 'contents', 'contentsMain');
 
         return view('home', $data);
     }

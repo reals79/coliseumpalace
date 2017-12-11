@@ -22,7 +22,7 @@ AdminSection::registerModel(Content::class, function (ModelConfiguration $model)
         $display->paginate(25);
 
         if ($scopes) {
-              $display->getScopes()->push($scopes);
+            $display->getScopes()->push($scopes);
             $display->setApply(function ($query) {
                 $query->orderBy('order', 'asc');
             });

@@ -41,6 +41,13 @@ return [
         'icon'  => 'fa fa-newspaper-o',
         'pages' => [
             [
+                'title' => 'Главная страница',
+                'icon'  => 'fa fa-file-text-o',
+                'model' => \App\ContentMain::class,
+                'priority' => 0,
+            ],
+
+            [
                 'title' => 'Слайдшоу',
                 'icon'  => 'fa fa-picture-o',
                 'model' => \App\Slideshow::class,
@@ -62,6 +69,7 @@ return [
             ],
             [
                 'title' => 'Контакты',
+                'icon'  => 'fa fa-address-card-o',
                 'model' => \App\Contact::class,
                 'priority' => 4,
             ],

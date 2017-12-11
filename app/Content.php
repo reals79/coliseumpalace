@@ -14,7 +14,7 @@ class Content extends Model
 
     //
     protected $fillable = [
-        'content_id', 'name', 'descr', 'activated', 'order', 'on_mainpage', 'footer'
+        'content_id', 'name', 'descr', 'images', 'activated', 'order', 'on_mainpage', 'footer'
     ];
 
     protected static function boot()
@@ -42,6 +42,16 @@ class Content extends Model
     public function parent()
     {
         return $this->hasOne(Content::class, 'id', 'content_id');
+    }
+
+    public function getImagesAttribute($value)
+    {
+        return preg_split('/\|/', $value, -1, PREG_SPLIT_NO_EMPTY);
+    }
+
+    public function setImagesAttribute($images)
+    {
+        $this->attributes['images'] = implode('|', $images);
     }
     
 }

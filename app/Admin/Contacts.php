@@ -16,7 +16,7 @@ AdminSection::registerModel(Contact::class, function (ModelConfiguration $model)
     $model->onDisplay(function () use ($model) {
         $columns = AdminFormElement::columns();
 
-        $content = Contact::firstOrCreate(['content_id' => -2]);
+        $content = Contact::firstOrCreate(['content_id' => -3]);
         $columns->addColumn([$model->fireEdit($content->id)]);
 
         $tabs = AdminDisplay::tabbed();

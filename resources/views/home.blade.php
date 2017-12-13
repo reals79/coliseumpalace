@@ -8,13 +8,13 @@
             <div class="swiper-slide" style="background-image: url({{ asset($ss->image) }});">
                 <div class="row">
                     <div class="swiper-title">
-                        @if (!empty($ss->title) || !empty($ss->descr))
-                            <div class="bg-opacity"></div>
-                        @endif
+                        <div class="bg-opacity"></div>
                         <div class="swiper-descr">
-                            <h1>{!! str_replace("\n", "<br>", $ss->title) !!}</h1>
-                            <div class="descr-short"><p>{!! \Illuminate\Support\Str::words(strip_tags($ss->descr), 15, ' (<a href="#" data-toggle="swiper-title-more">далее...</a>)') !!}</p></div>
-                            <div class="descr-long">{!! $ss->descr !!}</div>
+                            <h1>Coliseum Palace - Ваша территория комфорта</h1>
+                            <div class="text-center">
+                                10 поводов выбрать Coliseum Palace (<a href="#" data-toggle="swiper-title-more">далее...</a>)
+                            </div>
+                            <slides :records="{{ $contentsMain }}"></slides>
                         </div>
                     </div>
                 </div>

@@ -41,7 +41,6 @@ AdminSection::registerModel(ContentMain::class, function (ModelConfiguration $mo
                 })
         );*/
 
-
         $tabs = AdminDisplay::tabbed();
         $tabs->appendTab(new FormElements([$columns, $table]), '');
 

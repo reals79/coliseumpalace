@@ -20,6 +20,7 @@ Vue.filter('formatDate', function(value) {
 });
 
 Vue.component('register', require('./components/Register.vue'));
+Vue.component('slides', require('./components/Slides.vue'));
 
 const routes = [
 	{ path: '/', component: require('./components/Dashboard.vue') },
@@ -40,7 +41,7 @@ let router = new VueRouter({
 });
 
 const app = new Vue({
-    el: '#content',
+    el: '#app',
     router,
     data() {
         return {
@@ -203,8 +204,7 @@ $(function() {
     	event.preventDefault();
     	var $parent_swiper = $(this).closest('.swiper-title');
     	var $parent = $(this).closest('.swiper-descr');
-    	$('.descr-short', $parent).hide();
-      	$('.descr-long', $parent).show();
+      	$('.slides', $parent).show();
 
  		/*$parent_swiper.addClass('flipInY animated').one('webkitAnimationEnd mozAnimationEnd MSAnimationEnd oanimationend animationend', function() {
       		$(this).removeClass('flipInY animated');

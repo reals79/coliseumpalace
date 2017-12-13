@@ -64,17 +64,10 @@
             a {
                 color: $yellow;
             }
-
-            .descr-long {
-                display: none;
-            }
-
             .swiper-descr {
                 position: relative;
                 height: 100%;
-            }
-            .ps__rail-y {
-                z-index: 2;
+                margin-bottom: 15px;
             }
         }
     }

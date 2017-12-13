@@ -14,6 +14,7 @@
     <link href="{{ mix('css/app.css') }}" rel="stylesheet">
 </head>
 <body class="page-{{ Request::route()->getName() }}">
+<div id="app">
     <header class="py-2 fixed-top">
         <div class="container-fluid">
             <div class="row">
@@ -123,6 +124,7 @@
         </div>
         <div id="google-map"></div>
     </footer>
+</div>
 
     <div id="back-top">
         <a href="#"><i class="fi flaticon-upload fi-3x" aria-hidden="true"></i></a>

@@ -182,7 +182,7 @@ header {
 	height: 100%;
 	background-color: map-get($theme-colors, primary);
 	opacity: 0.5;
-	z-index: -1;
+	z-index: 0;
 }
 
 footer {

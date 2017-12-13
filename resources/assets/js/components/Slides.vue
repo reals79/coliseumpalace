@@ -2,8 +2,8 @@
     <div class="slides">
         <div v-for="(record, index) in records" v-if="step === (index+1)">
             {{ record.name }}
-            <ul class="list-inline mb-0">
-                <li v-for="(image, ind) in record.images" v-if="ind < 3" class="list-inline-item">
+            <ul class="list-inline mb-0 mt-2 d-flex justify-content-around">
+                <li v-for="(image, ind) in record.images" v-if="ind < 4" class="list-inline-item">
                     <div class="image-wrap"><div :style="'background-image:url('+image+')'" class="img-thumbnail"></div></div>
                 </li>
             </ul>

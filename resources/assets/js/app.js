@@ -212,13 +212,6 @@ $(function() {
 
     });
 
-    $('.swiper-title').on('mouseenter', function() {
-    	swiper.autoplay.stop();
-    });
-    $('.swiper-title').on('mouseleave', function() {
-    	swiper.autoplay.start();
-    });
-
     $('[data-toggle="calc-apartment"]').on('click', function(event) {
     	event.preventDefault();
     	let price = $(this).data('price');

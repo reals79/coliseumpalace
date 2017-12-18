@@ -13,8 +13,20 @@
                 <hr class="my-4">
                 
                 <p>{!! $content->descr !!}</p>
+
+                @if ($content->content_id == -4)
+                    @foreach($contentsMain as $contentMain)
+                        <a name="{{ $contentMain->id }}"></a>
+                        <div class="card mt-5">
+                          <div class="card-body">
+                            <h4 class="card-title">{{ $contentMain->name }}</h4>
+                            <p class="card-text">{!! $contentMain->descr !!}</p>
+                          </div>
+                        </div>
+                    @endforeach
+                @endif
                 
-                @if ($is_calculator)
+                @if (!empty($is_calculator))
                     @include('_partials.calculator')
                 @endif
             </div>

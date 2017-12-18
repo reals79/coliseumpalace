@@ -79,9 +79,13 @@
                     <hr class="divider" />
                     <p>
                         <ul class="nav flex-column">
-                        @foreach ($main_menu_footer as $menu_footer)
-                            <li class="nav-item"><a href="{{ route('content', [$menu_footer->id]) }}">{{ $menu_footer->name }}</a></li>
-                        @endforeach
+                            <li class="nav-item">
+                                <a href="{{ url('about') }}">О доме</a>
+                            </li>
+
+                            @foreach ($main_menu_footer as $menu_footer)
+                                <li class="nav-item"><a href="{{ route('content', [$menu_footer->id]) }}">{{ $menu_footer->name }}</a></li>
+                            @endforeach
 
                             <li class="nav-item">
                                 <a href="{{ route('gallery') }}">Фотогалерея</a>

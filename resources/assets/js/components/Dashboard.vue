@@ -5,7 +5,7 @@
         <div class="row mt-3">
             <div class="col-xl-12 col-lg-12 col-12">
                 <div class="row">
-                    <div class="col-sm-4 col-12" v-if="user.total_amount_debt > 0">
+                    <div class="col-sm-4 col-12">
                         <div class="bg-white top-cards">
                             <div class="row px-3">
                                 <div class="col-lg-12 d-flex pt-2">

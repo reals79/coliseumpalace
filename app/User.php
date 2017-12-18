@@ -37,5 +37,10 @@ class User extends Authenticatable
     {
         return $this->hasMany(UserRecords::class);
     }
+
+    public function getPayAtAttribute()
+    {
+        //return $this->records()->where('pay_at')->first()
+    }
     
 }

@@ -46,32 +46,38 @@ return [
                 'model' => \App\ContentMain::class,
                 'priority' => 0,
             ],
+            [
+                'title' => 'О доме',
+                'icon'  => 'fa fa-file-text-o',
+                'model' => \App\ContentAbout::class,
+                'priority' => 1,
+            ],
 
             [
                 'title' => 'Слайдшоу',
                 'icon'  => 'fa fa-picture-o',
                 'model' => \App\Slideshow::class,
-                'priority' => 1,
+                'priority' => 2,
             ],
 
             [
                 'title' => 'Фотогалерея',
                 'icon'  => 'fa fa-camera',
                 'model' => \App\Gallery::class,
-                'priority' => 2,
+                'priority' => 3,
             ],
 
             [
                 'title' => 'Видеогалерея',
                 'icon'  => 'fa fa-video-camera',
                 'model' => \App\Video::class,
-                'priority' => 3,
+                'priority' => 4,
             ],
             [
                 'title' => 'Контакты',
                 'icon'  => 'fa fa-address-card-o',
                 'model' => \App\Contact::class,
-                'priority' => 4,
+                'priority' => 5,
             ],
         ],
         'priority' => 2,

@@ -22,6 +22,7 @@ Route::group(['prefix' => LaravelLocalization::setLocale()], function() {
 	Route::group(['domain' => $domain], function() {
 		Route::get('/', 'AppController@index')->name('home');
 		Route::get('content/{content}', 'AppController@content')->name('content');
+		Route::get('about', 'AppController@about');
 		Route::get('apartment/{apartmentType}/{apartment?}', 'AppController@apartment')->name('apartment');
 		Route::get('gallery/{gallery?}', 'AppController@gallery')->name('gallery');
 		Route::get('video/', 'AppController@video')->name('video');

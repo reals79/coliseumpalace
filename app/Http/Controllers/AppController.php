@@ -55,6 +55,15 @@ class AppController extends Controller
         return view('content', $data);
     }
 
+    public function about(Request $request)
+    {
+        $content = Content::where(['content_id' => -4])->first();
+        $contentsMain = ContentMain::where('content_id', -2)->get();
+        $data = compact('content', 'contentsMain');
+        
+        return view('content', $data);
+    }
+
     public function apartment(ApartmentType $apartmentType, Apartment $apartment = null)
     {
         $apartments = $apartmentType->apartments;

@@ -4,7 +4,7 @@
             <a :href="'/about/#' + record.id" class="btn btn-link slide-link">{{ record.name }}</a>
             <ul class="list-inline mb-0 d-flex justify-content-around">
                 <li v-for="(image, ind) in record.images" v-if="ind < 4" class="list-inline-item">
-                    <div class="image-wrap"><a :href="image" data-toggle="lightbox" :data-gallery="'gallery-' + index"><div :style="'background-image:url('+image+')'" class="img-thumbnail"></div></a></div>
+                    <div class="image-wrap"><a :href="image" data-toggle="lightbox" :data-gallery="'gallery-' + index"><div :style="'background-image:url(' + image + ')'" class="img-thumbnail"></div></a></div>
                 </li>
             </ul>
             <div class="text-right"><a @click="handleNext" class="btn btn-link">далее...</a></div>

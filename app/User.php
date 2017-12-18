@@ -18,6 +18,7 @@ class User extends Authenticatable
         'username', 'password', 'idno', 'first_name', 'last_name', 'email', 'phone', 'contract', 'contract_at', 'activated', 'api_token', 'total_amount_leasing', 'total_amount_leasing_period', 'total_amount_stavka', 'total_amount_fine', 'total_amount_pay', 'total_amount_sold', 'total_amount_debt'
 
     ];
+    protected $appends = ['pay_at'];
 
     /**
      * The attributes that should be hidden for arrays.
@@ -40,7 +41,12 @@ class User extends Authenticatable
 
     public function getPayAtAttribute()
     {
-        //return $this->records()->where('pay_at')->first()
+        $firstPeriod = date('Y-m-01 00:00:00');
+        $lastPeriod = date('Y-m-28 00:00:00');
+        $recs = $this->records()->whereBetween('pay_at', [$firstPeriod, $lastPeriod])->first();
+        if ($recs)
+            return $recs->amount_leasing;
+        else return 0;
     }
     
 }

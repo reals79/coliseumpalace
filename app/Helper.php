@@ -21,7 +21,7 @@
     {
         $res_content = '';
 
-        if ($menu && $menu->parent) {
+        if ($menu->parent) {
             $res_content .= breadcrumb($menu->parent);
             $res_content .= '<li class="breadcrumb-item">' . $menu->parent->name . '</li>';
         }

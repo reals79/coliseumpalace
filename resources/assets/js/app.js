@@ -70,6 +70,7 @@ import Events  from './event.js';
 import moment from 'moment';
 import Swiper from 'swiper';
 import 'ekko-lightbox';
+import SmoothScroll from 'smooth-scroll';
 
 var owlCarousel = require('owl.carousel2');
 
@@ -107,6 +108,29 @@ $(function() {
     });
 
     $('.apartments .apartment-list').owlCarousel({
+        items: 4,
+        responsiveClass: true,
+        responsive: {
+            0: {
+                items: 2,
+            },
+            768: {
+                items: 3,
+            },
+            979: {
+                items: 4,
+            }
+        },
+        margin: 20,
+        nav: true,
+        autoplay: true,
+        autoplayTimeout: 5000,
+        autoplayHoverPause: true,
+        dots: false,
+        navText: ['<i class="fa fa-angle-left fa-3x" aria-hidden="true"></i>', '<i class="fa fa-angle-right fa-3x" aria-hidden="true"></i>']
+    });
+
+    $('.slide-list').owlCarousel({
         items: 4,
         responsiveClass: true,
         responsive: {
@@ -221,5 +245,20 @@ $(function() {
     	$('#calculator_content form input#app_price').val(price);
     	$('#calculator_content form button[data-toggle="calc_leasing"]').click();
     });
+
+    if (location.hash) {
+    	var target = location.hash.split('#');
+    	if (target[1]) {
+	    	target = target[1].replace('/', '');
+	    	if (target) {
+	    		var scroll = new SmoothScroll();
+	    		var anchor = document.querySelector('#content-'+target);
+	    		var options = { speed: 1000, easing: 'easeOutCubic', header: 'header.fixed-top' };
+				setTimeout(() => {
+					scroll.animateScroll( anchor, null, options );
+				}, 1000);
+			}
+		}
+	}
 
 });

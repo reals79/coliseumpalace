@@ -16,12 +16,20 @@
 
                 @if ($content->content_id == -4)
                     @foreach($contentsMain as $contentMain)
-                        <a name="{{ $contentMain->id }}"></a>
-                        <div class="card mt-5">
-                          <div class="card-body">
-                            <h4 class="card-title">{{ $contentMain->name }}</h4>
-                            <p class="card-text">{!! $contentMain->descr !!}</p>
-                          </div>
+                        <div id="content-{{ $contentMain->id }}" class="card mt-5">
+                            <div class="card-body">
+                                <h4 class="card-title">{{ $contentMain->name }}</h4>
+                                <p class="card-text">{!! $contentMain->descr !!}</p>
+                                <div class="">
+                                    <ol class="slide-list owl-carousel owl-theme">
+                                        @foreach($contentMain->images as $image)
+                                            <li>
+                                                <img class="p-2" src="{{ url($image) }}" alt="" height="230">
+                                            </li>
+                                        @endforeach
+                                    </ol>
+                                </div>
+                            </div>
                         </div>
                     @endforeach
                 @endif

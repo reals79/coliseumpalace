@@ -140,7 +140,6 @@
     
     @yield('script')
 
-
     <div id="fb-root"></div>
     <script>(function(d, s, id) {
       var js, fjs = d.getElementsByTagName(s)[0];

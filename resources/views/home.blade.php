@@ -13,7 +13,7 @@
                     <div class="swiper-descr">
                         <h1 class="display-4">Coliseum Palace - Ваша территория комфорта</h1>
                         <h3 class="text-center">
-                            10 поводов выбрать Coliseum Palace (<a href="#" data-toggle="swiper-title-more">далее...</a>)
+                            10 поводов выбрать Coliseum Palace <span>(<a href="#" data-toggle="swiper-title-more">далее...</a>)</span>
                         </h3>
                         <slides :records="{{ $contentsMain }}"></slides>
                     </div>

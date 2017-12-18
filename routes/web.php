@@ -14,11 +14,11 @@
 Auth::routes();
 
 Route::group(['prefix' => LaravelLocalization::setLocale()], function() {
-	$domain = (App::environment('local')) ? 'coliseumpalace.dev' : 'coliseumpalace.md';
+	$domain = (App::environment('local')) ? 'coliseumpalace.test' : 'coliseumpalace.md';
 	Route::domain("my.$domain")->group(function() {
 	    Route::get('/', 'AccountController@index')->name('account');
 	});
-	$domain = (App::environment('local')) ? 'coliseumpalace.dev' : 'new.coliseumpalace.md';
+	$domain = (App::environment('local')) ? 'coliseumpalace.test' : 'new.coliseumpalace.md';
 	Route::group(['domain' => $domain], function() {
 		Route::get('/', 'AppController@index')->name('home');
 		Route::get('content/{content}', 'AppController@content')->name('content');

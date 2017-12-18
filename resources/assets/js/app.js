@@ -204,6 +204,7 @@ $(function() {
     	event.preventDefault();
     	var $parent_swiper = $(this).closest('.swiper-title');
     	var $parent = $(this).closest('.swiper-descr');
+      	$(this).closest('span').hide();
       	$('.slides', $parent).show();
 
  		/*$parent_swiper.addClass('flipInY animated').one('webkitAnimationEnd mozAnimationEnd MSAnimationEnd oanimationend animationend', function() {

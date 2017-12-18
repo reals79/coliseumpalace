@@ -1,10 +1,10 @@
 <template>
     <div class="slides">
         <div v-for="(record, index) in records" v-if="step === (index+1)">
-            {{ record.name }}
-            <ul class="list-inline mb-0 mt-2 d-flex justify-content-around">
+            <a href="#" class="btn btn-link slide-link">{{ record.name }}</a>
+            <ul class="list-inline mb-0 d-flex justify-content-around">
                 <li v-for="(image, ind) in record.images" v-if="ind < 4" class="list-inline-item">
-                    <div class="image-wrap"><div :style="'background-image:url('+image+')'" class="img-thumbnail"></div></div>
+                    <div class="image-wrap"><a :href="image" data-toggle="lightbox" :data-gallery="'gallery-' + index"><div :style="'background-image:url('+image+')'" class="img-thumbnail"></div></a></div>
                 </li>
             </ul>
             <div class="text-right"><a @click="handleNext" class="btn btn-link">далее...</a></div>
@@ -41,6 +41,14 @@
 <style lang="scss" scoped>
     .slides {
         display: none;
+        .slide-link {
+            color: #fff !important;
+            text-decoration: underline;
+            &:hover {
+                text-decoration: none;
+                font-weight: normal;
+            }
+        }
         ul {
             li {
                 position: relative;

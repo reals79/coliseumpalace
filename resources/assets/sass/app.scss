@@ -101,6 +101,23 @@ header {
 		    filter: drop-shadow(15px 15px 7px rgba(0,0,0,0.6));
 		}
 	}
+	.navbar {
+		width: 100%;
+		position: relative;
+	}
+
+	.navbar-expand-lg .navbar-toggler {
+	    display: block;
+	    z-index: 2;
+	    &:hover {
+	    	font-weight: inherit;
+	    }
+	}
+	
+	.sidebar-toggler {
+		position: relative;
+		height: 40px;
+	}
 
 	.sidebar-toggle {
 		position: relative;
@@ -112,12 +129,12 @@ header {
 	}
 
 	.sidebar-menu {
-		height: 100%;
-		width: 25%;
-		position: fixed;
-		top: 0;
-		right: 0;
-		padding: 100px 0 0 0;
+		height: 40px;
+		width: 100%;
+		position: relative;
+		//top: 0;
+		right: 100px;
+		//padding: 100px 0 0 0;
 		z-index: 2;
 		transform: translateX(100%);
 		transition: 300ms ease;
@@ -131,6 +148,12 @@ header {
 		&.reveal {
 			transform: translateX(0%);
 			transition: 300ms ease;
+			right: 0;
+			.navbar-toggler {
+				span {
+					display: none;
+				}
+			}
 		}
 
 		@include media-breakpoint-up(xs) { width: 85%; } // Small
@@ -139,7 +162,7 @@ header {
 
 		.dropdown {
 			ul {
-				display: none;
+				//display: none;
 				background: map-get($theme-colors, primary);
 			}
 		}

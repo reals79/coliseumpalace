@@ -18,15 +18,16 @@
     <header class="py-2 fixed-top">
         <div class="container-fluid">
             <div class="row">
-                <div id="logo" class="col-sm-3">
-                    <a href="{{ route('home') }}"><img src="{{ asset('images/logo.svg') }}" alt="{{ config('app.name', '') }}" title="{{ config('app.name', '') }}"></a>
-                </div>
-                <nav class="mr-5 ml-auto d-flex align-items-center">
-                    <div>
-                        <a href="#" class="sidebar-toggle" data-toggle="sidebar" data-target="#sidebarMenu"><i class="fi flaticon-menu-2"></i></a>
-                        <div id="sidebarMenu" class="sidebar-menu">
+                <nav class="navbar navbar-expand-lg pr-0">
+                    <div id="logo" class="navbar-brand">
+                        <a href="{{ route('home') }}"><img src="{{ asset('images/logo.svg') }}" alt="{{ config('app.name', '') }}" title="{{ config('app.name', '') }}"></a>
+                    </div>
+                    <!-- <div class="sidebar-toggler d-flex align-items-center"><div class="bg-opacity"></div><a href="#" class="navbar-toggler" data-target="#sidebarMenu"><i class="fi flaticon-menu-2"></i></a></div> -->
+                    <div id="sidebarMenu" class="collapse navbar-collapse sidebar-menu">
+                        <a href="#" class="navbar-toggler" data-target="#sidebarMenu"><i class="fi flaticon-menu-2 mr-1"></i> <span>Меню</span></a>
+                        <!-- <div id="sidebarMenu" class="sidebar-menu"> -->
                             <div class="bg-opacity"></div>
-                            <div class="lang-bar">
+                            <!-- <div class="lang-bar">
                                 <span>&middot;</span>
                                 @foreach(LaravelLocalization::getSupportedLocales() as $localeCode => $properties)
                                     @if (LaravelLocalization::getCurrentLocale() == $localeCode)
@@ -38,31 +39,32 @@
                                     @endif
                                     <span>&middot;</span>
                                 @endforeach
-                            </div>
-                            <ul class="nav flex-column">
+                            </div> -->
+                            <ul class="navbar-nav">
                                 <li class="nav-item dropdown">
-                                    <label class="nav-link m-0" data-toggle="tree-toggle">Квартиры</label>
-                                    <ul class="nav flex-column mx-3 rounded">
+                                    <label class="nav-link dropdown-toggle mb-0" data-toggle="dropdown">Квартиры</label>
+                                    <ul class="dropdown-menu">
                                         @foreach ($apartment_types as $apartment_type)
                                             <li class="nav-item"><a class="nav-link" href="{{ route('apartment', [$apartment_type->id]) }}">{{ $apartment_type->name }}</a></li>
                                         @endforeach
                                     </ul>
                                 </li>
                                 @foreach ($main_menu as $menu)
-                                    <li class="nav-item dropdown">
-                                        @if ($menu->submenus->count())
-                                            <label class="nav-link m-0" data-toggle="tree-toggle">{{ $menu->name }}</label>
-                                            {!! submenu($menu) !!}
-                                        @else
-                                            <a href="{{ route('content', [$menu->id]) }}" class="nav-link">{{ $menu->name }}</a>
-                                        @endif
+                                    @if ($menu->submenus->count())
+                                        <li class="nav-item dropdown">
+                                        <label class="nav-link dropdown-toggle mb-0" data-toggle="dropdown">{{ $menu->name }}</label>
+                                        {!! submenu($menu) !!}
+                                    @else
+                                        <li class="nav-item">
+                                        <a href="{{ route('content', [$menu->id]) }}" class="nav-link">{{ $menu->name }}</a>
+                                    @endif
                                     </li>
                                 @endforeach
                                 <li class="nav-item">
                                     <a href="{{ route('account', ['subdomain' => 'my']) }}" class="nav-link">My Coliseum</a>
                                 </li>
                             </ul>
-                        </div>
+                        <!-- </div> -->
                     </div>
                 </nav>
             </div>

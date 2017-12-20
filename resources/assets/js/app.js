@@ -193,7 +193,7 @@ $(function() {
 		stickyToggle(sticky, stickyWrapper, $(window));
 	});*/
 
-	$('[data-toggle="sidebar"]').on('click', function(e) {
+	$('.navbar-toggler').on('click', function(e) {
 		e.preventDefault();
 		var target = $(this).data('target');
 		if ($(target).hasClass('reveal')) {

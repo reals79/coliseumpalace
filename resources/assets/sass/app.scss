@@ -137,7 +137,7 @@ header {
 		//padding: 100px 0 0 0;
 		z-index: 2;
 		transform: translateX(100%);
-		transition: 300ms ease;
+		transition: 600ms ease;
 		color: $white;
 
 		> ul {
@@ -147,7 +147,7 @@ header {
 
 		&.reveal {
 			transform: translateX(0%);
-			transition: 300ms ease;
+			transition: 600ms ease;
 			right: 0;
 			.navbar-toggler {
 				span {

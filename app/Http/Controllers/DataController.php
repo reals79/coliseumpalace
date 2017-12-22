@@ -35,7 +35,7 @@ class DataController extends Controller
                 $idno = trim($record_client->clientid);
                 $contract = trim($record_client->contract);
                 $contract_at = $record_client->getDate('contrdta');
-
+                $name = $record_client->name;
                 $tbl_data = [
                     'idno' => $idno,
                     'contract_at' => ($contract_at > 0) ? date('Y-m-d', $contract_at) : null,

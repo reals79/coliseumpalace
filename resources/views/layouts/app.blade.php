@@ -135,6 +135,9 @@
     </footer>
 </div>
 
+    <div id="fab-wrapper">
+        <a href="tel:+37379740707" class="fab"><i class="fa fa-phone" aria-hidden="true"></i></a>
+    </div>
     <div id="back-top">
         <a href="#"><i class="fi flaticon-upload fi-2x" aria-hidden="true"></i></a>
     </div>

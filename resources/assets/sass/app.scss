@@ -109,28 +109,15 @@ header {
 	.navbar-expand-lg .navbar-toggler {
 	    display: block;
 	    z-index: 2;
+	    margin-right: 50px;
 	    &:hover {
 	    	font-weight: inherit;
 	    }
 	}
 	
-	.sidebar-toggler {
-		position: relative;
-		height: 40px;
-	}
-
-	.sidebar-toggle {
-		position: relative;
-		float: right;
-		color: white;
-		margin-right: 9%;
-		z-index: 1036;
-		text-align: center;
-	}
-
 	.sidebar-menu {
 		height: 40px;
-		width: 100%;
+		//width: 100%;
 		position: relative;
 		//top: 0;
 		right: 100px;
@@ -150,15 +137,13 @@ header {
 			transition: 600ms ease;
 			right: 0;
 			.navbar-toggler {
-				span {
-					display: none;
-				}
+				margin-right: 0;
 			}
 		}
 
-		@include media-breakpoint-up(xs) { width: 85%; } // Small
-		@include media-breakpoint-up(sm) { width: 50%; } // Medium
-		@include media-breakpoint-up(md) { width: 25%; } // Large
+		//@include media-breakpoint-up(xs) { width: 85%; } // Small
+		//@include media-breakpoint-up(sm) { width: 50%; } // Medium
+		//@include media-breakpoint-up(md) { width: 25%; } // Large
 
 		.dropdown {
 			ul {
@@ -269,7 +254,7 @@ hr.divider {
 #back-top {
 	bottom: 90px;
 	position: fixed;
-	right: 20px;
+	right: 30px;
 	transform: translateZ(0);
 	z-index: 99;
 	display: none;

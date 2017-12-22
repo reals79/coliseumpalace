@@ -22,49 +22,46 @@
                     <div id="logo" class="navbar-brand">
                         <a href="{{ route('home') }}"><img src="{{ asset('images/logo.svg') }}" alt="{{ config('app.name', '') }}" title="{{ config('app.name', '') }}"></a>
                     </div>
-                    <!-- <div class="sidebar-toggler d-flex align-items-center"><div class="bg-opacity"></div><a href="#" class="navbar-toggler" data-target="#sidebarMenu"><i class="fi flaticon-menu-2"></i></a></div> -->
-                    <div id="sidebarMenu" class="collapse navbar-collapse sidebar-menu">
-                        <a href="#" class="navbar-toggler" data-target="#sidebarMenu"><i class="fi flaticon-menu-2 mr-1"></i> <span>Меню</span></a>
-                        <!-- <div id="sidebarMenu" class="sidebar-menu"> -->
-                            <div class="bg-opacity"></div>
-                            <!-- <div class="lang-bar">
+                    <div id="sidebarMenu" class="sidebar-menu d-flex align-items-center ml-auto">
+                        <div><a href="#" class="navbar-toggler" data-target="#sidebarMenu"><i class="fi flaticon-menu-2 mr-1"></i></a></div>
+                        <div class="bg-opacity"></div>
+                        <!-- <div class="lang-bar">
+                            <span>&middot;</span>
+                            @foreach(LaravelLocalization::getSupportedLocales() as $localeCode => $properties)
+                                @if (LaravelLocalization::getCurrentLocale() == $localeCode)
+                                    <span class="active">{{ $localeCode }}</span>
+                                @else
+                                    <a rel="alternate" hreflang="{{ $localeCode }}" href="{{ LaravelLocalization::getLocalizedURL($localeCode, null, [], true) }}">
+                                        {{ $localeCode }}
+                                    </a>
+                                @endif
                                 <span>&middot;</span>
-                                @foreach(LaravelLocalization::getSupportedLocales() as $localeCode => $properties)
-                                    @if (LaravelLocalization::getCurrentLocale() == $localeCode)
-                                        <span class="active">{{ $localeCode }}</span>
-                                    @else
-                                        <a rel="alternate" hreflang="{{ $localeCode }}" href="{{ LaravelLocalization::getLocalizedURL($localeCode, null, [], true) }}">
-                                            {{ $localeCode }}
-                                        </a>
-                                    @endif
-                                    <span>&middot;</span>
-                                @endforeach
-                            </div> -->
-                            <ul class="navbar-nav">
-                                <li class="nav-item dropdown">
-                                    <label class="nav-link dropdown-toggle mb-0" data-toggle="dropdown">Квартиры</label>
-                                    <ul class="dropdown-menu">
-                                        @foreach ($apartment_types as $apartment_type)
-                                            <li class="nav-item"><a class="nav-link" href="{{ route('apartment', [$apartment_type->id]) }}">{{ $apartment_type->name }}</a></li>
-                                        @endforeach
-                                    </ul>
+                            @endforeach
+                        </div> -->
+                        <ul class="navbar-nav">
+                            <li class="nav-item dropdown">
+                                <label class="nav-link dropdown-toggle mb-0" data-toggle="dropdown">Квартиры</label>
+                                <ul class="dropdown-menu">
+                                    @foreach ($apartment_types as $apartment_type)
+                                        <li class="nav-item"><a class="nav-link" href="{{ route('apartment', [$apartment_type->id]) }}">{{ $apartment_type->name }}</a></li>
+                                    @endforeach
+                                </ul>
+                            </li>
+                            @foreach ($main_menu as $menu)
+                                @if ($menu->submenus->count())
+                                    <li class="nav-item dropdown">
+                                    <label class="nav-link dropdown-toggle mb-0" data-toggle="dropdown">{{ $menu->name }}</label>
+                                    {!! submenu($menu) !!}
+                                @else
+                                    <li class="nav-item">
+                                    <a href="{{ route('content', [$menu->id]) }}" class="nav-link">{{ $menu->name }}</a>
+                                @endif
                                 </li>
-                                @foreach ($main_menu as $menu)
-                                    @if ($menu->submenus->count())
-                                        <li class="nav-item dropdown">
-                                        <label class="nav-link dropdown-toggle mb-0" data-toggle="dropdown">{{ $menu->name }}</label>
-                                        {!! submenu($menu) !!}
-                                    @else
-                                        <li class="nav-item">
-                                        <a href="{{ route('content', [$menu->id]) }}" class="nav-link">{{ $menu->name }}</a>
-                                    @endif
-                                    </li>
-                                @endforeach
-                                <li class="nav-item">
-                                    <a href="{{ route('account', ['subdomain' => 'my']) }}" class="nav-link">My Coliseum</a>
-                                </li>
-                            </ul>
-                        <!-- </div> -->
+                            @endforeach
+                            <li class="nav-item">
+                                <a href="{{ route('account', ['subdomain' => 'my']) }}" class="nav-link">My Coliseum</a>
+                            </li>
+                        </ul>
                     </div>
                 </nav>
             </div>
@@ -133,7 +130,7 @@
 </div>
 
     <div id="back-top">
-        <a href="#"><i class="fi flaticon-upload fi-3x" aria-hidden="true"></i></a>
+        <a href="#"><i class="fi flaticon-upload fi-2x" aria-hidden="true"></i></a>
     </div>
 
     <!-- Scripts -->

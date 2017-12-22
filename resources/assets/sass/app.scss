@@ -265,6 +265,7 @@ hr.divider {
     position: fixed;
     top: 50%;
     right: 15px;
+    margin-top: -32px;
     z-index: 1004;
     transition: margin 280ms cubic-bezier(.4,0,.2,1);
 

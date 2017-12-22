@@ -2,9 +2,9 @@
     <div class="slides">
         <div v-for="(record, index) in records" v-if="step === (index+1)">
             <a :href="'/about/#' + record.id" class="btn btn-link slide-link">{{ record.name }}</a>
-            <ul class="list-inline mb-0 d-flex justify-content-around">
-                <li v-for="(image, ind) in record.images" v-if="ind < 4" class="list-inline-item">
-                    <div class="image-wrap"><a :href="image" data-toggle="lightbox" :data-gallery="'gallery-' + index"><div :style="'background-image:url(' + image + ')'" class="img-thumbnail"></div></a></div>
+            <ul class="list-inline mb-0 d-flex justify-content-around" v-if="record.images.length > 0">
+                <li class="list-inline-item">
+                    <div class="image-wrap"><a :href="image = randomImage(record.images)" data-toggle="lightbox"><div :style="'background-image:url(' + image + ')'" class="img-thumbnail"></div></a></div>
                 </li>
             </ul>
             <div class="text-right"><a @click="handleNext" class="btn btn-link">далее...</a></div>
@@ -25,16 +25,21 @@
             }
         },
         methods: {
-            handleNext: function () {
+            handleNext: function() {
                 this.step += 1;
                 if (this.step > this.records.length) {
                    this.step = 1;
                 }
             },
+            randomImage: function(images) {
+                const idx = Math.floor(Math.random() * images.length);
+                return images[idx];
+            }
         },
         mounted() {
             
         }
+
     }
 </script>
 

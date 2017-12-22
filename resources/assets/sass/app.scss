@@ -9,7 +9,7 @@
 @import "~font-awesome/css/font-awesome.css";
 
 @import "_flaticon";
-.fi.fi-1x::before {font-size: 0.8em;}
+.fi.fi-1x::before {font-size: 0.6em;}
 .fi.fi-2x::before {font-size: 2em;}
 .fi.fi-3x::before {font-size: 3em;}
 .fi.fi-4x::before {font-size: 4em;}
@@ -105,6 +105,10 @@ header {
 	.navbar {
 		width: 100%;
 		position: relative;
+		.nav-link {
+            padding-right: .9rem !important;
+            padding-left: .9rem !important;
+		}
 	}
 
 	.navbar-expand-lg .navbar-toggler {

@@ -53,9 +53,8 @@
                                       <li><i class="fa fa-check text-success" aria-hidden="true"></i> Просмотр всех платежей</li>
                                       <li><i class="fa fa-check text-success" aria-hidden="true"></i> Просмотр комунальных</li>
                                       <li><i class="fa fa-check text-success" aria-hidden="true"></i> Быстрая оплата</li>
-                                      <li><a href="#"><u>Узнать больше</u></a></li>
+                                      <li><a href="{{ route('register') }}"><u>Узнать больше...</u></a></li>
                                   </ul>
-                                  <p><a href="{{ route('register') }}" class="btn btn-primary btn-block">Регистрация!</a></p>
                                 </div>
                             </div>
                         </div>

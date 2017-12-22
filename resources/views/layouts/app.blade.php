@@ -39,6 +39,9 @@
                             @endforeach
                         </div> -->
                         <ul class="navbar-nav">
+                            <li class="nav-item">
+                                <a href="{{ url('about') }}" class="nav-link">О Доме</a>
+                            </li>
                             <li class="nav-item dropdown">
                                 <label class="nav-link dropdown-toggle mb-0" data-toggle="dropdown">Квартиры</label>
                                 <ul class="dropdown-menu">
@@ -82,7 +85,7 @@
                     <p>
                         <ul class="nav flex-column">
                             <li class="nav-item">
-                                <a href="{{ url('about') }}">О доме</a>
+                                <a href="{{ url('about') }}">О Доме</a>
                             </li>
 
                             @foreach ($main_menu_footer as $menu_footer)

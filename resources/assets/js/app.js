@@ -107,7 +107,7 @@ $(function() {
         effect: 'fade'
     });
 
-    $('.apartments .apartment-list').owlCarousel({
+    $('.apartments .apartment-list, .slide-list').owlCarousel({
         items: 4,
         responsiveClass: true,
         responsive: {
@@ -127,32 +127,8 @@ $(function() {
         autoplayTimeout: 5000,
         autoplayHoverPause: true,
         dots: false,
-        navText: ['<i class="fa fa-angle-left fa-3x" aria-hidden="true"></i>', '<i class="fa fa-angle-right fa-3x" aria-hidden="true"></i>']
+        navText: ['<i class="fa fa-angle-left fa-2x" aria-hidden="true"></i>', '<i class="fa fa-angle-right fa-2x" aria-hidden="true"></i>']
     });
-
-    $('.slide-list').owlCarousel({
-        items: 4,
-        responsiveClass: true,
-        responsive: {
-            0: {
-                items: 2,
-            },
-            768: {
-                items: 3,
-            },
-            979: {
-                items: 4,
-            }
-        },
-        margin: 20,
-        nav: true,
-        autoplay: true,
-        autoplayTimeout: 5000,
-        autoplayHoverPause: true,
-        dots: false,
-        navText: ['<i class="fa fa-angle-left fa-3x" aria-hidden="true"></i>', '<i class="fa fa-angle-right fa-3x" aria-hidden="true"></i>']
-    });
-
 
     var bt = $('#back-top');
     $(window).scroll(function(){

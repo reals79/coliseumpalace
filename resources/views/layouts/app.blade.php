@@ -23,7 +23,7 @@
                         <a href="{{ route('home') }}"><img src="{{ asset('images/logo.svg') }}" alt="{{ config('app.name', '') }}" title="{{ config('app.name', '') }}"></a>
                     </div>
                     <div id="sidebarMenu" class="sidebar-menu d-flex align-items-center ml-auto">
-                        <div><a href="#" class="navbar-toggler" data-target="#sidebarMenu"><i class="fi flaticon-menu-2 mr-1"></i></a></div>
+                        <div><a href="#" class="navbar-toggler" data-target="#sidebarMenu"><i class="fi flaticon-menu-2 fi-1x mr-1"></i></a></div>
                         <div class="bg-opacity"></div>
                         <!-- <div class="lang-bar">
                             <span>&middot;</span>
@@ -58,6 +58,9 @@
                                 @endif
                                 </li>
                             @endforeach
+                            <li class="nav-item">
+                                <a href="{{ route('gallery') }}" class="nav-link">Фотогалерея</a>
+                            </li>
                             <li class="nav-item">
                                 <a href="{{ route('account', ['subdomain' => 'my']) }}" class="nav-link">My Coliseum</a>
                             </li>

@@ -7,7 +7,10 @@
                     <div class="image-wrap"><a :href="image = randomImage(record.images)" data-toggle="lightbox"><div :style="'background-image:url(' + image + ')'" class="img-thumbnail"></div></a></div>
                 </li>
             </ul>
-            <div class="text-right"><a @click="handleNext" class="btn btn-link">далее...</a></div>
+            <div class="d-flex">
+                <div v-if="step > 1"><a @click="handlePrev" class="btn btn-link">...назад</a></div>
+                <div class="ml-auto" v-if="step < records.length"><a @click="handleNext" class="btn btn-link">далее...</a></div>
+            </div>
         </div>
     </div>
 </template>
@@ -28,6 +31,12 @@
             handleNext: function() {
                 this.step += 1;
                 if (this.step > this.records.length) {
+                   this.step = 1;
+                }
+            },
+            handlePrev: function() {
+                this.step -= 1;
+                if (this.step < 1) {
                    this.step = 1;
                 }
             },
@@ -57,7 +66,7 @@
         ul {
             li {
                 position: relative;
-                width: 70%;
+                width: 50%;
                 height: 200px;
                 .image-wrap {
                     position:absolute;

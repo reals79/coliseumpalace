@@ -9,6 +9,7 @@
 @import "~font-awesome/css/font-awesome.css";
 
 @import "_flaticon";
+.fi.fi-1x::before {font-size: 0.8em;}
 .fi.fi-2x::before {font-size: 2em;}
 .fi.fi-3x::before {font-size: 3em;}
 .fi.fi-4x::before {font-size: 4em;}
@@ -297,7 +298,8 @@ hr.divider {
 .owl-nav {
     position: absolute;
     right: 0;
-    top: -45px;
+    top: -30px;
+    color: $gray-300;
 
     .owl-prev, .owl-next {
         display: inline-block;
@@ -318,3 +320,25 @@ hr.divider {
   		display: block;
 	}
 }
+
+/* .caret {
+	position: relative;
+	&:before {
+		content: '';
+		position: absolute;
+		top: 0;
+		left: 0;
+		border-top: 5px solid $white;
+		border-left: 5px solid transparent;
+		border-right: 5px solid transparent;
+	}
+	&:after {
+		content: '';
+		position: absolute;
+		left: 1px;
+		top: 0;
+		border-top: 4px solid $white;
+		border-left: 4px solid transparent;
+		border-right: 4px solid transparent;
+	}
+} */

@@ -69,17 +69,19 @@ a, .nav-link {
 	transition: 0.4s ease;
 	cursor: pointer;
 	position: relative;
-    &:before {
-		content: '';
-		position: absolute;
-		bottom: 0;
-		left: 0;
-		height: 1px;
-		width: 0;
-		margin-left: 0;
-		background: $white;
-		transition: .4s ease;
-    }
+	&:not(.no-decor) {
+	    &:before {
+			content: '';
+			position: absolute;
+			bottom: 0;
+			left: 0;
+			height: 1px;
+			width: 0;
+			margin-left: 0;
+			background: $white;
+			transition: .4s ease;
+	    }
+	}
 
 	&:hover {
 		text-decoration: none;

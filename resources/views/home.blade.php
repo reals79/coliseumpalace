@@ -11,10 +11,10 @@
                 <div class="swiper-title">
                     <div class="bg-opacity"></div>
                     <div class="swiper-descr">
-                        <h1 class="display-4">Coliseum Palace - Ваша территория комфорта</h1>
-                        <h3 class="text-center">
-                            10 поводов выбрать Coliseum Palace <span>(<a href="#" data-toggle="swiper-title-more">далее...</a>)</span>
-                        </h3>
+                        <h1 class="display-4">{{ $descriptionsMain->name }}</h1>
+                        <h1 class="text-center">
+                            {{ $descriptionsMain->descr }} <span>(<a href="#" data-toggle="swiper-title-more">далее...</a>)</span>
+                        </h1>
                         <slides :records="{{ $contentsMain }}"></slides>
                     </div>
                 </div>

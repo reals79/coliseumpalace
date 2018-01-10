@@ -75,7 +75,7 @@
                                             <th class="text-center">Номер<br>квартиры</th>
                                             <th class="text-center">Этаж</th>
                                             <th class="text-center">Общая<br>площадь</th>
-                                            <th class="text-right">Цена</th>
+                                            <th class="text-right">Цена при 100% оплате</th>
                                             <th class="text-center">Программа<br>финансирования</th>
                                         </tr>
                                     </thead>
@@ -86,7 +86,7 @@
                                             <td class="text-center">{{ $floors[$key] }}</td>
                                             <td class="text-center">{{ $total_areas[$key] }} <small>m<sup>2</sup></small></td>
                                             <td class="text-right text-primary font-weight-bold">&euro;{{ number_format($prices[$key], 0) }}</td>
-                                            <td class="text-center"><a href="#" data-price="{{ number_format($prices[$key], 0) }}" data-toggle="calc-apartment">рассчитать</a></td>
+                                            <td class="text-center"><a href="#" data-price="{{ number_format((($prices[$key] / $total_areas[$key]) + 100) * $total_areas[$key], 0) }}" data-toggle="calc-apartment">рассчитать</a></td>
                                         </tr>
                                         @endforeach
                                     </tbody>
@@ -100,9 +100,10 @@
                     </div>
                 @endif
 
-                <hr class="my-5">
+                <hr class="mt-5">
 
                 <div class="apartments">
+                    <h3 class="text-primary">Подобные</h3>
                     <ol class="apartment-list owl-carousel owl-theme">
                         @foreach($apartments as $apart)
                         <?php 

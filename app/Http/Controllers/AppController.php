@@ -36,8 +36,9 @@ class AppController extends Controller
         $slideshow = Slideshow::all();
         $contents = Content::where('on_mainpage', true)->get();
         $contentsMain = ContentMain::where('content_id', -2)->get();
+        $descriptionsMain = ContentMain::where('content_id', -5)->first();
 
-        $data = compact('slideshow', 'contents', 'contentsMain');
+        $data = compact('slideshow', 'contents', 'contentsMain', 'descriptionsMain');
 
         return view('home', $data);
     }

@@ -3,7 +3,10 @@
 use SleepingOwl\Admin\Model\ModelConfiguration;
 use SleepingOwl\Admin\Form\FormElements;
 
+use AdminSection;
+
 use App\ContentMain;
+use App\ContentSimple;
 
 AdminSection::registerModel(ContentMain::class, function (ModelConfiguration $model) {
     $model->setTitle('Главная страница');
@@ -11,7 +14,7 @@ AdminSection::registerModel(ContentMain::class, function (ModelConfiguration $mo
     $model->setRedirect(['create' => 'display', 'edit' => 'display']);
 
     // Display
-    $model->onDisplay(function () {
+    $model->onDisplay(function() {
         
         $table = AdminDisplay::datatables()->setModelClass(ContentMain::class)->setColumns([
             AdminColumn::order()->setLabel('Сортировка')->setHtmlAttribute('class', 'text-center')->setWidth('100px'),
@@ -23,13 +26,17 @@ AdminSection::registerModel(ContentMain::class, function (ModelConfiguration $mo
         $table->setApply(function ($query) {
             $query->where('content_id', -2)->orderBy('order', 'asc');
         });
+
+        $content = ContentMain::firstOrCreate(['content_id' => -5]);
+        $columns = AdminFormElement::columns();
+        $columns->addColumn([AdminSection::getModel(ContentSimple::class)->fireEdit($content->id)]);
         
-        $columns = AdminFormElement::columns()->addColumn(function() {
+        /*$columns = AdminFormElement::columns()->addColumn(function() {
                     return [
                         AdminFormElement::text('name', 'Заголовок')->setDefaultValue('Coliseum Palace - Ваша территория комфорта'),
                         AdminFormElement::text('descr', 'Описание')->setDefaultValue('10 поводов выбрать Coliseum Palace')
                     ];
-                });
+                });*/
 
         /*$form = AdminForm::form()->addElement(
             AdminFormElement::columns()

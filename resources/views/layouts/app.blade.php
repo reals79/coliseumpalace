@@ -20,10 +20,10 @@
             <div class="row">
                 <nav class="navbar navbar-expand-lg pr-0">
                     <div id="logo" class="navbar-brand">
-                        <a href="{{ route('home') }}"><img src="{{ asset('images/logo.svg') }}" alt="{{ config('app.name', '') }}" title="{{ config('app.name', '') }}"></a>
+                        <a href="{{ route('home') }}" class="no-decor"><img src="{{ asset('images/logo.svg') }}" alt="{{ config('app.name', '') }}" title="{{ config('app.name', '') }}"></a>
                     </div>
                     <div id="sidebarMenu" class="sidebar-menu d-flex align-items-center ml-auto">
-                        <div><a href="#" class="navbar-toggler" data-target="#sidebarMenu"><i class="fi flaticon-menu-2 fi-1x mr-1"></i></a></div>
+                        <div><a href="#" class="navbar-toggler no-decor" data-target="#sidebarMenu"><i class="fi flaticon-menu-2 fi-1x mr-1"></i></a></div>
                         <div class="bg-opacity"></div>
                         <!-- <div class="lang-bar">
                             <span>&middot;</span>
@@ -108,7 +108,7 @@
                         <nav class="navbar navbar-expand social">
                             <ul class="navbar-nav">
                                 <li class="d-flex align-items-center">
-                                    <a href="https://www.facebook.com/ColiseumPalaceMD/" class="fa fa-facebook-square mr-2" title="Facebook" target="_blank"></a>
+                                    <a href="https://www.facebook.com/ColiseumPalaceMD/" class="fa fa-facebook-square mr-2 no-decor" title="Facebook" target="_blank"></a>
                                     <div class="fb-page" data-href="https://www.facebook.com/ColiseumPalaceMD/" data-small-header="true" data-adapt-container-width="false" data-hide-cover="false" data-show-facepile="false"><blockquote cite="https://www.facebook.com/ColiseumPalaceMD/" class="fb-xfbml-parse-ignore"><a href="https://www.facebook.com/ColiseumPalaceMD/">Coliseum Palace</a></blockquote></div>
                                 </li>
                             </ul>
@@ -136,10 +136,10 @@
 </div>
 
     <div id="fab-wrapper">
-        <a href="tel:+37379740707" class="fab"><i class="fa fa-phone" aria-hidden="true"></i></a>
+        <a href="tel:+37379740707" class="fab no-decor"><i class="fa fa-phone" aria-hidden="true"></i></a>
     </div>
     <div id="back-top">
-        <a href="#"><i class="fi flaticon-upload fi-2x" aria-hidden="true"></i></a>
+        <a href="#" class="no-decor"><i class="fi flaticon-upload fi-2x" aria-hidden="true"></i></a>
     </div>
 
     <!-- Scripts -->

@@ -14,14 +14,16 @@
                     <hr class="my-4">
                     <div class="card-columns">
                     @foreach ($gallery as $gal)
-                        <a href="{{ route('gallery', [$gal->id]) }}">
-                            <div class="card text-center">
-                                <img src="{{ url($gal->images[0]) }}" alt="" class="card-img-top img-thumbnail">
-                                <div class="card-body">
-                                    <h4 class="card-title mb-0">{{ $gal->name }}</h4>
+                        @if ($gal->images)
+                            <a href="{{ route('gallery', [$gal->id]) }}">
+                                <div class="card text-center">
+                                    <img src="{{ url($gal->images[0]) }}" alt="" class="card-img-top img-thumbnail">
+                                    <div class="card-body">
+                                        <h4 class="card-title mb-0">{{ $gal->name }}</h4>
+                                    </div>
                                 </div>
-                            </div>
-                        </a>
+                            </a>
+                        @endif
                     @endforeach
                     </div>
                 @else

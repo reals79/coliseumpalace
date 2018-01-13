@@ -23,22 +23,26 @@
                         <a href="{{ route('home') }}" class="no-decor"><img src="{{ asset('images/logo.svg') }}" alt="{{ config('app.name', '') }}" title="{{ config('app.name', '') }}"></a>
                     </div>
                     <div id="sidebarMenu" class="sidebar-menu d-flex align-items-center ml-auto">
-                        <div><a href="#" class="navbar-toggler no-decor" data-target="#sidebarMenu"><i class="fi flaticon-menu-2 fi-1x mr-1"></i></a></div>
                         <div class="bg-opacity"></div>
-                        <!-- <div class="lang-bar">
-                            <span>&middot;</span>
-                            @foreach(LaravelLocalization::getSupportedLocales() as $localeCode => $properties)
-                                @if (LaravelLocalization::getCurrentLocale() == $localeCode)
-                                    <span class="active">{{ $localeCode }}</span>
-                                @else
-                                    <a rel="alternate" hreflang="{{ $localeCode }}" href="{{ LaravelLocalization::getLocalizedURL($localeCode, null, [], true) }}">
-                                        {{ $localeCode }}
-                                    </a>
-                                @endif
-                                <span>&middot;</span>
-                            @endforeach
-                        </div> -->
+                        <div>
+                            <a href="#" class="navbar-toggler no-decor" data-target="#sidebarMenu"><i class="fi flaticon-menu-2 fi-1x mr-1"></i></a>
+                        </div>
                         <ul class="navbar-nav">
+                            <li class="nav-item">
+                                <div class="nav-link lang-bar no-decor">
+                                    <span>&middot;</span>
+                                    @foreach(LaravelLocalization::getSupportedLocales() as $localeCode => $properties)
+                                        @if (LaravelLocalization::getCurrentLocale() == $localeCode)
+                                            <span class="active">{{ $localeCode }}</span>
+                                        @else
+                                            <a hreflang="{{ $localeCode }}" href="{{ LaravelLocalization::getLocalizedURL($localeCode, null, [], true) }}">
+                                                {{ $localeCode }}
+                                            </a>
+                                        @endif
+                                        <span>&middot;</span>
+                                    @endforeach
+                                </div>
+                            </li>
                             <li class="nav-item">
                                 <a href="{{ url('about') }}" class="nav-link">О Доме</a>
                             </li>

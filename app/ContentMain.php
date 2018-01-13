@@ -9,4 +9,5 @@ class ContentMain extends Content
     //
     use OrderableModel;
 
+    public $translationModel = 'App\ContentTranslation';
 }

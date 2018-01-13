@@ -57,7 +57,8 @@
         display: none;
         .slide-link {
             color: #fff !important;
-            text-decoration: underline;
+            text-decoration: dashed underline;
+            font-size: 1.3rem;
             &:hover {
                 text-decoration: none;
                 font-weight: normal;

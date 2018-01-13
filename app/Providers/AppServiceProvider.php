@@ -10,6 +10,11 @@ use App\ApartmentType;
 
 class AppServiceProvider extends ServiceProvider
 {
+    protected $widgets = [
+        \App\Admin\Widgets\NavigationUserBlock::class,
+        \App\Admin\Widgets\NavigationLangBlock::class
+    ];
+
     /**
      * Bootstrap any application services.
      *
@@ -17,6 +22,11 @@ class AppServiceProvider extends ServiceProvider
      */
     public function boot()
     {
+        $widgetsRegistry = $this->app[\SleepingOwl\Admin\Contracts\Widgets\WidgetsRegistryInterface::class];
+        foreach ($this->widgets as $widget) {
+            $widgetsRegistry->registerWidget($widget);
+        }
+        
         //
         View::composer('*', function($view) {
             $main_menu = Content::where(['content_id' => 0, 'footer' => 0])->orderBy('order', 'asc')->get();

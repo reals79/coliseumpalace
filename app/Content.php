@@ -8,14 +8,15 @@ use SleepingOwl\Admin\Traits\OrderableModel;
 
 class Content extends Model
 {
-    use OrderableModel;
+    use OrderableModel, \Dimsav\Translatable\Translatable;
 
     protected $table = 'contents';
 
     //
     protected $fillable = [
-        'content_id', 'name', 'descr', 'images', 'activated', 'order', 'on_mainpage', 'footer'
+        'content_id', 'images', 'activated', 'order', 'on_mainpage', 'footer'
     ];
+    public $translatedAttributes = ['name', 'descr'];
 
     protected static function boot()
     {

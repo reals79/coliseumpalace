@@ -8,12 +8,13 @@ use SleepingOwl\Admin\Traits\OrderableModel;
 
 class Video extends Model
 {
-	use OrderableModel;
+	use OrderableModel, \Dimsav\Translatable\Translatable;
 
     //
     protected $fillable = [
-        'name', 'path', 'path_external', 'activated', 'order'
+        'path', 'path_external', 'activated', 'order'
     ];
+    public $translatedAttributes = ['name'];
 
     protected static function boot()
     {

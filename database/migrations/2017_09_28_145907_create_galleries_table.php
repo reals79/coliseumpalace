@@ -15,7 +15,6 @@ class CreateGalleriesTable extends Migration
     {
         Schema::create('galleries', function (Blueprint $table) {
             $table->increments('id');
-            $table->string('name');
             $table->longtext('images');
             $table->boolean('activated')->default(1);
             $table->tinyInteger('order')->default(0);
@@ -30,6 +29,17 @@ class CreateGalleriesTable extends Migration
             $table->string('title')->nullable();
             $table->timestamps();
         });*/
+
+        Schema::create('gallery_translations', function(Blueprint $table)
+        {
+            $table->increments('id');
+            $table->integer('gallery_id')->unsigned();
+            $table->string('name');
+            $table->string('locale')->index();
+
+            $table->unique(['gallery_id', 'locale']);
+            $table->foreign('gallery_id')->references('id')->on('galleries')->onDelete('cascade');
+        });
     }
 
     /**

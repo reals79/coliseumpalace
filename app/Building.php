@@ -8,9 +8,10 @@ use SleepingOwl\Admin\Traits\OrderableModel;
 class Building extends Model
 {
     //
-    use OrderableModel;
+    use OrderableModel, \Dimsav\Translatable\Translatable;
 
     public $timestamps = false;
+    public $translatedAttributes = ['name'];
 
     public function apartments()
     {

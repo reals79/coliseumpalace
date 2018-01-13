@@ -15,8 +15,18 @@ class CreateApartmentTypesTable extends Migration
     {
         Schema::create('apartment_types', function (Blueprint $table) {
             $table->increments('id');
-            $table->string('name');
             $table->tinyInteger('order')->default(0);
+        });
+
+        Schema::create('apartment_type_translations', function(Blueprint $table)
+        {
+            $table->increments('id');
+            $table->integer('apartment_type_id')->unsigned();
+            $table->string('name');
+            $table->string('locale')->index();
+
+            $table->unique(['apartment_type_id', 'locale']);
+            $table->foreign('apartment_type_id')->references('id')->on('apartment_types')->onDelete('cascade');
         });
     }
 

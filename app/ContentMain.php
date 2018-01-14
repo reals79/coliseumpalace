@@ -7,7 +7,7 @@ use SleepingOwl\Admin\Traits\OrderableModel;
 class ContentMain extends Content
 {
     //
-    use OrderableModel, \Dimsav\Translatable\Translatable;
+    use OrderableModel;
 
     public $translationModel = 'App\ContentTranslation';
 }

@@ -13,8 +13,7 @@
 
 Auth::routes();
 
-Route::group(['prefix' => LaravelLocalization::setLocale(),
-			'middleware' => [ 'localeSessionRedirect', 'localizationRedirect', 'localeViewPath']], function() {
+Route::group(['prefix' => LaravelLocalization::setLocale()], function() {
 	$domain = (App::environment('local')) ? 'coliseumpalace.test' : 'coliseumpalace.md';
 	Route::domain("my.$domain")->group(function() {
 	    Route::get('/', 'AccountController@index')->name('account');

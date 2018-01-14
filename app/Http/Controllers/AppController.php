@@ -7,6 +7,7 @@ use View;
 
 use App\Content;
 use App\ContentMain;
+use App\ContentSimple;
 use App\Slideshow;
 use App\Gallery;
 use App\Video;
@@ -36,7 +37,7 @@ class AppController extends Controller
         $slideshow = Slideshow::all();
         $contents = Content::where('on_mainpage', true)->get();
         $contentsMain = ContentMain::where('content_id', -2)->get();
-        $descriptionsMain = ContentMain::where('content_id', -5)->first();
+        $descriptionsMain = ContentSimple::where('content_id', -5)->first();
 
         $data = compact('slideshow', 'contents', 'contentsMain', 'descriptionsMain');
 

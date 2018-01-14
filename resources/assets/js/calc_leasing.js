@@ -2,6 +2,7 @@ var leasing_percent = 0.012; // Процентная ставка (%)
 var leasing_period = 60; // Срок (в месяцах)
 var leasing_period_pay = 3; // Период выплат (в месяцах)
 var leasing_initial_rate = 20; // Первоначальный взнос (%)
+var leasing_end_period = '2022-06-30';
 
 var leasing_percent_period = (leasing_percent / ((leasing_period_pay == 1) ? 12 : 4)) / 100;
 
@@ -74,6 +75,8 @@ function calc_leasing() {
 
 	var balance_pay = app_price - initial_amount;
 
+	leasing_end_period = moment(leasing_end_period);
+	leasing_period = leasing_end_period.diff(moment(), 'months');
 	var total_period = Math.round(leasing_period / leasing_period_pay);
 
 	var period_date = moment();
@@ -85,6 +88,8 @@ function calc_leasing() {
 	for (var n_period = 1; n_period <= total_period; n_period++) {
 		
 		period_date.add(leasing_period_pay, 'months');
+		if (period_date > leasing_end_period)
+			period_date = leasing_end_period;
 
 		var pay_leasing = Math.round(pmt(leasing_percent_period, total_period, -balance_pay));
 		var pay_leasing_period = pmt(leasing_percent_period, total_period, -balance_pay, n_period);

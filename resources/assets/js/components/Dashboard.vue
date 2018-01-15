@@ -1,6 +1,6 @@
 <template>
     <div>
-        <h5>Общая информация</h5>
+        <h5>{{ $t('account.menu.general_info') }}</h5>
         <hr class="m-0">
         <div class="row mt-3">
             <div class="col-xl-12 col-lg-12 col-12">
@@ -23,7 +23,7 @@
                             </div>
                             <div class="row p-3">
                                 <div class="col-lg-12">
-                                    <div class="card-description">Просроченный платёж</div>
+                                    <div class="card-description">{{ $t('account.payment_back') }}</div>
                                 </div>
                             </div>
                         </div>
@@ -46,7 +46,7 @@
                             </div>
                             <div class="row p-3">
                                 <div class="col-lg-12">
-                                    <div class="card-description">Текущий платёж</div>
+                                    <div class="card-description">{{ $t('account.payment_current') }}</div>
                                 </div>
                             </div>
                         </div>
@@ -69,7 +69,7 @@
                             </div>
                             <div class="row p-3">
                                 <div class="col-lg-12">
-                                    <div class="card-description">Сумма к оплате</div>
+                                    <div class="card-description">{{ $t('account.amount_paid') }}</div>
                                 </div>
                             </div>
                         </div>
@@ -88,7 +88,7 @@
                             </div>
                             <div class="row p-3">
                                 <div class="col-lg-12">
-                                    <div class="card-description">Срок оплаты</div>
+                                    <div class="card-description">{{ $t('account.due_date') }}</div>
                                 </div>
                             </div>
                         </div>
@@ -98,8 +98,8 @@
                         <div id="block-period_pay" class="bg-white top-cards">
                             <div class="row px-3">
                                 <div class="col-lg-12 d-flex pt-2">
-                                    <div class="card-description text-success">Курс валют
-                                        <div class="small text-secondary">на 30.10.2017</div>
+                                    <div class="card-description text-success">{{ $t('account.rates') }}
+                                        <div class="small text-secondary">30.10.2017</div>
                                     </div>
                                     <div class="ml-auto">
                                         <i class="fa fa-bar-chart fa-2x text-success" aria-hidden="true"></i>

@@ -8,7 +8,7 @@
     			<ol class="breadcrumb mb-0 pl-0">
     			    <li class="breadcrumb-item active"></li>
     			</ol>
-                <h4 class="text-primary">Видеогалерея</h4>
+                <h4 class="text-primary">{{ trans('app.menu.video_gallery') }}</h4>
                 <hr class="my-4">
                 <div class="card-columns">
                 @foreach ($videos as $video)

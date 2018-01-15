@@ -7,25 +7,25 @@
             <div class="container">
 			    <nav class="navbar navbar-expand-md">
 			        <span class="navbar-brand">{{ Auth::user()->full_name }}
-			        	<br><small class="text-muted">Договор: <strong>{{ Auth::user()->contract }}</strong></small>
+			        	<br><small class="text-muted">{{ trans('account.contract') }}: <strong>{{ Auth::user()->contract }}</strong></small>
 			        </span>
 			        <ul class="navbar-nav nav-pills mr-auto">
 			            <li class="nav-item">
-			            	<router-link to="/profile" class="nav-link" data-toggle="tooltip" title="Профайл"><i class="fa fa-user-o" aria-hidden="true"></i></router-link>
+			            	<router-link to="/profile" class="nav-link" data-toggle="tooltip" title="{{ trans('account.menu.profile') }}"><i class="fa fa-user-o" aria-hidden="true"></i></router-link>
 			            </li>
 			            <li class="nav-item">
-			            	<router-link to="/settings" class="nav-link" data-toggle="tooltip" title="Настройки"><i class="fa fa-cogs" aria-hidden="true"></i></router-link>
+			            	<router-link to="/settings" class="nav-link" data-toggle="tooltip" title="{{ trans('account.menu.settings') }}"><i class="fa fa-cogs" aria-hidden="true"></i></router-link>
 			            </li>
 			            <li class="nav-item">
-			            	<router-link to="/alerts" class="nav-link" data-toggle="tooltip" title="Уведомления"><i class="fa fa-bell-o" aria-hidden="true"></i><span class="badge badge-pill badge-danger">1</span></router-link>
+			            	<router-link to="/alerts" class="nav-link" data-toggle="tooltip" title="{{ trans('account.menu.notifications') }}"><i class="fa fa-bell-o" aria-hidden="true"></i><span class="badge badge-pill badge-danger">1</span></router-link>
 			            </li>
 			            <li class="nav-item">
-			            	<router-link to="/messages" class="nav-link" data-toggle="tooltip" title="Сообщения"><i class="fa fa-envelope-o" aria-hidden="true"></i><span class="badge badge-pill badge-danger">2</span></router-link>
+			            	<router-link to="/messages" class="nav-link" data-toggle="tooltip" title="{{ trans('account.menu.messages') }}"><i class="fa fa-envelope-o" aria-hidden="true"></i><span class="badge badge-pill badge-danger">2</span></router-link>
 			            </li>
 			        </ul>
 			        <form action="{{ route('logout') }}" method="POST" class="form-inline mt-2 mt-md-0">
 			        	{{ csrf_field() }}
-			            <button class="btn btn-link" type="submit" data-toggle="tooltip" title="Выход"><i class="fa fa-sign-out" aria-hidden="true"></i></button>
+			            <button class="btn btn-link" type="submit" data-toggle="tooltip" title="{{ trans('account.menu.logout') }}"><i class="fa fa-sign-out" aria-hidden="true"></i></button>
 			        </form>
 			    </nav>
 			    <hr class="m-0">
@@ -39,13 +39,13 @@
 				        	<div class="d-none d-sm-block navbar-collapse account-sidebar" id="accountSidebar">
 					            <ul class="nav nav-pills flex-column">
 						            <li class="nav-item">
-						                <router-link to="/" class="nav-link" exact>Общая информация</router-link>
+						                <router-link to="/" class="nav-link" exact>{{ trans('account.menu.general_info') }}</router-link>
 						            </li>
 						            <li class="nav-item">
-						                <router-link to="/leasing" class="nav-link">Лизинговые платежи</router-link>
+						                <router-link to="/leasing" class="nav-link">{{ trans('account.menu.leasing_payments') }}</router-link>
 						            </li>
 						            <li class="nav-item">
-						            	<router-link to="/services" class="nav-link">Комунальные услуги</router-link>
+						            	<router-link to="/services" class="nav-link">{{ trans('account.menu.public_service') }}</router-link>
 						            </li>
 					            </ul>
 				        	</div>

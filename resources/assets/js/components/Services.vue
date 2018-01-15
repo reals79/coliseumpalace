@@ -1,6 +1,6 @@
 <template>
     <div>
-        <h5>Комунальные услуги</h5>
+        <h5>{{ $t('account.menu.public_service') }}</h5>
         <hr class="m-0">
         <div class="container mt-2">
             

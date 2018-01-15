@@ -6,11 +6,11 @@
         <div class="jumbotron content">
             <div class="container">
     			<ol class="breadcrumb mb-0 pl-0">
-                    @if (!$is_gallery_list) <li class="breadcrumb-item"><a href="{{ url('gallery') }}">Фотогалерея</a></li> @endif
+                    @if (!$is_gallery_list) <li class="breadcrumb-item"><a href="{{ url('gallery') }}">{{ trans('app.menu.photo_gallery') }}</a></li> @endif
     			    <li class="breadcrumb-item active"></li>
     			</ol>
                 @if ($is_gallery_list)
-                    <h4 class="text-primary">Фотогалерея</h4>
+                    <h4 class="text-primary">{{ trans('app.menu.photo_gallery') }}</h4>
                     <hr class="my-4">
                     <div class="card-columns">
                     @foreach ($gallery as $gal)

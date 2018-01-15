@@ -8,10 +8,19 @@
 require('./bootstrap');
 
 window.Vue = require('vue');
-
 import VueRouter from 'vue-router';
 
+import VueInternalization from 'vue-i18n';
+import Locales from './vue-i18n-locales.generated.js';
+
 Vue.use(VueRouter);
+Vue.use(VueInternalization);
+Vue.config.lang = locale;
+const i18n = new VueInternalization({ locale, messages: Locales });
+
+/*Object.keys(Locales).forEach(function (lang) {
+  Vue.locale(lang, Locales[lang])
+});*/
 
 Vue.filter('formatDate', function(value) {
   if (value) {
@@ -42,6 +51,7 @@ let router = new VueRouter({
 
 const app = new Vue({
     el: '#app',
+    i18n,
     router,
     data() {
         return {

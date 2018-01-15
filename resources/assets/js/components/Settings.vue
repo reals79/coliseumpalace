@@ -1,10 +1,10 @@
 <template>
     <div>
-        <h5>Настройки</h5>
+        <h5>{{ $t('account.menu.settings') }}</h5>
         <hr class="m-0">
         <div class="container mt-2">
             <div class="alert alert-success fade show" role="alert" v-if="alert">
-                Данные сохранены!
+                {{ $t('account.data_saved') }}
             </div>
             <form @submit="settings_save">
                 <div class="row">
@@ -12,7 +12,7 @@
                         <label class="custom-control custom-checkbox mt-2">
                             <input type="checkbox" id="send_email" name="send_email" v-model="settings.send_email" class="custom-control-input">
                             <span class="custom-control-indicator"></span>
-                            <span class="custom-control-description">Уведомление по Email:</span>
+                            <span class="custom-control-description">{{ $t('account.notify_email') }}:</span>
                         </label>
                     </div>
                 </div>
@@ -21,13 +21,13 @@
                         <label class="custom-control custom-checkbox mt-2">
                             <input type="checkbox" id="send_sms" name="send_sms" v-model="settings.send_sms" class="custom-control-input">
                             <span class="custom-control-indicator"></span>
-                            <span class="custom-control-description">Уведомление по SMS:</span>
+                            <span class="custom-control-description">{{ $t('account.notify_sms') }}:</span>
                         </label>
                     </div>
                 </div>
                 <div class="form-group row">
                     <div class="col-sm-4">
-                        <button type="submit" class="btn btn-primary float-right">Сохранить</button>
+                        <button type="submit" class="btn btn-primary float-right">{{ $t('account.buttons.save') }}</button>
                     </div>
                 </div>
             </form>

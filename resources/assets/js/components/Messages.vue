@@ -1,6 +1,6 @@
 <template>
     <div>
-        <h5>Сообщения</h5>
+        <h5>{{ $t('account.menu.messages') }}</h5>
         <hr class="m-0">
         <div class="container mt-2">
             

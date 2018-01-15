@@ -7,6 +7,7 @@
 
     <!-- CSRF Token -->
     <meta name="csrf-token" content="{{ csrf_token() }}">
+    <meta name="locale" content="{{ app()->getLocale() }}">
 
     <title>{{ config('app.name', '') }}</title>
 
@@ -44,10 +45,10 @@
                                 </div>
                             </li>
                             <li class="nav-item">
-                                <a href="{{ url('about') }}" class="nav-link">О Доме</a>
+                                <a href="{{ url('about') }}" class="nav-link">{{ trans('app.menu.about') }}</a>
                             </li>
                             <li class="nav-item dropdown">
-                                <label class="nav-link dropdown-toggle mb-0" data-toggle="dropdown">Квартиры</label>
+                                <label class="nav-link dropdown-toggle mb-0" data-toggle="dropdown">{{ trans('app.menu.appartments') }}</label>
                                 <ul class="dropdown-menu">
                                     @foreach ($apartment_types as $apartment_type)
                                         <li class="nav-item"><a class="nav-link" href="{{ route('apartment', [$apartment_type->id]) }}">{{ $apartment_type->name }}</a></li>
@@ -66,10 +67,10 @@
                                 </li>
                             @endforeach
                             <li class="nav-item">
-                                <a href="{{ route('gallery') }}" class="nav-link">Фотогалерея</a>
+                                <a href="{{ route('gallery') }}" class="nav-link">{{ trans('app.menu.photo_gallery') }}</a>
                             </li>
                             <li class="nav-item">
-                                <a href="{{ route('account', ['subdomain' => 'my']) }}" class="nav-link">My Coliseum</a>
+                                <a href="{{ route('account', ['subdomain' => 'my']) }}" class="nav-link">{{ trans('app.menu.my_coliseum') }}</a>
                             </li>
                         </ul>
                     </div>
@@ -89,7 +90,7 @@
                     <p>
                         <ul class="nav flex-column">
                             <li class="nav-item">
-                                <a href="{{ url('about') }}">О Доме</a>
+                                <a href="{{ url('about') }}">{{ trans('app.menu.about') }}</a>
                             </li>
 
                             @foreach ($main_menu_footer as $menu_footer)
@@ -97,10 +98,10 @@
                             @endforeach
 
                             <li class="nav-item">
-                                <a href="{{ route('gallery') }}">Фотогалерея</a>
+                                <a href="{{ route('gallery') }}">{{ trans('app.menu.photo_gallery') }}</a>
                             </li>
                             <li class="nav-item">
-                                <a href="{{ route('video') }}">Видеогалерея</a>
+                                <a href="{{ route('video') }}">{{ trans('app.menu.video_gallery') }}</a>
                             </li>
                         </ul>
                     </p>
@@ -149,7 +150,7 @@
     <!-- Scripts -->
     <script src="//maps.google.com/maps/api/js?key=AIzaSyCTuUv0Fhg16xNNYB3KL4vwOrSDgw-IK4o&region=MD"></script>
     <script src="{{ mix('js/app.js') }}"></script>
-    
+
     @yield('script')
 
     <div id="fb-root"></div>
@@ -157,7 +158,7 @@
       var js, fjs = d.getElementsByTagName(s)[0];
       if (d.getElementById(id)) return;
       js = d.createElement(s); js.id = id;
-      js.src = "//connect.facebook.net/ru_RU/sdk.js#xfbml=1&version=v2.10";
+      js.src = "//connect.facebook.net/{{ LaravelLocalization::getCurrentLocaleRegional() }}/sdk.js#xfbml=1&version=v2.10";
       fjs.parentNode.insertBefore(js, fjs);
     }(document, 'script', 'facebook-jssdk'));</script>
 

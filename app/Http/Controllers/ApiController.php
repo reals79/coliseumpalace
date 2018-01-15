@@ -26,10 +26,10 @@ class ApiController extends Controller
     		if ($verify_code == $v_code) {
     			$results = ['error' => false, 'success' => true, 'user_id' => $user->id];
     		} else {
-    			$results = ['error' => true, 'verify_code' => 'Проверочный код не верный.'];
+    			$results = ['error' => true, 'verify_code' => trans('account.code_not_correct')];
     		}
     	} else {
-    		$results = ['error' => true, 'idno' => 'Пользователя с таким IDNO не найдено.'];
+    		$results = ['error' => true, 'idno' => trans('account.idno_not_found')];
     	}
 
     	return $results;
@@ -45,7 +45,7 @@ class ApiController extends Controller
     		$user->update(['password' => bcrypt($password), 'api_token' => str_random(60)]);
     		$results = ['error' => false, 'success' => true];
     	} else {
-    		$results = ['error' => true, 'password' => 'Пароль не должен быть пустым.'];
+    		$results = ['error' => true, 'password' => trans('account.password_empty')];
     	}
 
     	return $results;

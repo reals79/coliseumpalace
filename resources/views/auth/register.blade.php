@@ -7,7 +7,7 @@
             <div class="row justify-content-center">
                 <div class="col-sm-12 col-md-6">
                     <div class="card">
-                        <div class="card-header bg-transparent"><h6 class="mb-0">Регистрация в My Coliseum</h6></div>
+                        <div class="card-header bg-transparent"><h6 class="mb-0">{{ trans('account.registration') }}</h6></div>
                         <div class="card-body card-text">
                             <div class="row">
                                 <div class="col-12">

@@ -1,0 +1,42 @@
+<?php
+
+return [
+
+    'layout' => 'Планировка',
+    'building' => 'Здание',
+    'number_rooms' => 'Количество комнат',
+    'total_area' => 'Общая площадь',
+    'living_area' => 'Жилая площадь',
+    'hall' => 'Прихожая',
+    'living_room' => 'Гостиная',
+    'kitchen' => 'Кухня',
+    'wardrobe' => 'Гардеробная',
+    'terrace' => 'Терраса',
+    'bedroom' => 'Спальня',
+    'bathroom' => 'Санузел',
+    'in_stock' => 'В наличии',
+    'apartment_number' => 'Номер квартиры',
+    'floor' => 'Этаж',
+    'price' => 'Цена при 100% оплате',
+    'program_finance' => 'Программа финансирования',
+    'similar' => 'Подобные',
+    'area_between' => 'Площадь: от :from до :to',
+    'price_between' => 'Цена: от :from до :to',
+
+    'select_apartment' => 'Выбрать квартиру',
+    'enter_price_apartment' => 'Введите стоимость квартиры:',
+    'calculate' => 'Рассчитать',
+    'calculation' => 'Расчёт...',
+    'initial_fee' => 'Первоначальный взнос:',
+    'period' => 'Период',
+    'payment_date' => 'Дата оплаты',
+    'payment_quart' => 'Квартальная выплата по лизингу',
+    'including' => 'включая',
+    'fee' => 'Пеня',
+    'amount_rest' => 'Остаточная сумма',
+    'paid' => 'Оплачено',
+    'sum' => 'Сумма',
+    'percent_rate' => 'Процентная ставка',
+    'total' => 'Всего',
+
+];

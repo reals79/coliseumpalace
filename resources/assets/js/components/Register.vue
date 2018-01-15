@@ -10,31 +10,31 @@
                     <input type="text" class="form-control" :class="{ 'is-invalid': error && response.verify_code }" id="verify_code" name="verify_code" v-model="verify_code" title="Проверочный код" placeholder="Проверочный код" required>
                     <div class="invalid-feedback" v-if="error && response.verify_code">{{ response.verify_code }}</div>
                     <small class="form-text">
-                        <strong>Проверочный код формируется следующим образом (пр. GO093032):</strong>
+                        <strong>{{ $t('account.text_1') }}</strong>
                         <ul>
-                            <li>GO – первые буквы фамилии и имени (пр. Gitu Oxana – необходимо ввести заглавными буквами GO)</li>
-                            <li>093032 – последние 6 цифр идентификационного номера (пр. 2001002093032 – 093032)</li>
+                            <li>{{ $t('account.text_2') }}</li>
+                            <li>{{ $t('account.text_3') }}</li>
                         </ul>
                     </small>
                 </div>
-                <button type="submit" class="btn btn-primary float-right">Далее &gt;</button>
+                <button type="submit" class="btn btn-primary float-right">{{ $t('app.buttons.more') }}</button>
             </form>
         </div>
         <div id="register-step-1" v-if="step === 2">
             <form @submit="register" role="form">
                 <div class="form-group">
-                    <input type="password" class="form-control" id="password" name="password" v-model="password" title="Пароль" placeholder="Пароль" required>
+                    <input type="password" class="form-control" id="password" name="password" v-model="password" :title="$t('account.password')" :placeholder="$t('account.password')" required>
                 </div>
                 <div class="form-group">
-                    <input type="password" class="form-control" :class="{ 'is-invalid': error }" id="password_confirmation" name="password_confirmation" v-model="password_confirmation" title="Подтверждение пароля" placeholder="Подтверждение пароля" required>
-                    <div class="invalid-feedback" v-if="error">Пароль не совпадает с подтверждением.</div>
+                    <input type="password" class="form-control" :class="{ 'is-invalid': error }" id="password_confirmation" name="password_confirmation" v-model="password_confirmation" :title="$t('account.password_confirm')" :placeholder="$t('account.password_confirm')" required>
+                    <div class="invalid-feedback" v-if="error">{{ $t('account.password_dont_match') }}</div>
                 </div>
-                <button type="submit" class="btn btn-primary float-right">Сохранить</button>
+                <button type="submit" class="btn btn-primary float-right">{{ $t('account.buttons.save') }}</button>
             </form>
         </div>
         <div id="register-step-1" v-if="step === 3">
-            <h4 class="text-primary">Регистрация успешно выполнена!</h4>
-            <p class="lead">Теперь Вы можете авторизоваться в <a href="/">My Coliseum</a> используя Ваш IDNO и установленный пароль.</p>
+            <h4 class="text-primary">{{ $t('account.registration_success') }}</h4>
+            <p class="lead">{{ $t('account.text_4') }}</p>
         </div>
     </div>
 </template>

@@ -8,8 +8,8 @@
                 </li>
             </ul>
             <div class="d-flex">
-                <div v-if="step > 1"><a @click="handlePrev" class="btn btn-link">...назад</a></div>
-                <div class="ml-auto" v-if="step < records.length"><a @click="handleNext" class="btn btn-link">далее...</a></div>
+                <div v-if="step > 1"><a @click="handlePrev" class="btn btn-link">{{ $t('app.buttons.back') }}</a></div>
+                <div class="ml-auto" v-if="step < records.length"><a @click="handleNext" class="btn btn-link">{{ $t('app.buttons.more') }}</a></div>
             </div>
         </div>
     </div>

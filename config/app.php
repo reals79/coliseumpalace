@@ -170,6 +170,7 @@ return [
         SleepingOwl\Admin\Providers\SleepingOwlServiceProvider::class,
         Mcamara\LaravelLocalization\LaravelLocalizationServiceProvider::class,
         Dimsav\Translatable\TranslatableServiceProvider::class,
+        MartinLindhe\VueInternationalizationGenerator\GeneratorProvider::class,
 
         /*
          * Application Service Providers...

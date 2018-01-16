@@ -25,7 +25,15 @@
                         <div class="media-body ml-5 mt-5">
                             <div class="">
                                 <ul class="list-group border rounded">
-                                    <li class="m-2">{{ trans('apartment.building') }}: <span class="text-primary font-weight-bold">{{ $apartment->building->name }}</span></li>
+                                    <li class="m-2">{{ trans('apartment.building') }}:
+                                        <a href="#" class="dropdown-toggle font-weight-bold" id="dpBuildings" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">{{ $apartment->building->name }}</a>
+                                        <div class="dropdown-menu" aria-labelledby="dpBuildings">
+                                            <a href="{{ route('apartment', ['apartmentType' => $apartmentType->id]) }}" class="dropdown-item {{ ((!$building_id) ? 'active' : '') }}">{{ trans('apartment.all') }}</a>
+                                            @foreach ($buildings as $apBuilding)
+                                                <a href="{{ route('apartment', ['apartmentType' => $apartmentType->id, 'building_id' => $apBuilding->id]) }}" class="dropdown-item {{ (($building_id == $apBuilding->id) ? 'active' : '') }}">{{ $apBuilding->name }}</a>
+                                            @endforeach
+                                        </div>
+                                    </li>
                                     @if ($apartment->number_rooms > 0)
                                         <li class="m-2">{{ trans('apartment.number_rooms') }}: <span class="text-primary font-weight-bold">{{ $apartment->number_rooms }}</span></li>
                                     @endif
@@ -122,7 +130,7 @@
                                         </p>
                                     </div>
                                     <div class="card-footer text-right">
-                                        <a href="{{ route('apartment', ['apartmentType' => $apart->apartment_type_id, 'apartment' => $apart->id]) }}" class="btn btn-primary">{{ trans('app.buttons.more') }}</a>
+                                        <a href="{{ route('apartment', ['apartmentType' => $apart->apartment_type_id, 'building_id' => 0, 'apartment' => $apart->id]) }}" class="btn btn-primary">{{ trans('app.buttons.more') }}</a>
                                     </div>
                                 </div>
                             </li>

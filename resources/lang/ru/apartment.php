@@ -3,6 +3,7 @@
 return [
 
     'layout' => 'Планировка',
+    'all' => 'Все',
     'building' => 'Здание',
     'number_rooms' => 'Количество комнат',
     'total_area' => 'Общая площадь',

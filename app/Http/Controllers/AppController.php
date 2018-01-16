@@ -14,6 +14,7 @@ use App\Video;
 use App\Settings;
 use App\Apartment;
 use App\ApartmentType;
+use App\Building;
 
 class AppController extends Controller
 {
@@ -66,9 +67,17 @@ class AppController extends Controller
         return view('content', $data);
     }
 
-    public function apartment(ApartmentType $apartmentType, Apartment $apartment = null)
+    public function apartment(ApartmentType $apartmentType, $building_id = 0, Apartment $apartment = null)
     {
-        $apartments = $apartmentType->apartments;
+        //if (!$building) $building = null;
+
+        $buildings = Building::all();
+        if ($building_id) {
+            $apartments = $apartmentType->apartments()->where('building_id', $building_id)->get();
+        } else {
+            $apartments = $apartmentType->apartments;
+        }
+
         if (!$apartment) {
             $apartment = $apartments->first();
         }
@@ -78,7 +87,7 @@ class AppController extends Controller
             $floors = explode(',', $apartment->floor);
             $prices = explode(',', $apartment->price);
         }
-        $data = compact('apartmentType', 'apartments', 'apartment', 'total_areas', 'number_apartments', 'floors', 'prices');
+        $data = compact('apartmentType', 'building_id', 'buildings', 'apartments', 'apartment', 'total_areas', 'number_apartments', 'floors', 'prices');
         
         return view('apartment', $data);
     }

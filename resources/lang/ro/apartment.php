@@ -3,6 +3,7 @@
 return [
 
     'layout' => 'Planificare',
+    'all' => 'Totul',
     'building' => 'Bloc',
     'number_rooms' => 'Nr. odăilor',
     'total_area' => 'Suprafața totală',

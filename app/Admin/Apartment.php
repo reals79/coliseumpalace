@@ -66,11 +66,15 @@ AdminSection::registerModel(\App\Apartment::class, function (ModelConfiguration 
                         AdminFormElement::text('terrace', 'Терраса')->addValidationRule('numeric')->setDefaultValue(0),
                 ])->addColumn([
                     AdminFormElement::view('admin.dynamic-inputs', ['name' => 'bedrooms', 'label' => 'Спальни', 'value' => 0], function(\App\Apartment $model, Illuminate\Http\Request $request) {
-                        $bedrooms = array_filter($request->bedrooms, function($value) { return !empty($value); });
+                        if (!empty($request->bedrooms))
+                            $bedrooms = array_filter($request->bedrooms, function($value) { return !empty($value); });
+                        else $bedrooms = '';
                         $model->bedrooms = $bedrooms;
                     }),
                     AdminFormElement::view('admin.dynamic-inputs', ['name' => 'bathrooms', 'label' => 'Санузлы', 'value' => 0], function(\App\Apartment $model, Illuminate\Http\Request $request) {
-                        $bathrooms = array_filter($request->bathrooms, function($value) { return !empty($value); });
+                        if (!empty($request->bathrooms))
+                            $bathrooms = array_filter($request->bathrooms, function($value) { return !empty($value); });
+                        else $bathrooms = '';
                         $model->bathrooms = $bathrooms;
                     }),
                 ])

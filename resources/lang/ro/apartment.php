@@ -25,7 +25,7 @@ return [
 
     'select_apartment' => 'Alegeți apartamentul',
     'enter_price_apartment' => 'Introduceți suma apartamentului:',
-    'calculate' => 'A calcula',
+    'calculate' => 'Calculație',
     'calculation' => 'Calculul...',
     'initial_fee' => 'Rata inițială:',
     'period' => 'Perioada',

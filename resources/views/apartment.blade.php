@@ -28,10 +28,10 @@
                                     <li class="m-2">{{ trans('apartment.building') }}:
                                         <a href="#" class="dropdown-toggle font-weight-bold" id="dpBuildings" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">{{ $apartment->building->name }}</a>
                                         <div class="dropdown-menu" aria-labelledby="dpBuildings">
-                                            <a href="{{ route('apartment', ['apartmentType' => $apartmentType->id]) }}" class="dropdown-item {{ ((!$building_id) ? 'active' : '') }}">{{ trans('apartment.all') }}</a>
                                             @foreach ($buildings as $apBuilding)
                                                 <a href="{{ route('apartment', ['apartmentType' => $apartmentType->id, 'building_id' => $apBuilding->id]) }}" class="dropdown-item {{ (($building_id == $apBuilding->id) ? 'active' : '') }}">{{ $apBuilding->name }}</a>
                                             @endforeach
+                                            <a href="{{ route('apartment', ['apartmentType' => $apartmentType->id]) }}" class="dropdown-item {{ ((!$building_id) ? 'active' : '') }}">{{ trans('apartment.all') }}</a>
                                         </div>
                                     </li>
                                     @if ($apartment->number_rooms > 0)

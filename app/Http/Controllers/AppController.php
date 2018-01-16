@@ -69,8 +69,6 @@ class AppController extends Controller
 
     public function apartment(ApartmentType $apartmentType, $building_id = 0, Apartment $apartment = null)
     {
-        //if (!$building) $building = null;
-
         $buildings = Building::all();
         if ($building_id) {
             $apartments = $apartmentType->apartments()->where('building_id', $building_id)->get();

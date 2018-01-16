@@ -108,35 +108,41 @@
                     </div>
                 @endif
 
-                <hr class="mt-5">
+                @if ($apartments->count())
+                    <hr class="mt-5">
 
-                <div class="apartments">
-                    <h3 class="text-primary">{{ trans('apartment.similar') }}</h3>
-                    <ol class="apartment-list owl-carousel owl-theme">
-                        @foreach($apartments as $apart)
-                        <?php 
-                            $areas = explode(',', $apart->total_area); sort($areas, SORT_NUMERIC);
-                            $prices = explode(',', $apart->price); sort($prices, SORT_NUMERIC);
-                        ?>
-                            <li>
-                                <div class="card">
-                                    <img class="card-img-top p-2" src="{{ url($apart->image) }}" alt="" height="230">
-                                    <div class="card-body">
-                                        <p class="card-text">
-                                            {!! trans('apartment.area_between', ['from' => '<span class="text-primary">' . $areas[0] . '</span> <small>m<sup>2</sup></small>', 'to' => '<span class="text-primary">' . end($areas) . '</span> <small>m<sup>2</sup></small>']) !!}
-                                        </p>
-                                        <p class="card-text">
-                                            {!! trans('apartment.price_between', ['from' => '<span class="text-primary">&euro;' . number_format($prices[0], 0) . '</span> ', 'to' => '<span class="text-primary">&euro;' . number_format(end($prices), 0) . '</span>']) !!}
-                                        </p>
+                    <div class="apartments">
+                        <h3 class="text-primary">{{ trans('apartment.similar') }}</h3>
+                        <ol class="apartment-list owl-carousel owl-theme">
+                            @foreach($apartments as $apart)
+                            <?php 
+                                $areas = explode(',', $apart->total_area); sort($areas, SORT_NUMERIC);
+                                $prices = explode(',', $apart->price); sort($prices, SORT_NUMERIC);
+                            ?>
+                                <li>
+                                    <div class="card">
+                                        <img class="card-img-top p-2" src="{{ url($apart->image) }}" alt="" height="230">
+                                        <div class="card-body">
+                                            <p class="card-text">
+                                                {!! trans('apartment.area_between', ['from' => '<span class="text-primary">' . $areas[0] . '</span> <small>m<sup>2</sup></small>', 'to' => '<span class="text-primary">' . end($areas) . '</span> <small>m<sup>2</sup></small>']) !!}
+                                            </p>
+                                            <p class="card-text">
+                                                {!! trans('apartment.price_between', ['from' => '<span class="text-primary">&euro;' . number_format($prices[0], 0) . '</span> ', 'to' => '<span class="text-primary">&euro;' . number_format(end($prices), 0) . '</span>']) !!}
+                                            </p>
+                                        </div>
+                                        <div class="card-footer text-right">
+                                            <a href="{{ route('apartment', ['apartmentType' => $apart->apartment_type_id, 'building_id' => 0, 'apartment' => $apart->id]) }}" class="btn btn-primary">{{ trans('app.buttons.more') }}</a>
+                                        </div>
                                     </div>
-                                    <div class="card-footer text-right">
-                                        <a href="{{ route('apartment', ['apartmentType' => $apart->apartment_type_id, 'building_id' => 0, 'apartment' => $apart->id]) }}" class="btn btn-primary">{{ trans('app.buttons.more') }}</a>
-                                    </div>
-                                </div>
-                            </li>
-                        @endforeach
-                    </ol>
-                </div>
+                                </li>
+                            @endforeach
+                        </ol>
+                    </div>
+                @else
+                    <div class="bd-callout bd-callout-danger">
+                        <h4><i class="fa fa-exclamation mr-2" aria-hidden="true"></i> {{ trans('apartment.sale') }}</h4>
+                    </div>
+                @endif
             </div>
         </div>
     </section>

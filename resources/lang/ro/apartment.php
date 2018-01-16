@@ -4,6 +4,7 @@ return [
 
     'layout' => 'Planificare',
     'all' => 'Toate',
+    'sale' => 'Vîndute',
     'building' => 'Bloc',
     'number_rooms' => 'Nr. odăilor',
     'total_area' => 'Suprafața totală',

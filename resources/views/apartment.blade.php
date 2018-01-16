@@ -115,10 +115,10 @@
                                     <img class="card-img-top p-2" src="{{ url($apart->image) }}" alt="" height="230">
                                     <div class="card-body">
                                         <p class="card-text">
-                                            {{ trans('apartment.area_between', ['from' => '<span class="text-primary">' . $areas[0] . '</span> <small>m<sup>2</sup></small>', 'to' => '<span class="text-primary">' . end($areas) . '</span> <small>m<sup>2</sup></small>']) }}
+                                            {!! trans('apartment.area_between', ['from' => '<span class="text-primary">' . $areas[0] . '</span> <small>m<sup>2</sup></small>', 'to' => '<span class="text-primary">' . end($areas) . '</span> <small>m<sup>2</sup></small>']) !!}
                                         </p>
                                         <p class="card-text">
-                                            {{ trans('apartment.price_between', ['from' => '<span class="text-primary">>&euro;' . number_format($prices[0], 0) . '</span> ', 'to' => '<span class="text-primary">&euro;' . number_format(end($prices), 0) . '</span>']) }}
+                                            {!! trans('apartment.price_between', ['from' => '<span class="text-primary">&euro;' . number_format($prices[0], 0) . '</span> ', 'to' => '<span class="text-primary">&euro;' . number_format(end($prices), 0) . '</span>']) !!}
                                         </p>
                                     </div>
                                     <div class="card-footer text-right">

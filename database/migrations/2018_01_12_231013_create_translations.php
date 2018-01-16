@@ -18,6 +18,7 @@ class CreateTranslations extends Migration
         {
             $table->increments('id');
             $table->integer('content_id')->unsigned()->nullable();
+            $table->integer('contact_id')->unsigned()->nullable();
             $table->integer('content_main_id')->unsigned()->nullable();
             $table->integer('content_about_id')->unsigned()->nullable();
             $table->integer('content_simple_id')->unsigned()->nullable();
@@ -27,6 +28,7 @@ class CreateTranslations extends Migration
 
             $table->unique(['content_id', 'locale']);
             $table->foreign('content_id')->references('id')->on('contents')->onDelete('cascade');
+            $table->foreign('contact_id')->references('id')->on('contents')->onDelete('cascade');
             $table->foreign('content_main_id')->references('id')->on('contents')->onDelete('cascade');
             $table->foreign('content_about_id')->references('id')->on('contents')->onDelete('cascade');
             $table->foreign('content_simple_id')->references('id')->on('contents')->onDelete('cascade');

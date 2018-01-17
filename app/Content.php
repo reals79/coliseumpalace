@@ -52,7 +52,8 @@ class Content extends Model
 
     public function setImagesAttribute($images)
     {
-        $this->attributes['images'] = implode('|', $images);
+        if (!empty($images))
+            $this->attributes['images'] = implode('|', $images);
     }
     
 }

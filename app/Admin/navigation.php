@@ -52,32 +52,38 @@ return [
                 'model' => \App\ContentAbout::class,
                 'priority' => 1,
             ],
+            [
+                'title' => 'Коммерческие площади',
+                'icon'  => 'fa fa-file-text-o',
+                'model' => \App\ContentCommercial::class,
+                'priority' => 2,
+            ],
 
             [
                 'title' => 'Слайдшоу',
                 'icon'  => 'fa fa-picture-o',
                 'model' => \App\Slideshow::class,
-                'priority' => 2,
+                'priority' => 3,
             ],
 
             [
                 'title' => 'Фотогалерея',
                 'icon'  => 'fa fa-camera',
                 'model' => \App\Gallery::class,
-                'priority' => 3,
+                'priority' => 4,
             ],
 
             [
                 'title' => 'Видеогалерея',
                 'icon'  => 'fa fa-video-camera',
                 'model' => \App\Video::class,
-                'priority' => 4,
+                'priority' => 5,
             ],
             [
                 'title' => 'Контакты',
                 'icon'  => 'fa fa-address-card-o',
                 'model' => \App\Contact::class,
-                'priority' => 5,
+                'priority' => 6,
             ],
         ],
         'priority' => 2,

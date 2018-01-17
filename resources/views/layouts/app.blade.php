@@ -171,6 +171,7 @@
     s1.async=true;
     s1.src='https://embed.tawk.to/5a33ab5af4461b0b4ef88e6d/default';
     s1.charset='UTF-8';
+    s1.language='{{ app()->getLocale() }}';
     s1.setAttribute('crossorigin','*');
     s0.parentNode.insertBefore(s1,s0);
     })();

@@ -7,6 +7,7 @@ use View;
 
 use App\Content;
 use App\ContentMain;
+use App\ContentAbout;
 use App\ContentSimple;
 use App\Slideshow;
 use App\Gallery;
@@ -60,9 +61,11 @@ class AppController extends Controller
 
     public function about(Request $request)
     {
-        $content = Content::where(['content_id' => -4])->first();
+        $apartmentTypes = View::make('_partials.apartment_types')->render();
+
+        $content = ContentAbout::where(['content_id' => -4])->first();
         $contentsMain = ContentMain::where('content_id', -2)->get();
-        $data = compact('content', 'contentsMain');
+        $data = compact('content', 'contentsMain', 'apartmentTypes');
         
         return view('content', $data);
     }

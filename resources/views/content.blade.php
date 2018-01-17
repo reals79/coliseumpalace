@@ -16,6 +16,9 @@
 
                 @if ($content->content_id == -4)
                     @foreach($contentsMain as $contentMain)
+                        <?php
+                            $contentMain->descr = preg_replace('/%apartments%/', $apartmentTypes, $contentMain->descr);
+                        ?>
                         <div id="content-{{ $contentMain->id }}" class="card mt-5">
                             <div class="card-body">
                                 <h4 class="card-title">{{ $contentMain->name }}</h4>

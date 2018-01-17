@@ -27,7 +27,7 @@
                                     <ol class="slide-list owl-carousel owl-theme">
                                         @foreach($contentMain->images as $image)
                                             <li>
-                                                <img class="p-2" src="{{ url($image) }}" alt="" height="230">
+                                                <a href="{{ url($image) }}" data-toggle="lightbox" data-gallery="gallery-{{ $contentMain->id }}"><img class="p-2" src="{{ url($image) }}" alt="" height="230"></a>
                                             </li>
                                         @endforeach
                                     </ol>

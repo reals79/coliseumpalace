@@ -12,7 +12,7 @@ return [
     'menu' => [
     	'about' => 'Depre prioect',
         'appartments' => 'Apartamente',
-    	'commercial_area' => 'Spațiu comercial',
+    	'commercial_area' => 'Spații Comerciale',
     	'photo_gallery' => 'Galerie Foto',
     	'video_gallery' => 'Galerie Video',
     	'contacts' => 'Contacte',

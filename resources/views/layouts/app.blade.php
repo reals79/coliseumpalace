@@ -93,6 +93,9 @@
                             <li class="nav-item">
                                 <a href="{{ url('about') }}">{{ trans('app.menu.about') }}</a>
                             </li>
+                            <li class="nav-item">
+                                <a href="{{ url('commercial') }}">{{ trans('app.menu.commercial_area') }}</a>
+                            </li>
 
                             @foreach ($main_menu_footer as $menu_footer)
                                 <li class="nav-item"><a href="{{ route('content', [$menu_footer->id]) }}">{{ $menu_footer->name }}</a></li>

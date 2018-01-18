@@ -16,6 +16,7 @@ use App\Settings;
 use App\Apartment;
 use App\ApartmentType;
 use App\Building;
+use App\CommercialArea;
 
 class AppController extends Controller
 {
@@ -91,6 +92,26 @@ class AppController extends Controller
         $data = compact('apartmentType', 'building_id', 'buildings', 'apartments', 'apartment', 'total_areas', 'number_apartments', 'floors', 'prices');
         
         return view('apartment', $data);
+    }
+
+    public function commercial($building_id = 0, CommercialArea $commercial_area = null)
+    {
+        $content = ContentSimple::where('content_id', -6)->first();
+
+        $buildings = Building::all();
+        if ($building_id) {
+            $commercials = CommercialArea::where('building_id', $building_id)->get();
+        } else {
+            $commercials = CommercialArea::all();
+        }
+
+        if (!$commercial_area) {
+            $commercial_area = $commercials->first();
+        }
+
+        $data = compact('content', 'building_id', 'buildings', 'commercials', 'commercial_area');
+        
+        return view('commercial-area', $data);
     }
 
     public function gallery(Gallery $gallery = null)

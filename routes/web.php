@@ -27,6 +27,7 @@ Route::group([
 		Route::get('content/{content}', 'AppController@content')->name('content');
 		Route::get('about', 'AppController@about');
 		Route::get('apartment/{apartmentType}/{building_id?}/{apartment?}', 'AppController@apartment')->name('apartment');
+		Route::get('commercial/{building_id?}/{commercial_area?}', 'AppController@commercial')->name('commercial');
 		Route::get('gallery/{gallery?}', 'AppController@gallery')->name('gallery');
 		Route::get('video/', 'AppController@video')->name('video');
 	});

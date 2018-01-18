@@ -53,13 +53,6 @@ return [
                 'priority' => 1,
             ],
             [
-                'title' => 'Коммерческие площади',
-                'icon'  => 'fa fa-file-text-o',
-                'model' => \App\ContentCommercial::class,
-                'priority' => 2,
-            ],
-
-            [
                 'title' => 'Слайдшоу',
                 'icon'  => 'fa fa-picture-o',
                 'model' => \App\Slideshow::class,
@@ -113,6 +106,13 @@ return [
         ],
         'priority' => 3,
     ],
+    [
+        'title' => 'Коммерческие площади',
+        'icon'  => 'fa fa-building',
+        'model' => \App\CommercialArea::class,
+        'priority' => 4,
+    ],
+
 
     [
         'title' => 'Настройки калькулятора',

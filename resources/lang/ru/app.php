@@ -11,7 +11,8 @@ return [
 
     'menu' => [
     	'about' => 'О Доме',
-    	'appartments' => 'Квартиры',
+        'appartments' => 'Квартиры',
+    	'commercial_area' => 'Коммерческие площади',
     	'photo_gallery' => 'Фотогалерея',
     	'video_gallery' => 'Видеогалерея',
     	'contacts' => 'Контакты',

@@ -70,9 +70,9 @@
                             <li class="nav-item">
                                 <a href="{{ route('gallery') }}" class="nav-link">{{ trans('app.menu.photo_gallery') }}</a>
                             </li>
-                            <li class="nav-item">
+                            <!-- <li class="nav-item">
                                 <a href="{{ route('account', ['subdomain' => 'my']) }}" class="nav-link">{{ trans('app.menu.my_coliseum') }}</a>
-                            </li>
+                            </li> -->
                         </ul>
                     </div>
                 </nav>

@@ -10,7 +10,7 @@ return [
     ],
 
     'menu' => [
-    	'about' => 'Depre prioect',
+    	'about' => 'Despre prioect',
         'appartments' => 'Apartamente',
     	'commercial_area' => 'Spații Comerciale',
     	'photo_gallery' => 'Galerie Foto',

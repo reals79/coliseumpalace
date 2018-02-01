@@ -30,6 +30,7 @@
                             <a href="#" class="navbar-toggler no-decor" data-target="#sidebarMenu"><i class="fi flaticon-menu-2 fi-1x mr-1"></i></a>
                         </div>
                         <ul class="navbar-nav">
+                            <div class="bg-opacity"></div>
                             <li class="nav-item">
                                 <div class="nav-link lang-bar no-decor">
                                     <span>&middot;</span>

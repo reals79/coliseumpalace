@@ -11,7 +11,7 @@
 @import "~font-awesome/css/font-awesome.css";
 
 @import "_flaticon";
-.fi.fi-1x::before {font-size: 0.6em;}
+.fi.fi-1x::before {font-size: 1em;}
 .fi.fi-2x::before {font-size: 2em;}
 .fi.fi-3x::before {font-size: 3em;}
 .fi.fi-4x::before {font-size: 4em;}
@@ -152,16 +152,22 @@ header {
 		transform: translateX(100%);
 		transition: 600ms ease;
 		color: $white;
+		overflow: hidden;
 
 		> ul {
 			position: relative;
 			z-index: 2;
+			@include media-breakpoint-down(md) { 
+				top: 80px;
+				background-color: map-get($theme-colors, primary);
+			}
 		}
 
 		&.reveal {
 			transform: translateX(0%);
 			transition: 600ms ease;
 			right: 0;
+			overflow: visible !important;
 			.navbar-toggler {
 				margin-right: 0;
 			}

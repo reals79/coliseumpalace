@@ -78,7 +78,8 @@ const app = new Vue({
 import Events  from './event.js';
 
 import moment from 'moment';
-import Swiper from 'swiper';
+import Swiper from 'swiper/dist/js/swiper.min.js';
+//var Swiper = require('swiper/dist/js/swiper.min.js');
 import 'ekko-lightbox';
 import SmoothScroll from 'smooth-scroll';
 

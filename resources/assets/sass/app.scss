@@ -422,6 +422,14 @@ hr.divider {
 		border-right: 4px solid transparent;
 	}
 } */
+.card-body {
+    @include media-breakpoint-down(sm) {
+        padding: .25rem;
+    }
+}
 .card-title {
 	color: map-get($theme-colors, primary);
+    @include media-breakpoint-down(sm) {
+        font-size: 0.9rem;
+    }
 }

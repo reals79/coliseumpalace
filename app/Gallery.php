@@ -8,12 +8,13 @@ use SleepingOwl\Admin\Traits\OrderableModel;
 
 class Gallery extends Model
 {
-    use OrderableModel;
+    use OrderableModel, \Dimsav\Translatable\Translatable;
 
     //
     protected $fillable = [
         'name', 'images', 'activated', 'order'
     ];
+    public $translatedAttributes = ['name'];
 
     protected static function boot()
     {

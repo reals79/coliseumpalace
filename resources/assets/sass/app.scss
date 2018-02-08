@@ -291,10 +291,14 @@ hr.divider {
 #fab-wrapper {
     position: fixed;
     top: 50%;
-    right: 15px;
+    right: 1%;
     margin-top: -32px;
     z-index: 1004;
     transition: margin 280ms cubic-bezier(.4,0,.2,1);
+
+    @include media-breakpoint-down(sm) {
+        transform: scale(0.6);
+    }
 
 	.fab {
 	    box-sizing: border-box;

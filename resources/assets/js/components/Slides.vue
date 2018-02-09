@@ -55,15 +55,6 @@
 <style lang="scss" scoped>
     .slides {
         display: none;
-        .slide-link {
-            color: #fff !important;
-            text-decoration: underline;
-            font-size: 1.3rem;
-            &:hover {
-                text-decoration: none;
-                font-weight: normal;
-            }
-        }
         ul {
             li {
                 position: relative;

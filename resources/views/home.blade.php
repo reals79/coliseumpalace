@@ -13,7 +13,7 @@
                     <div class="swiper-descr">
                         <h1 class="display-4">{{ $descriptionsMain->name }}</h1>
                         <h2 class="text-center">
-                            {{ $descriptionsMain->descr }} <small><a href="#" data-toggle="swiper-title-more">{{ trans('app.buttons.more') }}</a></small>
+                            <a href="#" data-toggle="swiper-title-more" class="slide-link">{{ $descriptionsMain->descr }}</a>
                         </h2>
                         <slides :records="{{ $contentsMain }}"></slides>
                     </div>

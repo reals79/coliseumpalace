@@ -1,7 +1,7 @@
 <template>
     <div class="slides">
         <div v-for="(record, index) in records" v-if="step === (index+1)">
-            <a :href="'/about/#' + record.id" class="btn btn-link slide-link">{{ record.name }}</a>
+            <a :href="'/about/#' + record.id" class="btn btn-link slide-link px-0">{{ record.name }}</a>
             <ul class="list-inline mb-0 d-flex justify-content-around" v-if="record.images.length > 0">
                 <li class="list-inline-item">
                     <div class="image-wrap"><a :href="image = randomImage(record.images)" data-toggle="lightbox"><div :style="'background-image:url(' + image + ')'" class="img-thumbnail"></div></a></div>

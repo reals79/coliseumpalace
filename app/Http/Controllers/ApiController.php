@@ -61,11 +61,14 @@ class ApiController extends Controller
 
     public function settings(Request $request)
     {
-        # code...
+        return $request->user();
     }
     public function settingsSave(Request $request)
     {
-        # code...
+        $user = $request->user();
+        $user->update($request->only('notify_is_email', 'notify_is_sms'));
+
+        return;
     }
 
     public function alerts(Request $request)

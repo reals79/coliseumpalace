@@ -10,16 +10,16 @@
                 <div class="row">
                     <div class="col-sm-12 form-check">
                         <div class="custom-control custom-checkbox">
-                            <input type="checkbox" id="send_email" name="send_email" v-model="settings.send_email" class="custom-control-input">
-                            <label class="custom-control-label" for="send_email">{{ $t('account.notify_email') }}</label>
+                            <input type="checkbox" id="notify_email" name="notify_email" v-model="settings.notify_is_email" class="custom-control-input">
+                            <label class="custom-control-label" for="notify_email">{{ $t('account.notify_email') }}</label>
                         </div>
                     </div>
                 </div>
                 <div class="form-group row">
                     <div class="col-sm-12 form-check">
                         <label class="custom-control custom-checkbox mt-2">
-                            <input type="checkbox" id="send_sms" name="send_sms" v-model="settings.send_sms" class="custom-control-input">
-                            <label class="custom-control-label" for="send_sms">{{ $t('account.notify_sms') }}</label>
+                            <input type="checkbox" id="notify_sms" name="notify_sms" v-model="settings.notify_is_sms" class="custom-control-input">
+                            <label class="custom-control-label" for="notify_sms">{{ $t('account.notify_sms') }}</label>
                         </label>
                     </div>
                 </div>
@@ -35,8 +35,8 @@
 
 <script>
     const SETTINGS = {
-        send_email: false,
-        send_sms: false,
+        notify_is_email: false,
+        notify_is_sms: false,
     }
 
     export default {
@@ -64,7 +64,8 @@
             axios.get(
                 '/api/settings'
             ).then(response => {
-                this.settings = response.data;
+                this.settings.notify_is_email = response.data.notify_is_email;
+                this.settings.notify_is_sms = response.data.notify_is_sms;
             }, response => {
                 
             })

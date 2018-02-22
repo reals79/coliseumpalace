@@ -32,6 +32,8 @@ class CreateUsersTable extends Migration
             $table->float('total_amount_sold');
             $table->float('total_amount_debt');
             $table->boolean('activated')->default(0);
+            $table->boolean('notify_is_email')->default(1);
+            $table->boolean('notify_is_sms')->default(1);
             $table->rememberToken();
             $table->string('api_token',60)->unique()->nullable();
             $table->timestamps();

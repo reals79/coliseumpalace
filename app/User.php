@@ -15,7 +15,7 @@ class User extends Authenticatable
      * @var array
      */
     protected $fillable = [
-        'username', 'password', 'idno', 'first_name', 'last_name', 'email', 'phone', 'contract', 'contract_at', 'activated', 'api_token', 'total_amount_leasing', 'total_amount_leasing_period', 'total_amount_stavka', 'total_amount_fine', 'total_amount_pay', 'total_amount_sold', 'total_amount_debt'
+        'username', 'password', 'idno', 'first_name', 'last_name', 'email', 'phone', 'contract', 'contract_at', 'activated', 'api_token', 'total_amount_leasing', 'total_amount_leasing_period', 'total_amount_stavka', 'total_amount_fine', 'total_amount_pay', 'total_amount_sold', 'total_amount_debt', 'notify_is_email', 'notify_is_sms'
 
     ];
     protected $appends = ['pay_at'];

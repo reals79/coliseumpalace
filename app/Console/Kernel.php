@@ -26,6 +26,8 @@ class Kernel extends ConsoleKernel
     {
         // $schedule->command('inspire')
         //          ->hourly();
+        $schedule->call('App\Http\Controllers\RateController@importRates')
+                 ->twiceDaily(0, 6);
     }
 
     /**

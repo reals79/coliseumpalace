@@ -50,14 +50,10 @@ Route::get('/services', [
     'uses' => 'ApiController@services'
 ])->middleware('auth:api');
 
-Route::post('/post-data', [
-    'uses' => 'ApiController@dataProcess'
-]);
-
-Route::get('/post-data', [
-    'uses' => 'ApiController@dataProcess'
-]);
-
 Route::get('/data-process', [
     'uses' => 'DataController@dataProcess'
+]);
+
+Route::get('/rates', [
+    'uses' => 'RateController@getRates'
 ]);

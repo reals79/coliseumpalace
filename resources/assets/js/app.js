@@ -62,15 +62,19 @@ const app = new Vue({
         $route (to, from) {
         }
     },
+    methods: {
+        getUser() {
+            axios.get(
+                '/api/user'
+            ).then(response => {
+                this.user = response.data;
+                Events.$emit('data-user-loaded', this.user);
+            }, response => {
+                
+            })
+        }
+    },
     mounted() {
-        axios.get(
-            '/api/user'
-        ).then(response => {
-            this.user = response.data;
-            Events.$emit('data-user-loaded', this.user)
-        }, response => {
-            
-        })
     }
 });
 
@@ -100,6 +104,7 @@ function initMap() {
 }
 
 $(function() {
+    app.$root.getUser();
 
 	$('[data-toggle="tooltip"]').tooltip();
 

@@ -11,6 +11,8 @@
 |
 */
 
+Route::get('import-rates', 'RateController@importRates');
+
 Route::group([
 		'prefix' => LaravelLocalization::setLocale(),
 		'middleware' => [ 'localeSessionRedirect', 'localizationRedirect', 'localeViewPath']

@@ -55,7 +55,7 @@
                         <div id="block-period_pay" class="bg-white top-cards">
                             <div class="row px-3">
                                 <div class="col-lg-12 d-flex pt-2">
-                                    <div class="number-val text-info">
+                                    <div class="number-val text-primary">
                                         <i-count-up v-if="amount_paid"
                                           :start="0"
                                           :end="amount_paid"
@@ -63,7 +63,7 @@
                                         ></i-count-up>
                                     </div>
                                     <div class="ml-auto">
-                                        <i class="fa fa-eur fa-2x text-info" aria-hidden="true"></i>
+                                        <i class="fa fa-eur fa-2x text-primary" aria-hidden="true"></i>
                                     </div>
                                 </div>
                             </div>
@@ -78,9 +78,9 @@
                         <div id="block-period_pay" class="bg-white top-cards">
                             <div class="row px-3">
                                 <div class="col-lg-12 d-flex pt-2">
-                                    <div class="number-val text-warning" :class="{'animation-pulse text-danger': pay_at.diff >= -5}">{{ pay_at.when_at }}</div>
+                                    <div class="number-val text-primary" :class="{'animation-pulse text-danger': pay_at.diff >= -5}">{{ pay_at.when_at }}</div>
                                     <div class="ml-auto">
-                                        <i class="fa fa-calendar fa-2x text-warning" aria-hidden="true"></i>
+                                        <i class="fa fa-calendar fa-2x text-primary" aria-hidden="true"></i>
                                     </div>
                                 </div>
                             </div>
@@ -97,34 +97,19 @@
                         <div id="block-period_pay" class="bg-white top-cards">
                             <div class="row px-3">
                                 <div class="col-lg-12 d-flex pt-2">
-                                    <div class="card-description text-success">{{ $t('account.rates') }}
-                                        <div class="small text-secondary mt-1">{{ $t('account.rates_on', {rates: '30.10.2017'}) }}</div>
+                                    <div class="card-description text-primary">{{ $t('account.rates') }}
+                                        <div class="small text-secondary mt-1">{{ $t('account.rates_on', {rates: rates.date_at}) }}</div>
                                     </div>
                                     <div class="ml-auto">
-                                        <i class="fa fa-bar-chart fa-2x text-success" aria-hidden="true"></i>
+                                        <i class="fa fa-bar-chart fa-2x text-primary" aria-hidden="true"></i>
                                     </div>
                                 </div>
                             </div>
                             <div class="row p-3 data-rate">
-                                <div class="col-3 text-center">
-                                    <div>USD</div>
-                                    <span class="flag-icon flag-icon-us flag-icon-squared my-2"></span>
-                                    <div>17.27</div>
-                                </div>
-                                <div class="col-3 text-center">
-                                    <div>EUR</div>
-                                    <span class="flag-icon flag-icon-eu flag-icon-squared my-2"></span>
-                                    <div>20.08</div>
-                                </div>
-                                <div class="col-3 text-center">
-                                    <div>RUB</div>
-                                    <span class="flag-icon flag-icon-ru flag-icon-squared my-2"></span>
-                                    <div>0.29</div>
-                                </div>
-                                <div class="col-3 text-center">
-                                    <div>RON</div>
-                                    <span class="flag-icon flag-icon-ro flag-icon-squared my-2"></span>
-                                    <div>4.36</div>
+                                <div v-for="(rate, index) in rates.data" :key="rate.id" class="col-sm text-center">
+                                    <div>{{ rate.char_code }}</div>
+                                    <span :class="'flag-icon flag-icon-squared my-2 flag-icon-'+rate.char_code_short"></span>
+                                    <div>{{ (rate.value).toFixed(2) }}</div>
                                 </div>
                             </div>
                         </div>
@@ -151,7 +136,11 @@
                     prefix: '',
                     suffix: ''
                 },
-                user: {}
+                user: {},
+                rates: {
+                    date_at: moment().format('DD.MM.YYYY'),
+                    data: []
+                },
             }
         },
         computed: {
@@ -183,7 +172,17 @@
                 this.user = this.$root.$data.user;
             Events.$on('data-user-loaded', function(user) {
                 this.user = user;
-            }.bind(this))
+            }.bind(this));
+
+            axios.get(
+                '/api/rates'
+            ).then(response => {
+                this.rates.data = response.data;
+                this.rates.date_at = moment(this.rates.data[0].created_at).format('DD.MM.YYYY');
+            }, response => {
+                
+            })
+
         },
         components: { ICountUp }
     }

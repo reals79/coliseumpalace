@@ -42,7 +42,7 @@ class ApiController extends Controller
     	$password = trim($request->password);
     	
     	if (!empty($password)) {
-    		$user->update(['password' => bcrypt($password), 'api_token' => str_random(60)]);
+    		$user->update(['password' => bcrypt($password), 'api_token' => str_random(60), 'activated' => 1]);
     		$results = ['error' => false, 'success' => true];
     	} else {
     		$results = ['error' => true, 'password' => trans('account.password_empty')];

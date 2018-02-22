@@ -4,7 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Storage;
-use XBase\Table;
+use org\majkel\dbase\Table;
 
 use App\User;
 use App\UserRecords;
@@ -25,29 +25,32 @@ class DataController extends Controller
         $file_path_records = storage_path('app/' . $file_name_records);
         $exists_records = Storage::exists($file_name_records);
         if ($exists_records) {
-        	$table_records = new Table($file_path_records);
+            $table_records = Table::fromFile($file_path_records);
         }
 
         if (Storage::exists($file_name_clients)) {
-            $table_clients = new Table($file_path_clients);
+            $table_clients = Table::fromFile($file_path_clients);
             
-            while ($record_client = $table_clients->nextRecord()) {
-                $idno = trim($record_client->clientid);
-                $contract = trim($record_client->contract);
-                $contract_at = $record_client->getDate('contrdta');
-                $name = $record_client->name;
+            foreach ($table_clients as $record_client) {
+                $idno = trim($record_client->CLIENTID);
+                $contract = trim($record_client->CONTRACT);
+                $contract_at = $record_client->CONTRDTA->format('Y-m-d');
+                $name = $record_client->NAME;
+                $name_arr = preg_split('/ /', $name);
+                $last_name = trim(array_shift($name_arr));
+                $first_name = trim(implode(' ', $name_arr));
                 $tbl_data = [
                     'idno' => $idno,
-                    'contract_at' => ($contract_at > 0) ? date('Y-m-d', $contract_at) : null,
-                    'first_name' => '',
-                    'last_name' => '',
-                    'total_amount_leasing' => $record_client->tcorp,
-                    'total_amount_leasing_period' => $record_client->tratagr,
-                    'total_amount_stavka' => $record_client->tdobgr,
-                    'total_amount_fine' => $record_client->tpen,
-                    'total_amount_pay' => $record_client->tachit,
-                    'total_amount_sold' => $record_client->tneachit,
-                    'total_amount_debt' => $record_client->cdatoria,
+                    'contract_at' => (($contract_at == '1970-01-01') ? null : $contract_at),
+                    'first_name' => $first_name,
+                    'last_name' => $last_name,
+                    'total_amount_leasing' => $record_client->TCORP,
+                    'total_amount_leasing_period' => $record_client->TRATAGR,
+                    'total_amount_stavka' => $record_client->TDOBGR,
+                    'total_amount_fine' => $record_client->TPEN,
+                    'total_amount_pay' => $record_client->TACHIT,
+                    'total_amount_sold' => $record_client->TNEACHIT,
+                    'total_amount_debt' => $record_client->CDATORIA,
                 ];
                 if (!empty($contract))
                 	$tbl_data['contract'] = $contract;
@@ -61,19 +64,18 @@ class DataController extends Controller
                 }
 
                 if ($exists_records) {
-                	$table_records->moveTo(0);
-                	while ($record = $table_records->nextRecord()) {
-                		$idno_r = trim($record->clientid);
+                    foreach ($table_records as $record) {
+                		$idno_r = trim($record->CLIENTID);
                 		if ($idno_r == $idno) {
                 			$record_data = [
-	                			'number_period' => $record->nrrata,
-	                			'pay_at' => date('Y-m-d', $record->getDate('crdata')),
-	                			'amount_leasing' => $record->crsuma,
-	                			'amount_leasing_period' => $record->crcorp,
-	                			'amount_stavka' => $record->crdob,
-	                			'amount_fine' => $record->crpen,
-	                			'amount_sold' => $record->crcsold,
-	                			'amount_pay' => $record->crachit
+	                			'number_period' => $record->NRRATA,
+	                			'pay_at' => $record->CRDATA->format('Y-m-d'),
+	                			'amount_leasing' => $record->CRSUMA,
+	                			'amount_leasing_period' => $record->CRCORP,
+	                			'amount_stavka' => $record->CRDOB,
+	                			'amount_fine' => $record->CRPEN,
+	                			'amount_sold' => $record->CRCSOLD,
+	                			'amount_pay' => $record->CRACHIT
                 			];
 
                 			$user_record = $user->records()->where('number_period', $record_data['number_period'])->first();

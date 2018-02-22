@@ -8,20 +8,18 @@
             </div>
             <form @submit="settings_save">
                 <div class="row">
-                    <div class="col-sm-12 form-check mb-0">
-                        <label class="custom-control custom-checkbox mt-2">
+                    <div class="col-sm-12 form-check">
+                        <div class="custom-control custom-checkbox">
                             <input type="checkbox" id="send_email" name="send_email" v-model="settings.send_email" class="custom-control-input">
-                            <span class="custom-control-indicator"></span>
-                            <span class="custom-control-description">{{ $t('account.notify_email') }}:</span>
-                        </label>
+                            <label class="custom-control-label" for="send_email">{{ $t('account.notify_email') }}</label>
+                        </div>
                     </div>
                 </div>
                 <div class="form-group row">
                     <div class="col-sm-12 form-check">
                         <label class="custom-control custom-checkbox mt-2">
                             <input type="checkbox" id="send_sms" name="send_sms" v-model="settings.send_sms" class="custom-control-input">
-                            <span class="custom-control-indicator"></span>
-                            <span class="custom-control-description">{{ $t('account.notify_sms') }}:</span>
+                            <label class="custom-control-label" for="send_sms">{{ $t('account.notify_sms') }}</label>
                         </label>
                     </div>
                 </div>

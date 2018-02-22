@@ -3,7 +3,7 @@
         <div id="register-step-1" v-if="step === 1">
             <form @submit="check_idno" role="form">
                 <div class="form-group">
-                    <input type="text" class="form-control" :class="{ 'is-invalid': error && response.idno }" id="idno" name="idno" v-model.number="idno" title="IDNO номер" placeholder="IDNO номер" required autofocus>
+                    <input type="text" class="form-control" :class="{ 'is-invalid': error && response.idno }" id="idno" name="idno" v-model="idno" title="IDNO номер" placeholder="IDNO номер" required autofocus>
                     <div class="invalid-feedback" v-if="error && response.idno">{{ response.idno }}</div>
                 </div>
                 <div class="form-group">
@@ -34,7 +34,7 @@
         </div>
         <div id="register-step-1" v-if="step === 3">
             <h4 class="text-primary">{{ $t('account.registration_success') }}</h4>
-            <p class="lead">{{ $t('account.text_4') }}</p>
+            <p class="lead" v-html="$t('account.text_4', {link: 'http://my.coliseumpalace.md'})"></p>
         </div>
     </div>
 </template>

@@ -11,21 +11,19 @@
 |
 */
 
-Auth::routes();
-
 Route::group([
 		'prefix' => LaravelLocalization::setLocale(),
 		'middleware' => [ 'localeSessionRedirect', 'localizationRedirect', 'localeViewPath']
 ], function() {
-	$domain = (App::environment('local')) ? 'coliseumpalace.test' : 'coliseumpalace.md';
-	Route::domain("my.$domain")->group(function() {
+	Auth::routes();
+	$domain = str_replace('my.', '', request()->getHost());
+	Route::domain("{my}.$domain")->group(function() {
 	    Route::get('/', 'AccountController@index')->name('account');
 	});
-	$domain = (App::environment('local')) ? 'coliseumpalace.test' : 'new.coliseumpalace.md';
 	Route::group(['domain' => $domain], function() {
 		Route::get('/', 'AppController@index')->name('home');
 		Route::get('content/{content}', 'AppController@content')->name('content');
-		Route::get('about', 'AppController@about');
+		Route::get('about', 'AppController@about')->name('about');
 		Route::get('apartment/{apartmentType}/{building_id?}/{apartment?}', 'AppController@apartment')->name('apartment');
 		Route::get('commercial/{building_id?}/{commercial_area?}', 'AppController@commercial')->name('commercial');
 		Route::get('gallery/{gallery?}', 'AppController@gallery')->name('gallery');

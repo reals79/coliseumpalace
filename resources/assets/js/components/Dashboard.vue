@@ -4,16 +4,16 @@
         <hr class="m-0">
         <div class="row mt-3">
             <div class="col-xl-12 col-lg-12 col-12">
-                <div class="row">
-                    <div class="col-sm-4 col-12" v-if="user.total_amount_debt > 0">
+                <div class="row" v-if="user.total_amount_sold > 0">
+                    <div class="col-sm-6 col-md-3 col-12">
                         <div class="bg-white top-cards">
                             <div class="row px-3">
                                 <div class="col-lg-12 d-flex pt-2">
-                                    <div class="number-val text-danger animation-pulse">
-                                        <i-count-up v-if="user.total_amount_debt"
+                                    <div class="number-val" :class="{'animation-pulse text-danger': user.total_amount_debt > 0}">
+                                        <i-count-up
                                           :start="0"
-                                          :end="12312"
-                                          :options="user.total_amount_debt"
+                                          :end="user.total_amount_debt"
+                                          :options="options"
                                         ></i-count-up>
                                     </div>
                                     <div class="ml-auto">
@@ -28,14 +28,14 @@
                             </div>
                         </div>
                     </div>
-                    <div class="col-sm-4 col-12">
+                    <div class="col-sm-6 col-md-3 col-12">
                         <div class="bg-white top-cards">
                             <div class="row px-3">
                                 <div class="col-lg-12 d-flex pt-2">
                                     <div class="number-val text-primary">
-                                        <i-count-up v-if="user.pay_at"
+                                        <i-count-up
                                           :start="0"
-                                          :end="user.pay_at"
+                                          :end="amount_current"
                                           :options="options"
                                         ></i-count-up>
                                     </div>
@@ -51,14 +51,14 @@
                             </div>
                         </div>
                     </div>
-                    <div class="col-sm-4 col-12">
+                    <div class="col-sm-6 col-md-3 col-12">
                         <div id="block-period_pay" class="bg-white top-cards">
                             <div class="row px-3">
                                 <div class="col-lg-12 d-flex pt-2">
                                     <div class="number-val text-info">
-                                        <i-count-up
+                                        <i-count-up v-if="amount_paid"
                                           :start="0"
-                                          :end="0"
+                                          :end="amount_paid"
                                           :options="options"
                                         ></i-count-up>
                                     </div>
@@ -74,9 +74,7 @@
                             </div>
                         </div>
                     </div>
-                </div>
-                <div class="row mt-2">
-                    <div class="col-sm-4 col-12">
+                    <div class="col-sm-6 col-md-3 col-12">
                         <div id="block-period_pay" class="bg-white top-cards">
                             <div class="row px-3">
                                 <div class="col-lg-12 d-flex pt-2">
@@ -93,13 +91,14 @@
                             </div>
                         </div>
                     </div>
-                    <div class="col-sm-4 col-12"></div>
-                    <div class="col-sm-4 col-12">
+                </div>
+                <div class="row mt-2">
+                    <div class="col">
                         <div id="block-period_pay" class="bg-white top-cards">
                             <div class="row px-3">
                                 <div class="col-lg-12 d-flex pt-2">
                                     <div class="card-description text-success">{{ $t('account.rates') }}
-                                        <div class="small text-secondary">30.10.2017</div>
+                                        <div class="small text-secondary mt-1">{{ $t('account.rates_on', {rates: '30.10.2017'}) }}</div>
                                     </div>
                                     <div class="ml-auto">
                                         <i class="fa fa-bar-chart fa-2x text-success" aria-hidden="true"></i>
@@ -163,6 +162,20 @@
                     nm.add(1, 'months');
 
                 return {when_at: nm.format('DD.MM.YYYY'), diff: cr.diff(nm, 'days')};
+            },
+            amount_current() {
+                var pay_cur = 0;
+                _.forEach(this.user.records, function(record) {
+                    if (record.amount_pay == 0) {
+                        pay_cur = record.amount_leasing;
+                        return false;
+                    }
+                });
+                return pay_cur;
+            },
+            amount_paid() {
+                let paid = (this.user.total_amount_debt + this.amount_current);
+                return paid;
             }
         },
         mounted() {

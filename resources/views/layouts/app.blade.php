@@ -47,7 +47,7 @@
                                 </div>
                             </li>
                             <li class="nav-item">
-                                <a href="{{ url('about') }}" class="nav-link">{{ trans('app.menu.about') }}</a>
+                                <a href="{{ route('about') }}" class="nav-link">{{ trans('app.menu.about') }}</a>
                             </li>
                             <li class="nav-item dropdown">
                                 <label class="nav-link dropdown-toggle mb-0" data-toggle="dropdown">{{ trans('app.menu.appartments') }}</label>
@@ -92,10 +92,10 @@
                     <p>
                         <ul class="nav flex-column">
                             <li class="nav-item">
-                                <a href="{{ url('about') }}">{{ trans('app.menu.about') }}</a>
+                                <a href="{{ route('about') }}">{{ trans('app.menu.about') }}</a>
                             </li>
                             <li class="nav-item">
-                                <a href="{{ url('commercial') }}">{{ trans('app.menu.commercial_area') }}</a>
+                                <a href="{{ route('commercial') }}">{{ trans('app.menu.commercial_area') }}</a>
                             </li>
 
                             @foreach ($main_menu_footer as $menu_footer)
@@ -137,7 +137,7 @@
             </div>
             <div class="row">
                 <div class="col-lg-12 small">
-                    &copy; '2017 Coliseum Palace. All Rights Reserved.
+                    &copy; '<?=date('Y')?> Coliseum Palace. All Rights Reserved.
                 </div>
             </div>
         </div>

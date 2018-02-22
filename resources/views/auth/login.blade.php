@@ -17,8 +17,8 @@
                                             <form action="{{ route('login') }}" role="form" method="POST">
                                                 {{ csrf_field() }}
                                                 <div class="form-group">
-                                                    <div class="input-group mb-2 mr-sm-2 mb-sm-0">
-                                                        <div class="input-group-addon"><i class="fa fa-shield" aria-hidden="true"></i></div>
+                                                    <div class="input-group mb-2">
+                                                        <div class="input-group-prepend"><div class="input-group-text"><i class="fa fa-shield" aria-hidden="true"></i></div></div>
                                                         <input type="text" class="form-control{{ $errors->has('idno') ? ' is-invalid' : '' }}" id="idno" name="idno" value="{{ old('idno') }}" title="{{ trans('account.idno_number') }}" placeholder="{{ trans('account.idno_number') }}" required autofocus>
                                                     </div>
                                                     @if ($errors->has('idno'))
@@ -26,22 +26,19 @@
                                                     @endif
                                                 </div>
                                                 <div class="form-group">
-                                                    <div class="input-group mb-2 mr-sm-2 mb-sm-0">
-                                                        <div class="input-group-addon"><i class="fa fa-key" aria-hidden="true"></i></div>
+                                                    <div class="input-group mb-2">
+                                                        <div class="input-group-prepend"><div class="input-group-text"><i class="fa fa-key" aria-hidden="true"></i></div></div>
                                                         <input type="password" class="form-control{{ $errors->has('password') ? ' is-invalid' : '' }}" id="password" name="password" value="" title="{{ trans('account.password') }}" placeholder="{{ trans('account.password') }}" required>
                                                     </div>
                                                     @if ($errors->has('password'))
                                                         <div class="invalid-feedback d-block">{{ $errors->first('password') }}</div>
                                                     @endif
                                                 </div>
-                                                <div class="form-check">
-                                                    <label class="custom-control custom-checkbox mt-2">
-                                                        <input type="checkbox" name="remember" {{ old('remember') ? 'checked' : '' }} class="custom-control-input">
-                                                        <span class="custom-control-indicator"></span>
-                                                        <span class="custom-control-description">{{ trans('account.remember_me') }}</span>
-                                                    </label>
+                                                <div class="custom-control custom-checkbox">
+                                                    <input type="checkbox" id="remember-me" name="remember" {{ old('remember') ? 'checked' : '' }} class="custom-control-input">
+                                                    <label class="custom-control-label" for="remember-me">{{ trans('account.remember_me') }}</label>
                                                 </div>
-                                                <button type="submit" class="btn btn-primary btn-block">{{ trans('account.buttons.login') }}</button>
+                                                <button type="submit" class="btn btn-primary btn-block mt-2">{{ trans('account.buttons.login') }}</button>
                                                 <a href="{{ route('register') }}" class="btn btn-link btn-block">{{ trans('account.buttons.forgot_password') }}</a>
                                             </form>
                                         </div>

@@ -2,6 +2,8 @@ export default {
     "ru": {
         "apartment": {
             "layout": "Планировка",
+            "all": "Все",
+            "sale": "Продано",
             "building": "Здание",
             "number_rooms": "Количество комнат",
             "total_area": "Общая площадь",
@@ -58,6 +60,7 @@ export default {
             "amount_paid": "Сумма к оплате",
             "due_date": "Срок оплаты",
             "rates": "Курс валют",
+            "rates_on": "на {rates}",
             "data_saved": "Данные сохранены!",
             "password_dont_match": "Пароль не совпадает с подтверждением.",
             "password_confirm": "Подтверждение пароля",
@@ -67,7 +70,7 @@ export default {
             "text_1": "Проверочный код формируется следующим образом (пр. LI093032):",
             "text_2": "LI – первые буквы фамилии и имени (пр. Lupascu Ion – необходимо ввести заглавными буквами LI)",
             "text_3": "093032 – последние 6 цифр идентификационного номера (пр. 2001002093032 – 093032)",
-            "text_4": "Теперь Вы можете авторизоваться в My Coliseum используя Ваш IDNO и установленный пароль.",
+            "text_4": "Теперь Вы можете авторизоваться в <a href=\"{link}\">My Coliseum<\/a> используя Ваш IDNO и установленный пароль.",
             "text_5": "Просмотр лизинговых платежей",
             "text_6": "Сроки оплат",
             "text_7": "Курс валют",
@@ -99,6 +102,7 @@ export default {
             "menu": {
                 "about": "О Доме",
                 "appartments": "Квартиры",
+                "commercial_area": "Коммерческие площади",
                 "photo_gallery": "Фотогалерея",
                 "video_gallery": "Видеогалерея",
                 "contacts": "Контакты",
@@ -305,6 +309,8 @@ export default {
     "ro": {
         "apartment": {
             "layout": "Planificare",
+            "all": "Toate",
+            "sale": "Vîndute",
             "building": "Bloc",
             "number_rooms": "Nr. odăilor",
             "total_area": "Suprafața totală",
@@ -326,7 +332,7 @@ export default {
             "price_between": "Prețul: de la {from} pînă la {to}",
             "select_apartment": "Alegeți apartamentul",
             "enter_price_apartment": "Introduceți suma apartamentului:",
-            "calculate": "A calcula",
+            "calculate": "Calculul",
             "calculation": "Calculul...",
             "initial_fee": "Rata inițială:",
             "period": "Perioada",
@@ -361,6 +367,7 @@ export default {
             "amount_paid": "Suma spre plată",
             "due_date": "Tremenul de achitare",
             "rates": "Curs valutar",
+            "rates_on": "la {rates}",
             "data_saved": "Datele au fost salvate!",
             "password_dont_match": "Parola nu coincide.",
             "password_confirm": "Confirmarea parolei",
@@ -370,7 +377,7 @@ export default {
             "text_1": "Codul de verificare se formează în felul următor (ex. LI093032):",
             "text_2": "LI – primele litere numelui și prenumelui (ex. Lupascu Ion – trebuie să fie introduse cu majuscule LI)",
             "text_3": "093032 – ultimile 6 cifre din codul IDNO (ex. 2001002093032 – 093032)",
-            "text_4": "Acum puteți să Vă autorizați în My Coliseum, folosind IDNO și parola.",
+            "text_4": "Acum puteți să Vă autorizați în <a href=\"{link}\">My Coliseum<\/a>, folosind IDNO și parola.",
             "text_5": "Vizualizarea tranșelor de leasing",
             "text_6": "Termene de achitare",
             "text_7": "Curs valutar",
@@ -400,8 +407,9 @@ export default {
                 "back": "...înapoi"
             },
             "menu": {
-                "about": "Depre prioect",
+                "about": "Despre proiect",
                 "appartments": "Apartamente",
+                "commercial_area": "Spații Comerciale",
                 "photo_gallery": "Galerie Foto",
                 "video_gallery": "Galerie Video",
                 "contacts": "Contacte",

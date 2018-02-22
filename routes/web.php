@@ -19,9 +19,7 @@ Route::group([
 ], function() {
 	Auth::routes();
 	$domain = str_replace('my.', '', request()->getHost());
-	Route::domain("{my}.$domain")->group(function() {
-	    Route::get('/', 'AccountController@index')->name('account');
-	});
+	
 	Route::group(['domain' => $domain], function() {
 		Route::get('/', 'AppController@index')->name('home');
 		Route::get('content/{content}', 'AppController@content')->name('content');
@@ -30,6 +28,11 @@ Route::group([
 		Route::get('commercial/{building_id?}/{commercial_area?}', 'AppController@commercial')->name('commercial');
 		Route::get('gallery/{gallery?}', 'AppController@gallery')->name('gallery');
 		Route::get('video/', 'AppController@video')->name('video');
+	});
+
+	$domain = str_replace('www.', '', $domain);
+	Route::domain("{my}.$domain")->group(function() {
+	    Route::get('/', 'AccountController@index')->name('account');
 	});
 
 });

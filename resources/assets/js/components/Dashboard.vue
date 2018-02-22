@@ -92,7 +92,7 @@
                         </div>
                     </div>
                 </div>
-                <div class="row mt-2">
+                <div class="row mt-2" v-if="this.rates.data.length">
                     <div class="col">
                         <div id="block-period_pay" class="bg-white top-cards">
                             <div class="row px-3">
@@ -178,7 +178,8 @@
                 '/api/rates'
             ).then(response => {
                 this.rates.data = response.data;
-                this.rates.date_at = moment(this.rates.data[0].created_at).format('DD.MM.YYYY');
+                if (this.rates.data.length)
+                    this.rates.date_at = moment(this.rates.data[0].created_at).format('DD.MM.YYYY');
             }, response => {
                 
             })

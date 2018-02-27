@@ -92,14 +92,14 @@
                                         <?php
                                             $is_sold = in_array($value, $sold_apartments);
                                         ?>
-                                        <tr @if ($is_sold) class="text-warning" @endif>
+                                        <tr @if ($is_sold) class="font-weight-bold font-italic text-primary" @endif>
                                             <td class="text-center">{{ $value }}</td>
                                             <td class="text-center">{{ $floors[$key] }}</td>
                                             <td class="text-center">{{ $total_areas[$key] }} <small>m<sup>2</sup></small></td>
                                             <td class="text-right text-primary font-weight-bold">&euro;{{ number_format($prices[$key], 0) }}</td>
                                             <td class="text-center">
                                                 @if ($is_sold)
-                                                    <span class="font-italic">{{ trans('apartment.sold') }}</span>
+                                                    <span>{{ trans('apartment.sold') }}</span>
                                                 @else
                                                     <a href="#" data-price="{{ number_format((($prices[$key] / $total_areas[$key]) + 100) * $total_areas[$key], 0) }}" data-toggle="calc-apartment">{{ trans('apartment.calculate') }}</a>
                                                 @endif

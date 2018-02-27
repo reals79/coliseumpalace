@@ -88,8 +88,9 @@ class AppController extends Controller
             $number_apartments = explode(',', $apartment->number_apartment);
             $floors = explode(',', $apartment->floor);
             $prices = explode(',', $apartment->price);
+            $sold_apartments = explode(',', $apartment->sold_apartment);
         }
-        $data = compact('apartmentType', 'building_id', 'buildings', 'apartments', 'apartment', 'total_areas', 'number_apartments', 'floors', 'prices');
+        $data = compact('apartmentType', 'building_id', 'buildings', 'apartments', 'apartment', 'total_areas', 'number_apartments', 'floors', 'prices', 'sold_apartments');
         
         return view('apartment', $data);
     }

@@ -24,6 +24,7 @@ return [
     'similar' => 'Подобные',
     'area_between' => 'Площадь: от :from до :to',
     'price_between' => 'Цена: от :from до :to',
+    'sold' => 'Продано',
 
     'select_apartment' => 'Выбрать квартиру',
     'enter_price_apartment' => 'Введите стоимость квартиры:',

@@ -47,6 +47,8 @@ AdminSection::registerModel(\App\Apartment::class, function (ModelConfiguration 
                 AdminFormElement::text('floor', 'Этаж')->required(),
              ])->addColumn([
                 AdminFormElement::number('number_rooms', 'Количество комнат')->setMin(1)->setMax(10)->setDefaultValue(1),
+             ])->addColumn([
+                AdminFormElement::text('sold_apartment', 'Проданные квартиры')->required(),
              ])
         );
 

@@ -22,6 +22,7 @@ class CreateApartmentsTable extends Migration
             $table->string('number_apartment')->nullable();
             $table->string('floor')->nullable();
             $table->string('price')->nullable();
+            $table->string('sold_apartment')->nullable();
             $table->integer('number_rooms')->unsigned()->nullable();
             $table->decimal('total_area', 4, 1)->unsigned()->nullable();
             $table->decimal('living_area', 4, 1)->unsigned()->nullable();

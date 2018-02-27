@@ -24,6 +24,7 @@ return [
     'similar' => 'Apartamente Similare',
     'area_between' => 'Suprafața: de la :from pînă la :to',
     'price_between' => 'Prețul: de la :from pînă la :to',
+    'sold' => 'Vîndut',
 
     'select_apartment' => 'Alegeți apartamentul',
     'enter_price_apartment' => 'Introduceți suma apartamentului:',

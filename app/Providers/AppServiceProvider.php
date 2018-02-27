@@ -12,6 +12,7 @@ use App\ApartmentType;
 class AppServiceProvider extends ServiceProvider
 {
     protected $widgets = [
+        \App\Admin\Widgets\DashboardBlock::class,
         \App\Admin\Widgets\NavigationUserBlock::class,
         \App\Admin\Widgets\NavigationLangBlock::class
     ];

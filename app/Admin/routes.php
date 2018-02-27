@@ -14,10 +14,10 @@
 	    'uses' => 'App\Http\Controllers\Auth\AdminController@getLogout',
 	]);
 
-	Route::get('', ['as' => 'admin.dashboard', function () {
+	/*Route::get('', ['as' => 'admin.dashboard', function () {
 		$content = '';
 		return AdminSection::view($content, 'Dashboard');
-	}]);
+	}]);*/
 
 	Route::get('locale/switch', ['as' => 'admin.locale.switch', function () {
 	    $locale = request()->locale;

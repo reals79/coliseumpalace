@@ -13,7 +13,6 @@ AdminSection::registerModel(\App\Apartment::class, function (ModelConfiguration 
         $display = AdminDisplay::datatables();
         $display->with('building', 'apartmentType');
         $display->setColumns([
-            //AdminColumn::order()->setLabel('Сортировка')->setHtmlAttribute('class', 'text-center')->setWidth('100px'),
             AdminColumn::image('image')->setLabel('Изображение')->setHtmlAttribute('class', 'text-center')->setWidth('100px'),
             AdminColumn::text('building.name')->setLabel('Здание'),
             AdminColumn::text('apartmentType.name')->setLabel('Тип квартиры'),
@@ -23,6 +22,15 @@ AdminSection::registerModel(\App\Apartment::class, function (ModelConfiguration 
         ]);
 
         $display->paginate(25);
+
+        $display->setColumnFilters([
+            null,
+            AdminColumnFilter::select(\App\Building::class, 'name')->setPlaceholder('Здание')->setColumnName('building_id'),
+            AdminColumnFilter::select(\App\ApartmentType::class, 'name')->setPlaceholder('Тип квартиры')->setColumnName('apartment_type_id'),
+            AdminColumnFilter::text()->setPlaceholder('Номер квартиры'),
+            AdminColumnFilter::text()->setPlaceholder('Этаж'),
+            null, 
+        ]);
 
         return $display;
     });

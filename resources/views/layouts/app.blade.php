@@ -14,6 +14,8 @@
     <!-- Styles -->
     <link href="{{ mix('css/app.css') }}" rel="stylesheet">
     <!-- Global site tag (gtag.js) - AdWords: 937737027 --> <script async src="https://www.googletagmanager.com/gtag/js?id=AW-937737027"></script> <script> window.dataLayer = window.dataLayer || []; function gtag(){dataLayer.push(arguments);} gtag('js', new Date()); gtag('config', 'AW-937737027'); </script>
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-90485111-1"></script> <script> window.dataLayer = window.dataLayer || []; function gtag(){dataLayer.push(arguments);} gtag('js', new Date()); gtag('config', 'UA-90485111-1'); </script>
 </head>
 <body class="page-{{ Request::route()->getName() }}">
 <div id="app">

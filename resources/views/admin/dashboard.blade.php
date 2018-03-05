@@ -2,7 +2,7 @@
     @foreach ($apartmentsStat as $stat)
     <div class="col-md-3 col-sm-6 col-xs-12">
         <div class="info-box">
-            <span class="info-box-icon bg-green info-box-title">{{ $stat['name'] }}</span>
+            <span class="info-box-icon info-box-title @if($stat['type'] == 'apartment') bg-green @else bg-purple @endif ">{{ $stat['name'] }}</span>
 
             <div class="info-box-content">
                 <span class="info-box-text">Не продано</span>

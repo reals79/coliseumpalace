@@ -6,6 +6,7 @@ use SleepingOwl\Admin\Widgets\Widget;
 
 use App\ApartmentType;
 use App\Apartment;
+use App\Building;
 
 class DashboardBlock extends Widget
 {
@@ -17,7 +18,6 @@ class DashboardBlock extends Widget
     public function toHtml()
     {
         $apartmentTypes = ApartmentType::all();
-        //$apartments = Apartment::all();
 
         $apartmentsStat = [];
         $totalAvailable = 0;
@@ -38,9 +38,28 @@ class DashboardBlock extends Widget
             }
             $totalAvailable += $available;
             $totalSolded += $solded;
-            $apartmentsStat[] = ['name' => $apartmentType->name, 'available' => $available, 'solded' => $solded];
+            $apartmentsStat[] = ['name' => $apartmentType->name, 'available' => $available, 'solded' => $solded, 'type' => 'apartment'];
         }
         $totalsStat = ['available' => $totalAvailable, 'solded' => $totalSolded];
+
+        $buldings = Building::all();
+        foreach ($buldings as $bulding) {
+            $available = 0;
+            $solded = 0;
+            foreach ($bulding->apartments as $apartment) {
+                $number_apartment = 0;
+                $sold_apartment = 0;
+                if (!empty($apartment->number_apartment))
+                    $number_apartment = count(explode(',', $apartment->number_apartment));
+                if (!empty($apartment->sold_apartment))
+                    $sold_apartment = count(explode(',', $apartment->sold_apartment));
+
+                $available += $number_apartment - $sold_apartment;
+                $solded += $sold_apartment;
+            }
+            $apartmentsStat[] = ['name' => $bulding->name, 'available' => $available, 'solded' => $solded, 'type' => 'bulding'];
+        }
+
 
         return view('admin.dashboard', [
             'apartmentsStat' => $apartmentsStat,

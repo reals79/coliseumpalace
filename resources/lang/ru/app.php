@@ -13,6 +13,7 @@ return [
     	'about' => 'О Доме',
         'appartments' => 'Квартиры',
     	'commercial_area' => 'Коммерческие площади',
+        'news' => 'Новости',
     	'photo_gallery' => 'Фотогалерея',
     	'video_gallery' => 'Видеогалерея',
     	'contacts' => 'Контакты',

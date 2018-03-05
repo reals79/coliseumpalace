@@ -17,6 +17,7 @@ use App\Apartment;
 use App\ApartmentType;
 use App\Building;
 use App\CommercialArea;
+use App\News;
 
 class AppController extends Controller
 {
@@ -143,6 +144,20 @@ class AppController extends Controller
         $settings = Settings::all();
 
         return response()->json($settings);
+    }
+
+    public function news(Request $request, News $news = null)
+    {
+        $is_news_list = false;
+
+        if (!$news) {
+            $news = News::all();
+            $is_news_list = true;
+        }
+        //dd($news);
+        $data = compact('news', 'is_news_list');
+
+        return view('news', $data);
     }
 
 }

@@ -27,7 +27,8 @@ Route::group([
 		Route::get('apartment/{apartmentType}/{building_id?}/{apartment?}', 'AppController@apartment')->name('apartment');
 		Route::get('commercial/{building_id?}/{commercial_area?}', 'AppController@commercial')->name('commercial');
 		Route::get('gallery/{gallery?}', 'AppController@gallery')->name('gallery');
-		Route::get('video/', 'AppController@video')->name('video');
+		Route::get('video', 'AppController@video')->name('video');
+		Route::get('news/{news?}', 'AppController@news')->name('news');
 	});
 
 	$domain = str_replace('www.', '', $domain);

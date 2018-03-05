@@ -35,10 +35,16 @@ return [
         'model' => \App\Content::class,
         'priority' => 1,
     ],
+    [
+        'title' => 'Новости',
+        'icon'  => 'fa fa-newspaper-o',
+        'model' => \App\News::class,
+        'priority' => 2,
+    ],
 
     [
         'title' => 'Контент',
-        'icon'  => 'fa fa-newspaper-o',
+        'icon'  => 'fa fa-file-o',
         'pages' => [
             [
                 'title' => 'Главная страница',
@@ -79,7 +85,7 @@ return [
                 'priority' => 6,
             ],
         ],
-        'priority' => 2,
+        'priority' => 3,
     ],
 
     [
@@ -104,13 +110,13 @@ return [
                 'priority' => 2,
             ],
         ],
-        'priority' => 3,
+        'priority' => 4,
     ],
     [
         'title' => 'Коммерческие площади',
         'icon'  => 'fa fa-building',
         'model' => \App\CommercialArea::class,
-        'priority' => 4,
+        'priority' => 5,
     ],
 
 

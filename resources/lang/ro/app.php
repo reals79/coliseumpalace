@@ -13,6 +13,7 @@ return [
     	'about' => 'Despre proiect',
         'appartments' => 'Apartamente',
     	'commercial_area' => 'Spații Comerciale',
+        'news' => 'Noutati',
     	'photo_gallery' => 'Galerie Foto',
     	'video_gallery' => 'Galerie Video',
     	'contacts' => 'Contacte',

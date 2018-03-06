@@ -19,7 +19,6 @@ class News extends Model
         'when_at',
     ];
 
-
     protected static function boot()
     {
         parent::boot();
@@ -28,6 +27,11 @@ class News extends Model
         	$builder->orderBy('when_at', 'desc');
             if (!\Request::is('admin/*')) $builder->whereActivated(1);
         });
+    }
+
+    public function scopePromo($query)
+    {
+        return $query->where('promo', 1);
     }
 
 }

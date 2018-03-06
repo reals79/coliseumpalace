@@ -154,7 +154,6 @@ class AppController extends Controller
             $news = News::all();
             $is_news_list = true;
         }
-        //dd($news);
         $data = compact('news', 'is_news_list');
 
         return view('news', $data);

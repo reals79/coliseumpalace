@@ -8,6 +8,7 @@ use View;
 use App\Content;
 use App\Contact;
 use App\ApartmentType;
+use App\News;
 
 class AppServiceProvider extends ServiceProvider
 {
@@ -35,7 +36,8 @@ class AppServiceProvider extends ServiceProvider
             $main_menu_footer = Content::where(['content_id' => 0, 'footer' => 1])->orderBy('order', 'asc')->get();
             $contacts_footer = Contact::where(['content_id' => -3])->first();
             $apartment_types = ApartmentType::all();
-            $view->with(compact('main_menu', 'main_menu_footer', 'contacts_footer', 'apartment_types'));
+            $promo_news = News::promo()->first();
+            $view->with(compact('main_menu', 'main_menu_footer', 'contacts_footer', 'apartment_types', 'promo_news'));
         });
     }
 

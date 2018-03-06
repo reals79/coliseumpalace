@@ -110,6 +110,10 @@ $(function() {
 
 	initMap();
 
+    setTimeout(function() {
+        $('#promo_news').modal('show');
+    }, 3000);
+
 	var swiper = new Swiper('.swiper-container', {
         pagination: {
         	el: '.swiper-pagination',

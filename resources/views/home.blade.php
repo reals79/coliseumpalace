@@ -34,4 +34,23 @@
             </div>
         </section>
     @endforeach
+
+    @if ($promo_news)
+        <!-- Promo News -->
+        <div class="modal fade" id="promo_news" tabindex="-1" role="dialog" aria-hidden="true">
+            <div class="modal-dialog modal-dialog-centered modal-lg" role="document">
+                <div class="modal-content bg-primary">
+                    <div class="modal-header">
+                        <h5 class="modal-title">{{ $promo_news->title }}</h5>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <i class="fi flaticon-multiply fi-1x mr-1" aria-hidden="true"></i>
+                        </button>
+                    </div>
+                    <div class="modal-body">
+                        {!! $promo_news->descr !!}
+                    </div>
+                </div>
+            </div>
+        </div>
+    @endif
 @endsection

@@ -46,7 +46,7 @@ return [
         'login' => 'Intrare',
         'save' => 'Сохранить',
         'forgot_password' => 'Ați uitat parola?',
-        'registration' => 'Află mai mult...',
+        'registration' => 'Înregistrare',
     ],
 
     'menu' => [

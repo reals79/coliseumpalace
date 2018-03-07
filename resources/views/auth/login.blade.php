@@ -50,8 +50,9 @@
                                       <li><i class="fa fa-check text-success" aria-hidden="true"></i> {{ trans('account.text_5') }}</li>
                                       <li><i class="fa fa-check text-success" aria-hidden="true"></i> {{ trans('account.text_6') }}</li>
                                       <li><i class="fa fa-check text-success" aria-hidden="true"></i> {{ trans('account.text_7') }}</li>
-                                      <li><a href="{{ route('register') }}"><u>{{ trans('account.buttons.registration') }}</u></a></li>
+                                      <li><i class="fa fa-check text-success" aria-hidden="true"></i> &middot;&middot;&middot;</li>
                                   </ul>
+                                  <a href="{{ route('register') }}" class="btn btn-primary">{{ trans('account.buttons.registration') }}</a>
                                 </div>
                             </div>
                         </div>

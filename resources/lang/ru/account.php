@@ -46,7 +46,7 @@ return [
         'login' => 'Вход',
         'save' => 'Сохранить',
         'forgot_password' => 'Забыли пароль?',
-        'registration' => 'Узнать больше...',
+        'registration' => 'Регистрация',
     ],
 
     'menu' => [

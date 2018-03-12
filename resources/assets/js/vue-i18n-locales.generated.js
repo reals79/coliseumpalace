@@ -23,6 +23,7 @@ export default {
             "similar": "Подобные",
             "area_between": "Площадь: от {from} до {to}",
             "price_between": "Цена: от {from} до {to}",
+            "sold": "Продано",
             "select_apartment": "Выбрать квартиру",
             "enter_price_apartment": "Введите стоимость квартиры:",
             "calculate": "Рассчитать",
@@ -80,7 +81,7 @@ export default {
                 "login": "Вход",
                 "save": "Сохранить",
                 "forgot_password": "Забыли пароль?",
-                "registration": "Узнать больше..."
+                "registration": "Регистрация"
             },
             "menu": {
                 "logout": "Выход",
@@ -103,6 +104,7 @@ export default {
                 "about": "О Доме",
                 "appartments": "Квартиры",
                 "commercial_area": "Коммерческие площади",
+                "news": "Новости",
                 "photo_gallery": "Фотогалерея",
                 "video_gallery": "Видеогалерея",
                 "contacts": "Контакты",
@@ -330,6 +332,7 @@ export default {
             "similar": "Apartamente Similare",
             "area_between": "Suprafața: de la {from} pînă la {to}",
             "price_between": "Prețul: de la {from} pînă la {to}",
+            "sold": "Vîndut",
             "select_apartment": "Alegeți apartamentul",
             "enter_price_apartment": "Introduceți suma apartamentului:",
             "calculate": "Calculul",
@@ -385,9 +388,9 @@ export default {
             "notify_sms": "Notificări SMS",
             "buttons": {
                 "login": "Intrare",
-                "save": "Сохранить",
+                "save": "Salvați",
                 "forgot_password": "Ați uitat parola?",
-                "registration": "Află mai mult..."
+                "registration": "Înregistrare"
             },
             "menu": {
                 "logout": "Ieșire",
@@ -410,6 +413,7 @@ export default {
                 "about": "Despre proiect",
                 "appartments": "Apartamente",
                 "commercial_area": "Spații Comerciale",
+                "news": "Noutati",
                 "photo_gallery": "Galerie Foto",
                 "video_gallery": "Galerie Video",
                 "contacts": "Contacte",

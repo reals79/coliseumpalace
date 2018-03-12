@@ -44,7 +44,7 @@ return [
 
     'buttons' => [
         'login' => 'Intrare',
-        'save' => 'Сохранить',
+        'save' => 'Salvați',
         'forgot_password' => 'Ați uitat parola?',
         'registration' => 'Înregistrare',
     ],

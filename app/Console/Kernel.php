@@ -28,6 +28,8 @@ class Kernel extends ConsoleKernel
         //          ->hourly();
         $schedule->call('App\Http\Controllers\RateController@importRates')
                  ->twiceDaily(0, 6);
+        $schedule->call('App\Http\Controllers\DataController@dataProcess')
+                 ->twiceDaily(12, 18);
     }
 
     /**

@@ -145,12 +145,20 @@
         },
         computed: {
             pay_at() {
-                var nm = moment().date(10).hour(23);
+                var when_at_cur = moment().date(10).hour(23);
                 var cr = moment();
-                if (cr > nm)
-                    nm.add(1, 'months');
+                _.forEach(this.user.records, function(record) {
+                    when_at_cur = moment(record.pay_at);
+                    if (record.amount_pay == 0 && cr <= when_at_cur) {
+                        return false;
+                    }
+                });
 
-                return {when_at: nm.format('DD.MM.YYYY'), diff: cr.diff(nm, 'days')};
+                if (cr > when_at_cur) {
+                    when_at_cur = moment().date(10).hour(23).add(3, 'months');
+                }
+
+                return {when_at: when_at_cur.format('DD.MM.YYYY'), diff: cr.diff(when_at_cur, 'days')};
             },
             amount_current() {
                 var pay_cur = 0;

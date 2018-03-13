@@ -19,6 +19,9 @@ AdminSection::registerModel(User::class, function (ModelConfiguration $model) {
                 AdminColumnEditable::checkbox('notify_is_email')->setLabel('Уведомление по Email')->setWidth('80px')->setHtmlAttribute('class', 'text-center'),
                 AdminColumnEditable::checkbox('notify_is_sms')->setLabel('Уведомление по SMS')->setWidth('80px')->setHtmlAttribute('class', 'text-center'),
                 AdminColumn::datetime('updated_at')->setLabel('Дата обновления')->setFormat('d.m.Y')->setWidth('130px'),
+                AdminColumn::custom("Вход", function(User $model) {
+                    return '<p class="text-left"><a href="#" target="_blank">Вход</a></p>';
+                })->setWidth('150px'),
             ])->paginate(25);
 
         $display->setColumnFilters([

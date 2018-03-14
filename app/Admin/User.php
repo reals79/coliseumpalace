@@ -10,18 +10,18 @@ AdminSection::registerModel(User::class, function (ModelConfiguration $model) {
     $model->onDisplay(function () {
         $display = AdminDisplay::datatables();
         $display->setColumns([
-                AdminColumn::link('last_name')->setLabel('Фамилия'),
-                AdminColumn::link('first_name')->setLabel('Имя'),
-                AdminColumn::email('email')->setLabel('E-mail')->setWidth('250px'),
-                AdminColumn::text('phone')->setLabel('Телефон')->setWidth('250px'),
-                AdminColumn::text('contract')->setLabel('Договор')->setWidth('100px'),
+                AdminColumn::link('last_name')->setLabel('Фамилия')->setWidth('200px'),
+                AdminColumn::link('first_name')->setLabel('Имя')->setWidth('200px'),
+                AdminColumn::email('email')->setLabel('E-mail')->setWidth('200px'),
+                AdminColumn::text('phone')->setLabel('Телефон')->setWidth('200px'),
+                //AdminColumn::text('contract')->setLabel('Договор')->setWidth('80px'),
                 AdminColumnEditable::checkbox('activated')->setLabel('Актив.')->setWidth('80px')->setHtmlAttribute('class', 'text-center'),
-                AdminColumnEditable::checkbox('notify_is_email')->setLabel('Уведомление по Email')->setWidth('80px')->setHtmlAttribute('class', 'text-center'),
-                AdminColumnEditable::checkbox('notify_is_sms')->setLabel('Уведомление по SMS')->setWidth('80px')->setHtmlAttribute('class', 'text-center'),
+                //AdminColumnEditable::checkbox('notify_is_email')->setLabel('Уведомление по Email')->setWidth('80px')->setHtmlAttribute('class', 'text-center'),
+                //AdminColumnEditable::checkbox('notify_is_sms')->setLabel('Уведомление по SMS')->setWidth('80px')->setHtmlAttribute('class', 'text-center'),
                 AdminColumn::datetime('updated_at')->setLabel('Дата обновления')->setFormat('d.m.Y')->setWidth('130px'),
-                AdminColumn::custom("Вход", function(User $model) {
-                    return '<p class="text-left"><a href="#" target="_blank">Вход</a></p>';
-                })->setWidth('150px'),
+                AdminColumn::custom('Действие', function(User $model) {
+                    return (!empty($model->api_token)) ?'<p class="text-center"><button type="button" onclick="doClientLogin(\'' . $model->api_token . '\')">Вход</button></p>' : '';
+                })->setWidth('100px'),
             ])->paginate(25);
 
         $display->setColumnFilters([
@@ -29,13 +29,13 @@ AdminSection::registerModel(User::class, function (ModelConfiguration $model) {
             AdminColumnFilter::text()->setPlaceholder('Имя клиента'),
             AdminColumnFilter::text()->setPlaceholder('Email'),
             AdminColumnFilter::text()->setPlaceholder('Телефон'),
-            AdminColumnFilter::text()->setPlaceholder('Договор'),
-            null, null, null,
+            null, //AdminColumnFilter::text()->setPlaceholder('Договор'),
             AdminColumnFilter::range()->setFrom(
                 AdminColumnFilter::date()->setPlaceholder('От')->setFormat('d.m.Y')
             )->setTo(
                 AdminColumnFilter::date()->setPlaceholder('До')->setFormat('d.m.Y')
-            )
+            ),
+            null
         ]);
 
         return $display;

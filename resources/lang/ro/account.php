@@ -22,7 +22,7 @@ return [
     'payment_current' => 'Plata curentă',
     'amount_paid' => 'Suma spre plată',
     'due_date' => 'Tremenul de achitare',
-    'rates' => 'Curs valutar',
+    'rates' => 'Curs valutar BNM',
     'rates_on' => 'la :rates',
     'data_saved' => 'Datele au fost salvate!',
     'password_dont_match' => 'Parola nu coincide.',

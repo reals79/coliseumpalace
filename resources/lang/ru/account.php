@@ -22,7 +22,7 @@ return [
     'payment_current' => 'Текущий платёж',
     'amount_paid' => 'Сумма к оплате',
     'due_date' => 'Срок оплаты',
-    'rates' => 'Курс валют',
+    'rates' => 'Валютный курс НБМ',
     'rates_on' => 'на :rates',
     'data_saved' => 'Данные сохранены!',
     'password_dont_match' => 'Пароль не совпадает с подтверждением.',

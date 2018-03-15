@@ -9,6 +9,7 @@ return [
     'register' => 'Зарегистрируйтесь сейчас',
     'registration' => 'Регистрация в My Coliseum',
 
+    'code_verify' => 'Проверочный код',
     'code_not_correct' => 'Проверочный код не верный.',
     'idno_not_found' => 'Пользователя с таким IDNO не найдено.',
     'password_empty' => 'Пароль не должен быть пустым.',

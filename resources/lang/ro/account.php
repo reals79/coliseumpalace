@@ -9,6 +9,7 @@ return [
     'register' => 'Înregistrați-Vă acum',
     'registration' => 'Înregistrare în My Coliseum',
 
+    'code_verify' => 'Codul de verificare',
     'code_not_correct' => 'Codul de verificare nu este corect.',
     'idno_not_found' => 'Utilizatorul cu astfel de IDNO nu a fost identificat.',
     'password_empty' => 'Сîmpul Parola nu trebuie să fie gol.',

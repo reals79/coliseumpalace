@@ -3,11 +3,11 @@
         <div id="register-step-1" v-if="step === 1">
             <form @submit="check_idno" role="form">
                 <div class="form-group">
-                    <input type="text" class="form-control" :class="{ 'is-invalid': error && response.idno }" id="idno" name="idno" v-model="idno" placeholder="{{ $t('account.idno_number') }}" required autofocus>
+                    <input type="text" class="form-control" :class="{ 'is-invalid': error && response.idno }" id="idno" name="idno" v-model="idno" :placeholder="$t('account.idno_number')" required autofocus>
                     <div class="invalid-feedback" v-if="error && response.idno">{{ response.idno }}</div>
                 </div>
                 <div class="form-group">
-                    <input type="text" class="form-control" :class="{ 'is-invalid': error && response.verify_code }" id="verify_code" name="verify_code" v-model="verify_code" placeholder="{{ $t('account.code_verify') }}" required>
+                    <input type="text" class="form-control" :class="{ 'is-invalid': error && response.verify_code }" id="verify_code" name="verify_code" v-model="verify_code" :placeholder="$t('account.code_verify')" required>
                     <div class="invalid-feedback" v-if="error && response.verify_code">{{ response.verify_code }}</div>
                     <small class="form-text">
                         <strong>{{ $t('account.text_1') }}</strong>

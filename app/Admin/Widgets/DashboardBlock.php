@@ -7,6 +7,7 @@ use SleepingOwl\Admin\Widgets\Widget;
 use App\ApartmentType;
 use App\Apartment;
 use App\Building;
+use App\User;
 
 class DashboardBlock extends Widget
 {
@@ -40,7 +41,7 @@ class DashboardBlock extends Widget
             $totalSolded += $solded;
             $apartmentsStat[] = ['name' => $apartmentType->name, 'available' => $available, 'solded' => $solded, 'type' => 'apartment'];
         }
-        $totalsStat = ['available' => $totalAvailable, 'solded' => $totalSolded];
+        $totalStats = ['available' => $totalAvailable, 'solded' => $totalSolded];
 
         $buldings = Building::all();
         foreach ($buldings as $bulding) {
@@ -60,10 +61,20 @@ class DashboardBlock extends Widget
             $apartmentsStat[] = ['name' => $bulding->name, 'available' => $available, 'solded' => $solded, 'type' => 'bulding'];
         }
 
+        $clientsAvailable = User::count();
+        $clientsRegistered = User::where('activated', 1)->count();
+        $clientsActivited = User::where('activated', 1)
+            ->where(function($query) {
+                $query->where('email', '<>', '')->orWhere('phone', '<>', '');
+            })
+            ->count();
+
+        $totalClients = ['available' => $clientsAvailable, 'registered' => $clientsRegistered, 'activited' => $clientsActivited];
 
         return view('admin.dashboard', [
             'apartmentsStat' => $apartmentsStat,
-            'totalsStat' => $totalsStat,
+            'totalStats' => $totalStats,
+            'totalClients' => $totalClients,
         ]);
     }
     /**

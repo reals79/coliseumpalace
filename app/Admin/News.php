@@ -13,7 +13,6 @@ AdminSection::registerModel(News::class, function (ModelConfiguration $model) {
     // Display
     $model->onDisplay(function () {
         $display = AdminDisplay::datatables()->setColumns([
-            AdminColumn::image('image')->setLabel('Изображение')->setHtmlAttribute('class', 'text-center')->setWidth('100px'),
             AdminColumn::link('title')->setLabel('Заголовок'),
             AdminColumn::datetime('when_at')->setLabel('Дата новости')->setWidth('140px')->setFormat('d.m.Y H:i'),
             AdminColumnEditable::checkbox('promo')->setLabel('Промо')->setWidth('80px')->setHtmlAttribute('class', 'text-center'),
@@ -41,7 +40,7 @@ AdminSection::registerModel(News::class, function (ModelConfiguration $model) {
                         AdminFormElement::datetime('when_at', 'Дата новости')->setCurrentDate(),
                         AdminFormElement::text('title', 'Заголовок')->required(),
                         AdminFormElement::wysiwyg('descr', 'Контент', 'ckeditor')->required(),
-                        AdminFormElement::image('image', 'Изображение'),
+                        AdminFormElement::images('images', 'Изображения'),
                         AdminFormElement::checkbox('promo', 'Промо')->setDefaultValue(1),
                         AdminFormElement::checkbox('activated', 'Актив.')->setDefaultValue(1)
                     ];

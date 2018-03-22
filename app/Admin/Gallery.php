@@ -38,7 +38,7 @@ AdminSection::registerModel(Gallery::class, function (ModelConfiguration $model)
                     return [
                         AdminFormElement::text('name', 'Наименование'),
                         AdminFormElement::checkbox('activated', 'Актив.')->setDefaultValue(1),
-                        AdminFormElement::images('images', 'Images'),
+                        AdminFormElement::images('images', 'Изображения'),
                     ];
                 })
         );

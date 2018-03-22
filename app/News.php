@@ -11,7 +11,7 @@ class News extends Model
     use \Dimsav\Translatable\Translatable;
 
     protected $fillable = [
-        'image', 'when_at', 'promo', 'activated'
+        'images', 'when_at', 'promo', 'activated'
     ];
     public $translatedAttributes = ['title', 'descr'];
 
@@ -32,6 +32,16 @@ class News extends Model
     public function scopePromo($query)
     {
         return $query->where('promo', 1);
+    }
+
+    public function getImagesAttribute($value)
+    {
+        return preg_split('/,/', $value, -1, PREG_SPLIT_NO_EMPTY);
+    }
+
+    public function setImagesAttribute($images)
+    {
+        $this->attributes['images'] = implode(',', $images);
     }
 
 }

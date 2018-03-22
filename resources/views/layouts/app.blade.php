@@ -49,6 +49,9 @@
                                 </div>
                             </li>
                             <li class="nav-item">
+                                <a href="{{ route('news') }}" class="nav-link">{{ trans('app.menu.news') }}</a>
+                            </li>
+                            <li class="nav-item">
                                 <a href="{{ route('about') }}" class="nav-link">{{ trans('app.menu.about') }}</a>
                             </li>
                             <li class="nav-item dropdown">
@@ -70,9 +73,6 @@
                                 @endif
                                 </li>
                             @endforeach
-                            <li class="nav-item">
-                                <a href="{{ route('news') }}" class="nav-link">{{ trans('app.menu.news') }}</a>
-                            </li>
                             <li class="nav-item">
                                 <a href="{{ route('gallery') }}" class="nav-link">{{ trans('app.menu.photo_gallery') }}</a>
                             </li>

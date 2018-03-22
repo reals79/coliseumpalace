@@ -51,6 +51,12 @@
 				        	</div>
 						</nav>
 				        <main class="col-sm-9 ml-sm-auto col-md-10 pt-3" role="main">
+				        	@if (empty($user->email) && empty($user->phone))
+				        	<div class="alert alert-warning alert-dismissible fade show" role="alert">
+							    
+							    <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+							</div>
+							@endif
 				        	<transition>
 								<keep-alive>
 									<router-view></router-view>

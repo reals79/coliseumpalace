@@ -15,7 +15,7 @@ class CreateNewsTable extends Migration
     {
         Schema::create('news', function (Blueprint $table) {
             $table->increments('id');
-            $table->string('image')->nullable();
+            $table->longtext('images')->nullable();
             $table->timestamp('when_at');
             $table->boolean('promo')->default(0);
             $table->boolean('activated')->default(1);

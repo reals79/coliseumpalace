@@ -195,11 +195,11 @@ $(function() {
 		if ($(target).hasClass('reveal')) {
 			$(target).removeClass('reveal');
 			//$(this).removeClass('bg-white');
-			$(this).find('i').removeClass('flaticon-multiply').addClass('flaticon-menu-2');
+			$(this).find('i').removeClass('flaticon-multiply fi-08x').addClass('flaticon-menu-2 fi-1x');
 		} else {
 			$(target).addClass('reveal');
 			//$(this).addClass('bg-white');
-			$(this).find('i').removeClass('flaticon-menu-2').addClass('flaticon-multiply');
+			$(this).find('i').removeClass('flaticon-menu-2 fi-1x').addClass('flaticon-multiply fi-08x');
 		}
 	});
 

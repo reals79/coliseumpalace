@@ -39,7 +39,7 @@ return [
     'text_5' => 'Vizualizarea tranșelor de leasing',
     'text_6' => 'Termene de achitare',
     'text_7' => 'Curs valutar',
-    'text_alert' => 'Пожалуйста, заполните в Вашем профайле поля: <strong>"E-mail"</strong> или <strong>"Телефон"</strong>, для полного удобства использование функционала программы.',
+    'text_alert' => 'Vă rugăm să îndepliniți cîmpurile: "E-mail" sau "Telefon" în Profilul Dvs., pentru folosirea eficientă a funcționalităților programului.',
 
     'notify_email' => 'Notificări Email',
 	'notify_sms' => 'Notificări SMS',

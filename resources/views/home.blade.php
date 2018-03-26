@@ -46,8 +46,8 @@
                             <i class="fi flaticon-multiply fi-1x mr-1" aria-hidden="true"></i>
                         </button>
                     </div>
-                    <div class="modal-body">
-                        {!! $promo_news->descr !!}
+                    <div class="modal-body text-center">
+                        <img src="{{ url($promo_news->images[0]) }}">
                     </div>
                 </div>
             </div>

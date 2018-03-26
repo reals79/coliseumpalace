@@ -13,7 +13,7 @@
                 <div class="card-deck">
                 @foreach ($videos as $video)
                     <div class="card text-center">
-                        <a href="{{ ((!empty($video->path_external)) ? $video->path_external : $video->path) }}" data-toggle="lightbox" {!! ((empty($video->path_external)) ? 'data-type="video" ' : '') !!} data-title="{{ $video->name }}">
+                        <a href="{{ ((!empty($video->path_external)) ? $video->path_external : url($video->path)) }}" data-toggle="lightbox" {!! ((empty($video->path_external)) ? 'data-type="video" ' : '') !!} data-title="{{ $video->name }}">
                             <img src="{{ asset('images/red-play-icon.svg') }}" width="80" class="card-img-top w-50">
                             <div class="card-body">
                                 <h5 class="card-title">{{ $video->name }}</h5>

@@ -10,10 +10,10 @@
     			</ol>
                 <h4 class="text-primary">{{ trans('app.menu.video_gallery') }}</h4>
                 <hr class="my-4">
-                <div class="row">
+                <div class="row equal">
                 @foreach ($videos as $video)
-                    <div class="col-md-6 col-lg-3">
-                        <div class="card">
+                    <div class="col-md-6 col-lg-3 mb-3">
+                        <div class="card h-100">
                             <a href="{{ ((!empty($video->path_external)) ? $video->path_external : url($video->path)) }}" data-toggle="lightbox" {!! ((empty($video->path_external)) ? 'data-type="video" ' : '') !!} data-title="{{ $video->name }}" class="container">
                                 <div class="row">
                                     <div class="col-4 py-2 text-center">

@@ -12,24 +12,24 @@
                 @if ($is_gallery_list)
                     <h4 class="text-primary">{{ trans('app.menu.photo_gallery') }}</h4>
                     <hr class="my-4">
-                    <div class="card-columns">
+                    <div class="card-deck">
                     @foreach ($gallery as $gal)
                         @if ($gal->images)
-                            <a href="{{ route('gallery', [$gal->id]) }}">
-                                <div class="card text-center">
-                                    <img src="{{ url($gal->images[0]) }}" alt="" class="card-img-top img-thumbnail">
+                            <div class="card text-center">
+                                <a href="{{ route('gallery', [$gal->id]) }}">
+                                    <img src="{{ url($gal->images[0]) }}" alt="" class="card-img-top">
                                     <div class="card-body">
-                                        <h4 class="card-title mb-0">{{ $gal->name }}</h4>
+                                        <h5 class="card-title mb-0">{{ $gal->name }}</h5>
                                     </div>
-                                </div>
-                            </a>
+                                </a>
+                            </div>
                         @endif
                     @endforeach
                     </div>
                 @else
                     <h4 class="text-primary">{{ $gallery->name }}</h4>
                     <hr class="my-4">
-                    <div class="card-columns">
+                    <div class="card-deck">
                     @foreach ($gallery->images as $image)
                         <div class="card text-center">
                             <a href="{{ url($image) }}" data-toggle="lightbox" data-gallery="gallery-{{ $gallery->id }}"><img src="{{ url($image) }}" alt="" class="card-img"></a>

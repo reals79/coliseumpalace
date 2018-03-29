@@ -47,7 +47,7 @@
                         </button>
                     </div>
                     <div class="modal-body text-center">
-                        <img src="{{ url($promo_news->images[0]) }}">
+                        <a href="{{ route('news', $promo_news->id) }}"><img src="{{ url($promo_news->images[0]) }}" class="img-fluid"></a>
                     </div>
                 </div>
             </div>

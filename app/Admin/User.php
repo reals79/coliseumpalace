@@ -6,14 +6,16 @@ use SleepingOwl\Admin\Model\ModelConfiguration;
 AdminSection::registerModel(User::class, function (ModelConfiguration $model) {
     $model->setTitle('Клиенты');
 
+    $model->setRedirect(['create' => 'display', 'edit' => 'display']);
+
     // Display
     $model->onDisplay(function () {
         $display = AdminDisplay::datatables();
         $display->setColumns([
                 AdminColumn::link('last_name')->setLabel('Фамилия')->setWidth('200px'),
                 AdminColumn::link('first_name')->setLabel('Имя')->setWidth('200px'),
-                AdminColumn::email('email')->setLabel('E-mail')->setWidth('200px'),
-                AdminColumn::text('phone')->setLabel('Телефон')->setWidth('200px'),
+                AdminColumnEditable::text('email')->setLabel('E-mail')->setWidth('200px'),
+                AdminColumnEditable::text('phone')->setLabel('Телефон')->setWidth('200px'),
                 //AdminColumn::text('contract')->setLabel('Договор')->setWidth('80px'),
                 AdminColumnEditable::checkbox('activated')->setLabel('Актив.')->setWidth('80px')->setHtmlAttribute('class', 'text-center'),
                 //AdminColumnEditable::checkbox('notify_is_email')->setLabel('Уведомление по Email')->setWidth('80px')->setHtmlAttribute('class', 'text-center'),

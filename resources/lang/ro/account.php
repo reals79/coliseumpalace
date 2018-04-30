@@ -62,4 +62,9 @@ return [
     	'public_service' => 'Servicii Comunale',
     ],
 
+    'notices' => [
+        'subject' => 'Temă',
+        'at' => 'Data',
+    ]
+
 ];

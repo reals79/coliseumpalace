@@ -7,6 +7,7 @@ return [
     'buttons' => [
         'more' => 'mai departe...',
         'back' => '...înapoi',
+        'close' => 'închide',
     ],
 
     'menu' => [

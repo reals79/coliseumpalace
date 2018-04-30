@@ -17,7 +17,7 @@
 			            	<router-link to="/settings" class="nav-link" data-toggle="tooltip" title="{{ trans('account.menu.settings') }}"><i class="fa fa-cogs" aria-hidden="true"></i></router-link>
 			            </li>
 			            <li class="nav-item">
-			            	<router-link to="/alerts" class="nav-link" data-toggle="tooltip" title="{{ trans('account.menu.notifications') }}"><i class="fa fa-bell-o" aria-hidden="true"></i><!-- <span class="badge badge-pill badge-danger">1</span> --></router-link>
+			            	<router-link to="/notices" class="nav-link" data-toggle="tooltip" title="{{ trans('account.menu.notifications') }}"><i class="fa fa-bell-o" aria-hidden="true"></i><!-- <span class="badge badge-pill badge-danger">1</span> --></router-link>
 			            </li>
 			            <li class="nav-item">
 			            	<router-link to="/messages" class="nav-link" data-toggle="tooltip" title="{{ trans('account.menu.messages') }}"><i class="fa fa-envelope-o" aria-hidden="true"></i><!-- <span class="badge badge-pill badge-danger">2</span> --></router-link>

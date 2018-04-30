@@ -76,6 +76,7 @@ export default {
             "text_5": "Просмотр лизинговых платежей",
             "text_6": "Сроки оплат",
             "text_7": "Курс валют",
+            "text_alert": "Пожалуйста, заполните в Вашем профайле поля: <strong>\"E-mail\"<\/strong> или <strong>\"Телефон\"<\/strong>, для полного удобства использования функционала программы.",
             "notify_email": "Уведомление по Email",
             "notify_sms": "Уведомление по SMS",
             "buttons": {
@@ -93,13 +94,18 @@ export default {
                 "general_info": "Общая информация",
                 "leasing_payments": "Лизинговые платежи",
                 "public_service": "Коммунальные услуги"
+            },
+            "notices": {
+                "subject": "Тема",
+                "at": "Дата"
             }
         },
         "app": {
             "title": "Coliseum Palace - ",
             "buttons": {
                 "more": "далее...",
-                "back": "...назад"
+                "back": "...назад",
+                "close": "закрыть"
             },
             "menu": {
                 "about": "О Доме",
@@ -386,6 +392,7 @@ export default {
             "text_5": "Vizualizarea tranșelor de leasing",
             "text_6": "Termene de achitare",
             "text_7": "Curs valutar",
+            "text_alert": "Vă rugăm să îndepliniți cîmpurile: \"E-mail\" sau \"Telefon\" în Profilul Dvs., pentru folosirea eficientă a funcționalităților programului.",
             "notify_email": "Notificări Email",
             "notify_sms": "Notificări SMS",
             "buttons": {
@@ -403,13 +410,18 @@ export default {
                 "general_info": "Informația generală",
                 "leasing_payments": "Plăți de leasing",
                 "public_service": "Servicii Comunale"
+            },
+            "notices": {
+                "subject": "Temă",
+                "at": "Data"
             }
         },
         "app": {
             "title": "Coliseum Palace - ",
             "buttons": {
                 "more": "mai departe...",
-                "back": "...înapoi"
+                "back": "...înapoi",
+                "close": "închide"
             },
             "menu": {
                 "about": "Despre proiect",

@@ -73,3 +73,10 @@
 .data-rate {
   font-size: 14px;
 }
+.notices {
+    tbody {
+        tr {
+            cursor: pointer;
+        }
+    }
+}

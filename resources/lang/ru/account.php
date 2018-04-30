@@ -62,4 +62,9 @@ return [
     	'public_service' => 'Коммунальные услуги',
     ],
 
+    'notices' => [
+        'subject' => 'Тема',
+        'at' => 'Дата',
+    ]
+
 ];

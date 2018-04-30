@@ -48,5 +48,10 @@ class User extends Authenticatable
             return $recs->amount_leasing;
         else return 0;
     }
-    
+
+    public function notices()
+    {
+        return $this->belongsToMany(Notice::class);
+    }
+
 }

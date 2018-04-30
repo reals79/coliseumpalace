@@ -34,8 +34,11 @@ Route::post('/settings/save', [
     'uses' => 'ApiController@settingsSave'
 ])->middleware('auth:api');
 
-Route::get('/alerts', [
-    'uses' => 'ApiController@alerts'
+Route::get('/notices', [
+    'uses' => 'ApiController@notices'
+])->middleware('auth:api');
+Route::get('/notice/{notice}', [
+    'uses' => 'ApiController@notices'
 ])->middleware('auth:api');
 
 Route::get('/messages', [

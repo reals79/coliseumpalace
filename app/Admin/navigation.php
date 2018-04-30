@@ -133,6 +133,12 @@ return [
         'model' => \App\User::class,
         'priority' => 10,
     ],
+    [
+        'title' => 'Уведомления',
+        'icon'  => 'fa fa-bell-o',
+        'model' => \App\Notice::class,
+        'priority' => 11,
+    ],
 
     // Examples
     // [

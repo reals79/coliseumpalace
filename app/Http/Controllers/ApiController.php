@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\User;
+use App\Notice;
 
 class ApiController extends Controller
 {
@@ -71,9 +72,14 @@ class ApiController extends Controller
         return;
     }
 
-    public function alerts(Request $request)
+    public function notices(Request $request)
     {
-        # code...
+        return $request->user()->notices()->get();
+    }
+
+    public function notice(Request $request, Notice $notice)
+    {
+        return $notice;
     }
 
     public function messages(Request $request)

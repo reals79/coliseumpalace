@@ -27,6 +27,11 @@ Vue.filter('formatDate', function(value) {
     return moment(String(value)).format('DD.MM.YYYY')
   }
 });
+Vue.filter('formatDateTime', function(value) {
+  if (value) {
+    return moment(String(value)).format('DD.MM.YYYY H:mm')
+  }
+});
 
 Vue.component('register', require('./components/Register.vue'));
 Vue.component('slides', require('./components/Slides.vue'));
@@ -35,7 +40,7 @@ const routes = [
 	{ path: '/', component: require('./components/Dashboard.vue') },
     { path: '/profile', component: require('./components/Profile.vue') },
     { path: '/settings', component: require('./components/Settings.vue') },
-    { path: '/alerts', component: require('./components/Alerts.vue') },
+    { path: '/notices', component: require('./components/Notices.vue') },
     { path: '/messages', component: require('./components/Messages.vue') },
     { path: '/leasing', component: require('./components/Leasing.vue') },
     { path: '/services', component: require('./components/Services.vue') },
@@ -249,10 +254,12 @@ $(function() {
 	    	if (target) {
 	    		var scroll = new SmoothScroll();
 	    		var anchor = document.querySelector('#content-'+target);
-	    		var options = { speed: 1000, easing: 'easeOutCubic', header: 'header.fixed-top' };
-				setTimeout(() => {
-					scroll.animateScroll( anchor, null, options );
-				}, 1000);
+                if (anchor) {
+    	    		var options = { speed: 1000, easing: 'easeOutCubic', header: 'header.fixed-top' };
+    				setTimeout(() => {
+    					scroll.animateScroll( anchor, null, options );
+    				}, 1000);
+                }
 			}
 		}
 	}

@@ -10,8 +10,13 @@ AdminSection::registerModel(User::class, function (ModelConfiguration $model) {
 
     // Display
     $model->onDisplay(function () {
-        $display = AdminDisplay::datatables();
-        $display->setColumns([
+        $display = AdminDisplay::tabbed();
+        $display->setTabs(function() {
+            
+            $tabs = [];
+
+            $main = AdminDisplay::datatables()->paginate(25);
+            $main->setColumns([
                 AdminColumn::link('last_name')->setLabel('Фамилия')->setWidth('200px'),
                 AdminColumn::link('first_name')->setLabel('Имя')->setWidth('200px'),
                 AdminColumnEditable::text('email')->setLabel('E-mail')->setWidth('200px'),
@@ -22,23 +27,34 @@ AdminSection::registerModel(User::class, function (ModelConfiguration $model) {
                 //AdminColumnEditable::checkbox('notify_is_sms')->setLabel('Уведомление по SMS')->setWidth('80px')->setHtmlAttribute('class', 'text-center'),
                 AdminColumn::datetime('updated_at')->setLabel('Дата обновления')->setFormat('d.m.Y')->setWidth('130px'),
                 AdminColumn::custom('Действие', function(User $model) {
-                    return (!empty($model->api_token)) ?'<p class="text-center"><button type="button" onclick="doClientLogin(\'' . $model->api_token . '\')">Вход</button></p>' : '';
+                    return (!empty($model->api_token)) ? '<p class="text-center"><button type="button" onclick="doClientLogin(\'' . $model->api_token . '\')">Вход</button></p>' : '';
                 })->setWidth('100px'),
-            ])->paginate(25);
+            ]);
+            $main->setColumnFilters([
+                AdminColumnFilter::text()->setPlaceholder('Фамилия клиента'),
+                AdminColumnFilter::text()->setPlaceholder('Имя клиента'),
+                AdminColumnFilter::text()->setPlaceholder('Email'),
+                AdminColumnFilter::text()->setPlaceholder('Телефон'),
+                null, //AdminColumnFilter::text()->setPlaceholder('Договор'),
+                AdminColumnFilter::range()->setFrom(
+                    AdminColumnFilter::date()->setPlaceholder('От')->setFormat('d.m.Y')
+                )->setTo(
+                    AdminColumnFilter::date()->setPlaceholder('До')->setFormat('d.m.Y')
+                ),
+                null
+            ]);
 
-        $display->setColumnFilters([
-            AdminColumnFilter::text()->setPlaceholder('Фамилия клиента'),
-            AdminColumnFilter::text()->setPlaceholder('Имя клиента'),
-            AdminColumnFilter::text()->setPlaceholder('Email'),
-            AdminColumnFilter::text()->setPlaceholder('Телефон'),
-            null, //AdminColumnFilter::text()->setPlaceholder('Договор'),
-            AdminColumnFilter::range()->setFrom(
-                AdminColumnFilter::date()->setPlaceholder('От')->setFormat('d.m.Y')
-            )->setTo(
-                AdminColumnFilter::date()->setPlaceholder('До')->setFormat('d.m.Y')
-            ),
-            null
-        ]);
+            $tabs[] = AdminDisplay::tab($main, 'Клиенты')->setActive();
+
+            $noticeColumns = AdminDisplay::datatables()->setModelClass(App\Notice::class)->paginate(25);
+            
+            $noticeColumns->setColumns([
+                
+            ]);
+            $tabs[] = AdminDisplay::tab($noticeColumns, 'Уведомления');
+
+            return $tabs;
+        });
 
         return $display;
     });

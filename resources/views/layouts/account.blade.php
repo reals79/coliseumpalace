@@ -6,8 +6,20 @@
         <div class="jumbotron content">
             <div class="container">
 			    <nav class="navbar navbar-expand-md">
-			        <span class="navbar-brand">{{ Auth::user()->full_name }}
-			        	<br><small class="text-muted">{{ trans('account.contract') }}: <strong>{{ Auth::user()->contract }}</strong></small>
+			        <span class="navbar-brand">{{ $user->full_name }}
+			        	<br>
+			        	<small class="text-muted">
+							<div id="user_contracts" class="d-inline-block dropdown">
+								{{ trans('account.contract') }}:
+								<a href="#" class="btn btn-link dropdown-toggle" id="dpContracts" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> 
+									{{ $user->contracts()->first()->number }}</a>
+								<div class="dropdown-menu" id="dpmContracts" aria-labelledby="dpContracts">
+								    @foreach ($user->contracts as $contract)
+								        <a href="#" class="dropdown-item" data-contract-id="{{ $contract->id }}">{{ $contract->number }}</a>
+								    @endforeach
+								</div>
+							</div>
+			        	</small>
 			        </span>
 			        <ul class="navbar-nav nav-pills mr-auto">
 			            <li class="nav-item">

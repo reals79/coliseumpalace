@@ -60,7 +60,8 @@ const app = new Vue({
     router,
     data() {
         return {
-            user: null
+            user: null,
+            contract: null
         }
     },
     watch: {
@@ -73,10 +74,15 @@ const app = new Vue({
                 '/api/user'
             ).then(response => {
                 this.user = response.data;
-                Events.$emit('data-user-loaded', this.user);
+                this.contract = response.data.contracts[0];
+                Events.$emit('data-user-loaded', this.user, this.contract);
             }, response => {
                 
             })
+        },
+        setContract(contract_id) {
+            this.contract = _.find(this.user.contracts, {id: contract_id});
+            Events.$emit('data-user-loaded', this.user, this.contract);
         }
     },
     mounted() {
@@ -263,5 +269,12 @@ $(function() {
 			}
 		}
 	}
+
+    $('#dpmContracts a').on('click', function(event) {
+        event.preventDefault();
+        $('#dpContracts:first-child').html($(this).text());
+        var contract_id = $(this).data('contract-id');
+        app.$root.setContract(contract_id);
+    });
 
 });

@@ -21,7 +21,7 @@ Route::post('/register/{user}', [
 ]);
 
 Route::middleware('auth:api')->get('/user', function (Request $request) {
-    return $request->user()->load('records');
+    return $request->user()->load(['contracts.records']);
 });
 Route::post('/user/save', [
     'uses' => 'ApiController@userSave'

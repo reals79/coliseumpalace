@@ -17,6 +17,8 @@ class CreateUserRecordsTable extends Migration
             $table->increments('id');
             $table->integer('user_id')->unsigned();
             $table->foreign('user_id')->references('id')->on('users');
+            $table->integer('contract_id')->unsigned();
+            $table->foreign('contract_id')->references('id')->on('contracts');
             $table->integer('number_period')->unsigned();
             $table->timestamp('pay_at');
             $table->float('amount_leasing');
@@ -25,7 +27,6 @@ class CreateUserRecordsTable extends Migration
             $table->float('amount_fine');
             $table->float('amount_sold');
             $table->float('amount_pay');
-
             $table->timestamps();
         });
     }

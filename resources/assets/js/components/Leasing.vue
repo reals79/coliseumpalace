@@ -20,7 +20,7 @@
                     </tr>
                 </thead>
                 <tbody>
-                    <tr v-for="(record, index) in user.records" :key="record.id">
+                    <tr v-for="(record, index) in contract.records" :key="record.id">
                         <td class="text-center">{{ record.number_period }}</td>
                         <td class="text-center">{{ record.pay_at | formatDate }}</td>
                         <td class="text-right">{{ (record.amount_leasing > 0) ? record.amount_leasing.toFixed(2) : '' }}</td>
@@ -34,19 +34,19 @@
                 <tfoot>
                     <tr class="font-weight-bold">
                         <td colspan="2" class="text-right">{{ $t('apartment.total') }}:</td>
-                        <td class="text-right">{{ (user.total_amount_leasing > 0) ? user.total_amount_leasing.toFixed(2) : '' }}</td>
-                        <td class="text-right">{{ (user.total_amount_leasing_period > 0) ? user.total_amount_leasing_period.toFixed(2) : '' }}</td>
-                        <td class="text-right">{{ (user.total_amount_stavka > 0) ? user.total_amount_stavka.toFixed(2) : '' }}</td>
-                        <td class="text-right">{{ (user.total_amount_fine > 0) ? user.total_amount_fine.toFixed(2) : '' }}</td>
-                        <td colspan="2" class="text-right">{{ (user.total_amount_pay > 0) ? user.total_amount_pay.toFixed(2) : '' }}</td>
+                        <td class="text-right">{{ (contract.total_amount_leasing > 0) ? contract.total_amount_leasing.toFixed(2) : '' }}</td>
+                        <td class="text-right">{{ (contract.total_amount_leasing_period > 0) ? contract.total_amount_leasing_period.toFixed(2) : '' }}</td>
+                        <td class="text-right">{{ (contract.total_amount_stavka > 0) ? contract.total_amount_stavka.toFixed(2) : '' }}</td>
+                        <td class="text-right">{{ (contract.total_amount_fine > 0) ? contract.total_amount_fine.toFixed(2) : '' }}</td>
+                        <td colspan="2" class="text-right">{{ (contract.total_amount_pay > 0) ? contract.total_amount_pay.toFixed(2) : '' }}</td>
                     </tr>
                     <tr class="font-weight-bold">
                         <td colspan="2" class="text-right">{{ $t('account.unpaid_amount') }}:</td>
-                        <td colspan="6" class="text-right">{{ (user.total_amount_sold > 0) ? user.total_amount_sold.toFixed(2) : '' }}</td>
+                        <td colspan="6" class="text-right">{{ (contract.total_amount_sold > 0) ? contract.total_amount_sold.toFixed(2) : '' }}</td>
                     </tr>
-                    <tr class="font-weight-bold text-danger" v-if="user.total_amount_debt > 0">
+                    <tr class="font-weight-bold text-danger" v-if="contract.total_amount_debt > 0">
                         <td colspan="2" class="text-right">{{ $t('account.current_debt') }}:</td>
-                        <td colspan="6" class="text-right"><h4>{{ (user.total_amount_debt > 0) ? user.total_amount_debt.toFixed(2) : '' }}</h4></td>
+                        <td colspan="6" class="text-right"><h4>{{ (contract.total_amount_debt > 0) ? contract.total_amount_debt.toFixed(2) : '' }}</h4></td>
                     </tr>
                 </tfoot>
             </table>
@@ -60,14 +60,20 @@
     export default {
         data() {
             return {
-                user: {}
+                user: {},
+                contract: {}
             }
         },
         mounted() {
-            if (this.$root.$data.user)
+            if (this.$root.$data.user) {
                 this.user = this.$root.$data.user;
-            Events.$on('data-user-loaded', function(user) {
+            }
+            if (this.$root.$data.contract) {
+                this.contract = this.$root.$data.contract;
+            }
+            Events.$on('data-user-loaded', function(user, contract) {
                 this.user = user;
+                this.contract = contract;
             }.bind(this))
         }
     }

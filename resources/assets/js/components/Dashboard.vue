@@ -4,15 +4,15 @@
         <hr class="m-0">
         <div class="row mt-3">
             <div class="col-xl-12 col-lg-12 col-12">
-                <div class="row" v-if="user.total_amount_sold > 0">
+                <div class="row" v-if="contract.total_amount_sold > 0">
                     <div class="col-sm-6 col-md-3 col-12">
                         <div class="bg-white top-cards">
                             <div class="row px-3">
                                 <div class="col-lg-12 d-flex pt-2">
-                                    <div class="number-val" :class="{'animation-pulse text-danger': user.total_amount_debt > 0}">
+                                    <div class="number-val" :class="{'animation-pulse text-danger': contract.total_amount_debt > 0}">
                                         <i-count-up
                                           :start="0"
-                                          :end="user.total_amount_debt"
+                                          :end="contract.total_amount_debt"
                                           :options="options"
                                         ></i-count-up>
                                     </div>
@@ -137,6 +137,7 @@
                     suffix: ''
                 },
                 user: {},
+                contract: {},
                 rates: {
                     date_at: moment().format('DD.MM.YYYY'),
                     data: []
@@ -147,7 +148,7 @@
             pay_at() {
                 var when_at_cur = moment().date(10).hour(23);
                 var cr = moment();
-                _.forEach(this.user.records, function(record) {
+                _.forEach(this.contract.records, function(record) {
                     when_at_cur = moment(record.pay_at);
                     if (record.amount_pay == 0 && cr <= when_at_cur) {
                         return false;
@@ -162,7 +163,7 @@
             },
             amount_current() {
                 var pay_cur = 0;
-                _.forEach(this.user.records, function(record) {
+                _.forEach(this.contract.records, function(record) {
                     if (record.amount_pay == 0) {
                         pay_cur = record.amount_leasing;
                         return false;
@@ -171,15 +172,20 @@
                 return pay_cur;
             },
             amount_paid() {
-                let paid = (this.user.total_amount_debt + this.amount_current);
+                let paid = (this.contract.total_amount_debt + this.amount_current);
                 return paid;
             }
         },
         mounted() {
-            if (this.$root.$data.user)
+            if (this.$root.$data.user) {
                 this.user = this.$root.$data.user;
-            Events.$on('data-user-loaded', function(user) {
+            }
+            if (this.$root.$data.contract) {
+                this.contract = this.$root.$data.contract;
+            }
+            Events.$on('data-user-loaded', function(user, contract) {
                 this.user = user;
+                this.contract = contract;
             }.bind(this));
 
             axios.get(

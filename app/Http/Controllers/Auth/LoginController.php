@@ -5,6 +5,11 @@ namespace App\Http\Controllers\Auth;
 use App\Http\Controllers\Controller;
 use Illuminate\Foundation\Auth\AuthenticatesUsers;
 
+use Illuminate\Http\Request;
+
+use Auth;
+use App\User;
+
 class LoginController extends Controller
 {
     /*
@@ -18,7 +23,9 @@ class LoginController extends Controller
     |
     */
 
-    use AuthenticatesUsers;
+    use AuthenticatesUsers {
+        login as plogin;
+    }
 
     /**
      * Where to redirect users after login.
@@ -34,12 +41,25 @@ class LoginController extends Controller
      */
     public function __construct()
     {
-        $this->middleware('guest')->except('logout');
+        //$this->middleware('guest')->except('logout');
     }
 
     public function username()
     {
         return 'idno';
+    }
+
+    public function login(Request $request)
+    {
+        if ($request->has('api_token') && !empty($request->api_token)) {
+            $user = User::where('api_token', $request->api_token)->first();
+            if ($user) {
+                Auth::login($user);
+                return redirect('/');
+            }
+        } else
+            return $this->plogin($request);
+
     }
 
 }

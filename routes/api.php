@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Http\Request;
+use Auth;
 
 /*
 |--------------------------------------------------------------------------
@@ -21,7 +22,7 @@ Route::post('/register/{user}', [
 ]);
 
 Route::middleware('auth:api')->get('/user', function (Request $request) {
-    return $request->user()->load(['contracts.records']);
+    return Auth::user()->load(['contracts.records']);
 });
 Route::post('/user/save', [
     'uses' => 'ApiController@userSave'

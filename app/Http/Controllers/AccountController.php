@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Auth;
 
 class AccountController extends Controller
 {
@@ -23,7 +24,7 @@ class AccountController extends Controller
      */
     public function index(Request $request)
     {
-        $user = $request->user();
+        $user = Auth::user();
 
         return view('layouts.account', compact('user'));
     }

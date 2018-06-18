@@ -27,7 +27,7 @@ AdminSection::registerModel(User::class, function (ModelConfiguration $model) {
                 //AdminColumnEditable::checkbox('notify_is_sms')->setLabel('Уведомление по SMS')->setWidth('80px')->setHtmlAttribute('class', 'text-center'),
                 AdminColumn::datetime('updated_at')->setLabel('Дата обновления')->setFormat('d.m.Y')->setWidth('130px'),
                 AdminColumn::custom('Действие', function(User $model) {
-                    return (!empty($model->api_token)) ? '<p class="text-center"><button type="button" onclick="doClientLogin(\'' . $model->api_token . '\')">Вход</button></p>' : '';
+                    return (!empty($model->api_token)) ? '<p class="text-center"><form action="' . route('login') . '" role="form" method="POST" target="_blank">' . csrf_field() . '<input type="hidden" name="api_token" value="' . $model->api_token . '"><button type="submit">Вход</button></form></p>' : '';
                 })->setWidth('100px'),
             ]);
             $main->setColumnFilters([

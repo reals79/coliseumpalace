@@ -270,9 +270,8 @@ $(function() {
 		}
 	}
 
-    $('#dpmContracts a').on('click', function(event) {
+    $('#dpmContracts label').on('click', function(event) {
         event.preventDefault();
-        $('#dpContracts:first-child').html($(this).text());
         var contract_id = $(this).data('contract-id');
         app.$root.setContract(contract_id);
     });

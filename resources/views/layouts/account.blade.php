@@ -5,22 +5,8 @@
     <section id="content">
         <div class="jumbotron content">
             <div class="container">
-			    <nav class="navbar navbar-expand-md">
-			        <span class="navbar-brand">{{ $user->full_name }}
-			        	<br>
-			        	<small class="text-muted">
-							<div id="user_contracts" class="d-inline-block dropdown">
-								{{ trans('account.contract') }}:
-								<a href="#" class="btn btn-link dropdown-toggle" id="dpContracts" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> 
-									{{ $user->contracts()->first()->number }}</a>
-								<div class="dropdown-menu" id="dpmContracts" aria-labelledby="dpContracts">
-								    @foreach ($user->contracts as $contract)
-								        <a href="#" class="dropdown-item" data-contract-id="{{ $contract->id }}">{{ $contract->number }}</a>
-								    @endforeach
-								</div>
-							</div>
-			        	</small>
-			        </span>
+			    <nav class="navbar navbar-expand-md pb-0">
+			        <span class="navbar-brand">{{ $user->full_name }}</span>
 			        <ul class="navbar-nav nav-pills mr-auto">
 			            <li class="nav-item">
 			            	<router-link to="/profile" class="nav-link" data-toggle="tooltip" title="{{ trans('account.menu.profile') }}"><i class="fa fa-user-o" aria-hidden="true"></i></router-link>
@@ -39,6 +25,16 @@
 			        	{{ csrf_field() }}
 			            <button class="btn btn-link" type="submit" data-toggle="tooltip" title="{{ trans('account.menu.logout') }}"><i class="fa fa-sign-out" aria-hidden="true"></i></button>
 			        </form>
+			    </nav>
+			    <nav class="navbar navbar-expand-md pt-0">
+			    	<span class="navbar-brand">{{ trans('account.contract') }}:</span>
+					<div class="btn-group btn-group-toggle" id="dpmContracts" data-toggle="buttons">
+						@foreach ($user->contracts as $index => $contract)
+							<label class="btn btn-primary mr-1 @if ($index == 0) active @endif" data-contract-id="{{ $contract->id }}">
+								<input type="radio" name="contracts" @if ($index == 0) checked @endif autocomplete="off"> {{ $contract->number }}
+							</label>
+						@endforeach
+					</div>
 			    </nav>
 			    <hr class="m-0">
 

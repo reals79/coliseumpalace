@@ -42,7 +42,7 @@ AdminSection::registerModel(User::class, function (ModelConfiguration $model) {
                     AdminColumnFilter::date()->setPlaceholder('До')->setFormat('d.m.Y')
                 ),
                 null
-            ]);
+            ])->setPlacement('table.header');
 
             $tabs[] = AdminDisplay::tab($main, 'Клиенты')->setActive();
 

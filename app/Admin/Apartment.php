@@ -30,7 +30,7 @@ AdminSection::registerModel(\App\Apartment::class, function (ModelConfiguration 
             AdminColumnFilter::text()->setPlaceholder('Номер квартиры'),
             AdminColumnFilter::text()->setPlaceholder('Этаж'),
             null, 
-        ]);
+        ])->setPlacement('table.header');
 
         return $display;
     });

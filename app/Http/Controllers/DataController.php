@@ -43,7 +43,8 @@ class DataController extends Controller
                 $tbl_data = [
                     'idno' => $idno,
                     'first_name' => $first_name,
-                    'last_name' => $last_name
+                    'last_name' => $last_name,
+                    'api_token' => str_random(60)
                 ];
 
                 $contract_data = [

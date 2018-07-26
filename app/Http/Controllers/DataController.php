@@ -66,7 +66,8 @@ class DataController extends Controller
                     $contract = $user->contracts()->create($contract_data);
                 } else {
                 	$user->update($tbl_data);
-                    $contract = $user->contracts()->where('number', '')->delete();
+                    $user->contracts()->where('number', '')->records()->delete();
+                    $user->contracts()->where('number', '')->delete();
                     $contract = $user->contracts()->where('number', $contract_number)->first();
                     if (!$contract) {
                         $contract = $user->contracts()->create($contract_data);

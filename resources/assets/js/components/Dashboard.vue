@@ -35,7 +35,7 @@
                                     <div class="number-val text-primary">
                                         <i-count-up
                                           :start="0"
-                                          :end="amount_current"
+                                          :end="amount_current.pay_cur"
                                           :options="options"
                                         ></i-count-up>
                                     </div>
@@ -150,7 +150,7 @@
                 var cr = moment();
                 _.forEach(this.contract.records, function(record) {
                     when_at_cur = moment(record.pay_at);
-                    if (record.amount_pay == 0 && cr <= when_at_cur) {
+                    if (record.amount_pay < record.amount_leasing && cr <= when_at_cur) {
                         return false;
                     }
                 });
@@ -163,16 +163,18 @@
             },
             amount_current() {
                 var pay_cur = 0;
+                var pay_balance = 0;
                 _.forEach(this.contract.records, function(record) {
-                    if (record.amount_pay == 0) {
+                    if (record.amount_pay < record.amount_leasing) {
                         pay_cur = record.amount_leasing;
+                        pay_balance = record.amount_leasing - record.amount_pay;
                         return false;
                     }
                 });
-                return pay_cur;
+                return {pay_cur, pay_balance};
             },
             amount_paid() {
-                let paid = (this.contract.total_amount_debt + this.amount_current);
+                let paid = (this.contract.total_amount_debt + this.amount_current.pay_balance);
                 return paid;
             }
         },

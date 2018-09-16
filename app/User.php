@@ -59,4 +59,14 @@ class User extends Authenticatable
         return $this->hasMany(Contract::class);
     }
 
+    public function communals()
+    {
+        return $this->hasMany(UserCommunalPayment::class);
+    }
+
+    public function scopeByIDNO($query, $idno)
+    {
+        return $query->where('idno', $idno);
+    }
+
 }

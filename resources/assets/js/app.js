@@ -43,7 +43,7 @@ const routes = [
     { path: '/notices', component: require('./components/Notices.vue') },
     { path: '/messages', component: require('./components/Messages.vue') },
     { path: '/leasing', component: require('./components/Leasing.vue') },
-    { path: '/services', component: require('./components/Services.vue') },
+    { path: '/communal', component: require('./components/Communal.vue') },
 ];
 
 let router = new VueRouter({

@@ -59,7 +59,7 @@ return [
     	'messages' => 'Сообщения',
         'general_info' => 'Общая информация',
         'leasing_payments' => 'Лизинговые платежи',
-    	'public_service' => 'Коммунальные услуги',
+    	'communal_payments' => 'Коммунальные платежи',
     ],
 
     'notices' => [

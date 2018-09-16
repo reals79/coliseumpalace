@@ -30,6 +30,8 @@ class Kernel extends ConsoleKernel
                  ->twiceDaily(0, 6);
         $schedule->call('App\Http\Controllers\DataController@dataProcess')
                  ->twiceDaily(12, 18);
+        $schedule->call('App\Http\Controllers\DataController@communalProcess')
+                 ->daily();
     }
 
     /**

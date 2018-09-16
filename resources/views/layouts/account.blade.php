@@ -53,7 +53,7 @@
 						                <router-link to="/leasing" class="nav-link">{{ trans('account.menu.leasing_payments') }}</router-link>
 						            </li>
 						            <li class="nav-item">
-						            	<router-link to="/services" class="nav-link">{{ trans('account.menu.public_service') }}</router-link>
+						            	<router-link to="/communal" class="nav-link">{{ trans('account.menu.communal_payments') }}</router-link>
 						            </li>
 					            </ul>
 				        	</div>

@@ -49,12 +49,19 @@ Route::get('/leasing', [
     'uses' => 'ApiController@leasing'
 ])->middleware('auth:api');
 
-Route::get('/services', [
-    'uses' => 'ApiController@services'
+Route::get('/communal', [
+    'uses' => 'ApiController@communal'
 ])->middleware('auth:api');
 
 Route::get('/data-process', [
     'uses' => 'DataController@dataProcess'
+]);
+Route::get('/communal-process', [
+    'uses' => 'DataController@communalProcess'
+]);
+
+Route::get('/get-pdf', [
+    'uses' => 'ApiController@getPDF'
 ]);
 
 Route::get('/rates', [

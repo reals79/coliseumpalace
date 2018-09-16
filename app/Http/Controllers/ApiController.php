@@ -3,6 +3,8 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Storage;
+
 use App\User;
 use App\Notice;
 
@@ -93,9 +95,19 @@ class ApiController extends Controller
         return $user->load('records');
     }
 
-    public function services(Request $request)
+    public function communal(Request $request)
     {
-        # code...
+        $user = $request->user();
+        return $user->load('communals');
+    }
+
+    public function getPDF(Request $request)
+    {
+        $document = $request->file_name;
+        $file = Storage::disk('local')->get($document);
+        $hdr = 'data:application/pdf;base64,';
+
+        return $file;
     }
 
 }

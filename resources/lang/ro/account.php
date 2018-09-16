@@ -59,7 +59,7 @@ return [
     	'messages' => 'Mesaje',
         'general_info' => 'Informația generală',
         'leasing_payments' => 'Plăți de leasing',
-    	'public_service' => 'Servicii Comunale',
+    	'communal_payments' => 'Plăți de comunale',
     ],
 
     'notices' => [

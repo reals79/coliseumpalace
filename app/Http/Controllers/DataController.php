@@ -5,18 +5,24 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Storage;
 use org\majkel\dbase\Table;
+use Carbon\Carbon;
 
 use App\User;
 use App\UserRecords;
 use App\Contract;
+use App\UserCommunalPayment;
 
 class DataController extends Controller
 {
     //
-    public function dataProcess()
+    public function __construct()
     {
         set_time_limit(0);
         ini_set('memory_limit', '-1');
+    }
+
+    public function dataProcess()
+    {
         $results = [];
 
         $file_name_clients = 'chead.DBF';
@@ -111,4 +117,37 @@ class DataController extends Controller
 
     	return $results;
     }
+
+    public function communalProcess(Request $request)
+    {
+        $folder = 'acc/';
+        $directories = Storage::disk('local')->directories($folder);
+        foreach ($directories as $directory) {
+            $dir = str_replace($folder, '', $directory);
+            $period = Carbon::createFromFormat('m_Y', $dir)->setTime(0, 0, 0)->lastOfMonth();
+            $communals =  UserCommunalPayment::where('period_at', $period)->count();
+            if (!$communals) {
+                $files = Storage::disk('local')->files($directory);
+                foreach ($files as $file) {
+                    $f = str_replace("$directory/", '', $file);
+                    $f_sep = preg_split('/_/', $f);
+                    $idno = $f_sep[0];
+                    $block = $f_sep[1];
+                    $user = User::byIDNO($idno)->first();
+                    if ($user) {
+                        $communal = $user->communals()->byPeriod($period)->byBlock($block)->count();
+                        if (!$communal) {
+                            $data = [
+                                'period_at' => $period,
+                                'block' => $block,
+                                'document' => $file
+                            ];
+                            $user->communals()->create($data);
+                        }
+                    }
+                }
+            }
+        }
+    }
+
 }

@@ -6,7 +6,7 @@
             <button type="button" data-toggle="leasing" class="btn btn-default navbar-btn">Обновить лизинговые платежи</button>
           </li>
           <li>
-            <button type="button" data-toggle="communal" class="btn btn-default navbar-btn">Обновить комунальные платежи</button>
+            <button type="button" data-toggle="communal" class="btn btn-default navbar-btn">Обновить коммунальные платежи</button>
           </li>
         </ul>
     </div>  

@@ -1,3 +1,17 @@
+
+<nav class="navbar navbar-default">
+    <div class="container-fluid">
+        <ul class="nav navbar-nav navbar-right">
+          <li>
+            <button type="button" data-toggle="leasing" class="btn btn-default navbar-btn">Обновить лизинговые платежи</button>
+          </li>
+          <li>
+            <button type="button" data-toggle="communal" class="btn btn-default navbar-btn">Обновить комунальные платежи</button>
+          </li>
+        </ul>
+    </div>  
+</nav>
+
 <div class="panel panel-default">
     <div class="panel-heading">Квартиры</div>
     <div class="panel-body">

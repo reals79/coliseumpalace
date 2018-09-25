@@ -168,6 +168,12 @@ export default {
             "registration_success": "Înregistrarea a fost efectuată cu succes!",
             "unpaid_amount": "Suma neachitată",
             "current_debt": "Datoria curentă",
+            "select": "Selectați...",
+            "month": "Luna",
+            "year": "Anul",
+            "block": "Bloc",
+            "print": "Tipăreşte",
+            "download": "Descarcă",
             "text_1": "Codul de verificare se formează în felul următor (ex. LI093032):",
             "text_2": "LI – primele litere numelui și prenumelui (ex. Lupascu Ion – trebuie să fie introduse cu majuscule LI)",
             "text_3": "093032 – ultimile 6 cifre din codul IDNO (ex. 2001002093032 – 093032)",
@@ -215,6 +221,20 @@ export default {
                 "video_gallery": "Galerie Video",
                 "contacts": "Contacte",
                 "my_coliseum": "My Coliseum"
+            },
+            "months": {
+                "1": "Ianuarie",
+                "2": "Februarie",
+                "3": "Martie",
+                "4": "Aprilie",
+                "5": "Mai",
+                "6": "Iunie",
+                "7": "Iulie",
+                "8": "August",
+                "9": "Septembrie",
+                "10": "Octombrie",
+                "11": "Noiembrie",
+                "12": "Decembrie"
             }
         },
         "validation": {
@@ -385,6 +405,12 @@ export default {
             "registration_success": "Регистрация успешно выполнена!",
             "unpaid_amount": "Неоплаченная сумма",
             "current_debt": "Текущая задолженность",
+            "select": "Выберите...",
+            "month": "Месяц",
+            "year": "Год",
+            "block": "Блок",
+            "print": "Печать",
+            "download": "Скачать",
             "text_1": "Проверочный код формируется следующим образом (пр. LI093032):",
             "text_2": "LI – первые буквы фамилии и имени (пр. Lupascu Ion – необходимо ввести заглавными буквами LI)",
             "text_3": "093032 – последние 6 цифр идентификационного номера (пр. 2001002093032 – 093032)",
@@ -432,6 +458,20 @@ export default {
                 "video_gallery": "Видеогалерея",
                 "contacts": "Контакты",
                 "my_coliseum": "My Coliseum"
+            },
+            "months": {
+                "1": "Январь",
+                "2": "Февраль",
+                "3": "Март",
+                "4": "Апрель",
+                "5": "Май",
+                "6": "Июнь",
+                "7": "Июль",
+                "8": "Август",
+                "9": "Сентябрь",
+                "10": "Октябрь",
+                "11": "Ноябрь",
+                "12": "Декабрь"
             }
         },
         "validation": {

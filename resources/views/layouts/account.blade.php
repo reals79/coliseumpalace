@@ -17,9 +17,9 @@
 			            <li class="nav-item">
 			            	<router-link to="/notices" class="nav-link" data-toggle="tooltip" title="{{ trans('account.menu.notifications') }}"><i class="fa fa-bell-o" aria-hidden="true"></i><!-- <span class="badge badge-pill badge-danger">1</span> --></router-link>
 			            </li>
-			            <li class="nav-item">
-			            	<router-link to="/messages" class="nav-link" data-toggle="tooltip" title="{{ trans('account.menu.messages') }}"><i class="fa fa-envelope-o" aria-hidden="true"></i><!-- <span class="badge badge-pill badge-danger">2</span> --></router-link>
-			            </li>
+			           <!-- <li class="nav-item">
+			            	<router-link to="/messages" class="nav-link" data-toggle="tooltip" title="{{ trans('account.menu.messages') }}"><i class="fa fa-envelope-o" aria-hidden="true"></i> <span class="badge badge-pill badge-danger">2</span></router-link>
+			            </li> -->
 			        </ul>
 			        <form action="{{ route('logout') }}" method="POST" class="form-inline mt-2 mt-md-0">
 			        	{{ csrf_field() }}

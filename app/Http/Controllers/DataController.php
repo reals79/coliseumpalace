@@ -124,6 +124,7 @@ class DataController extends Controller
         $directories = Storage::disk('local')->directories($folder);
         foreach ($directories as $directory) {
             $dir = str_replace($folder, '', $directory);
+            $dir = str_replace(' ', '', $dir);
             $period = Carbon::createFromFormat('m_Y', $dir)->setTime(0, 0, 0)->lastOfMonth();
             $communals =  UserCommunalPayment::where('period_at', $period)->count();
             if (!$communals) {
@@ -131,8 +132,8 @@ class DataController extends Controller
                 foreach ($files as $file) {
                     $f = str_replace("$directory/", '', $file);
                     $f_sep = preg_split('/_/', $f);
-                    $idno = $f_sep[0];
-                    $block = $f_sep[1];
+                    $idno = trim($f_sep[0]);
+                    $block = trim($f_sep[1]);
                     $user = User::byIDNO($idno)->first();
                     if ($user) {
                         $communal = $user->communals()->byPeriod($period)->byBlock($block)->count();

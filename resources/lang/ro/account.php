@@ -32,6 +32,13 @@ return [
     'unpaid_amount' => 'Suma neachitată',
     'current_debt' => 'Datoria curentă',
 
+    'select' => 'Selectați...',
+    'month' => 'Luna',
+    'year' => 'Anul',
+    'block' => 'Bloc',
+    'print' => 'Tipăreşte',
+    'download' => 'Descarcă',
+
     'text_1' => 'Codul de verificare se formează în felul următor (ex. LI093032):',
     'text_2' => 'LI – primele litere numelui și prenumelui (ex. Lupascu Ion – trebuie să fie introduse cu majuscule LI)',
     'text_3' => '093032 – ultimile 6 cifre din codul IDNO (ex. 2001002093032 – 093032)',

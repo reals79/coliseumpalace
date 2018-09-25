@@ -6,17 +6,17 @@
             <form>
                 <div class="form-row">
                     <div class="form-group col-md-2">
-                      <label for="inputMonth">Месяц</label>
-                      <select id="inputMonth" class="form-control" v-model="sel_month">
-                        <option value="0" selected>Выберите...</option>
-                        <option v-for="month in periods.months" :value="month">{{ ((month < 10) ? '0' + month : month) }}</option>
+                      <label for="inputYear">{{ $t('account.year') }}</label>
+                      <select id="inputYear" class="form-control" v-model="sel_year">
+                        <option value="0" selected>{{ $t('account.select') }}</option>
+                        <option v-for="year in periods.years" :value="year">{{ year }}</option>
                       </select>
                     </div>
                     <div class="form-group col-md-2">
-                      <label for="inputYear">Год</label>
-                      <select id="inputYear" class="form-control" v-model="sel_year">
-                        <option value="0" selected>Выберите...</option>
-                        <option v-for="year in periods.years" :value="year">{{ year }}</option>
+                      <label for="inputMonth">{{ $t('account.month') }}</label>
+                      <select id="inputMonth" class="form-control" v-model="sel_month">
+                        <option value="0" selected>{{ $t('account.select') }}</option>
+                        <option v-for="month in periods.months" :value="month">{{ $t('app.months.' + month) }}</option>
                       </select>
                     </div>
                 </div>
@@ -24,9 +24,9 @@
 
             <div v-for="doc in documents" class="card mb-3">
                 <div class="card-header">
-                    <span class="card-title">Блок: {{ doc.block }}</span>
-                    <button @click="downloadPDF(doc.document)" class="btn btn-success float-right">Загрузить</button>
-                    <button @click="printPDF(doc.id)" class="btn btn-primary float-right mx-1">Печать</button>
+                    <span class="card-title">{{ $t('account.block') }}: {{ doc.block }}</span>
+                    <button @click="downloadPDF(doc.document)" class="btn btn-success float-right">{{ $t('account.download') }}</button>
+                    <button @click="printPDF(doc.id)" class="btn btn-primary float-right mx-1">{{ $t('account.print') }}</button>
                 </div>
                 <div class="card-body">
                     <pdf :id="doc.id" ref="pdfDocument" :src="'/api/get-pdf?file_name=' + doc.document" style="width: 120%;"></pdf>
